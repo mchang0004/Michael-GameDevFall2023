@@ -7,17 +7,19 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
-    public TextMeshProUGUI countText;
-	public GameObject winTextObject;
+	public GameObject winTextObject, instructions;
+    public GameObject[] score;
+    
 
-    public GameObject[] score; 
-  
+    public Vector2 stopInput;
 
-	private int count;
+    private int count;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
 
+    [SerializeField]
+    private InputActionReference stopped;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,11 @@ public class PlayerController : MonoBehaviour
 
 	}
 
+    void StopMovement(InputAction.CallbackContext context)
+    {
+
+    }
+
     void updateScoreGUI()
     {
         GameObject currentCounter = score[score.Length - count];
@@ -53,9 +60,21 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate()
     {
+        bool isStopped = stopped.action.ReadValue<float>() > 0;
+
+        if (isStopped)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
 		rb.AddForce(movement * speed);
 
+
+        if(rb.velocity.z != 0 || rb.velocity.x != 0 || isStopped)
+        {
+            instructions.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
