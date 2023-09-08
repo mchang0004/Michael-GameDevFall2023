@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
+  
+
 	private int count;
     private Rigidbody rb;
     private float movementX;
@@ -62,8 +64,9 @@ public class PlayerController : MonoBehaviour
 			other.gameObject.SetActive(false);
             count++;
             SetCountText();
-            //other functionality
-		}
+        }
+
+        
 
 	}
 
