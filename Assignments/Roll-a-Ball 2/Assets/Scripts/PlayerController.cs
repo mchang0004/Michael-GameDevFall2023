@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
 	public GameObject winTextObject;
 
+    public GameObject[] score; 
   
 
 	private int count;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         count = 0;
-        SetCountText();
+        
 		rb = GetComponent<Rigidbody>();
 
 		winTextObject.SetActive(false);
@@ -38,16 +39,16 @@ public class PlayerController : MonoBehaviour
 
 	}
 
-    void SetCountText()
+    void updateScoreGUI()
     {
-        countText.text = "Count: " + count.ToString();
-
-        if(count >= 12)
+        GameObject currentCounter = score[score.Length - count];
+        currentCounter.SetActive(false);
+        if (count >= 12)
         {
-			winTextObject.SetActive(true);
-		}
-        
+            winTextObject.SetActive(true);
+        }
     }
+
 
 
 	void FixedUpdate()
@@ -63,7 +64,9 @@ public class PlayerController : MonoBehaviour
         {
 			other.gameObject.SetActive(false);
             count++;
-            SetCountText();
+            updateScoreGUI();
+
+
         }
 
         
