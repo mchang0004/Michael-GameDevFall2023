@@ -6,7 +6,7 @@ public class Loot : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer sr;
 	[SerializeField] private BoxCollider2D collider;
-	[SerializeField] private float moveSpeed = 3f;
+	[SerializeField] private float moveSpeed = 10f;
 	[SerializeField] private float inactiveDuration = 1.5f; // Time before the loot can be collected again
 	[SerializeField] private float dropSpeed = 1f; // Set the desired drop speed
 
@@ -122,16 +122,12 @@ public class Loot : MonoBehaviour
 
 	private IEnumerator MoveToDropPoint(Vector3 targetPosition)
 	{
-		// Store the initial position of the loot as the player's position
 		Vector3 initialPosition = inventoryManager.player.transform.position;
 
-		// Check if the DropPoint position is within the playable area using OverlapPoint
 		Collider2D collisionCheck = Physics2D.OverlapPoint(targetPosition);
 
-		// If the DropPoint position collides with a collider in the map, move the loot
 		if (collisionCheck != null)
 		{
-			// Move the loot towards the DropPoint with the dropSpeed
 			float elapsedTime = 0f;
 			while (elapsedTime < dropSpeed)
 			{
@@ -141,16 +137,13 @@ public class Loot : MonoBehaviour
 				yield return null;
 			}
 
-			// Snap the loot to the exact DropPoint position to ensure it reaches the destination
 			transform.position = targetPosition;
 		}
 		else
 		{
-			// DropPoint is outside the playable area, set the loot back to the player's position
 			transform.position = initialPosition;
 		}
 
-		// Reactivate the loot once it reaches the DropPoint or returns to the player's position
 		gameObject.SetActive(true);
 	}
 
