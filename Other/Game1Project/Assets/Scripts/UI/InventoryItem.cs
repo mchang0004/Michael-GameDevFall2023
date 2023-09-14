@@ -27,7 +27,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public bool canDrag = false;
 	//private bool isDragging = false;
-	private static bool isAnyItemDragging = false;
+	//private static bool isAnyItemDragging = false;
 
 	// Start is called before the first frame update
 	public void InitializeItem(Item newItem)

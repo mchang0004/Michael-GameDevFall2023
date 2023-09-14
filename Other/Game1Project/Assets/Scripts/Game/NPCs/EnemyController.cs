@@ -63,10 +63,15 @@ public class EnemyController : MonoBehaviour
 		FollowPlayer();
 		moveAttackArea();
 		Vector2 movement = rb.velocity; 
+		if(animator != null) {
+		
+			animator.SetFloat("Horizontal", movement.x);
+			animator.SetFloat("Vertical", movement.y);
+			animator.SetFloat("Speed", movement.sqrMagnitude);
+		
+		}
 
-		animator.SetFloat("Horizontal", movement.x);
-		animator.SetFloat("Vertical", movement.y);
-		animator.SetFloat("Speed", movement.sqrMagnitude);
+	
 
 		if(canAttack && enemyCenter != null) //need to add a check to see if player is in radius before attacking 
 		{

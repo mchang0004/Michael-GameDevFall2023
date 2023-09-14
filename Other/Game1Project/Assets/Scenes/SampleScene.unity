@@ -2827,7 +2827,7 @@ PrefabInstance:
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 662896114}
+      objectReference: {fileID: 0}
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: playerObject
       value: 
@@ -3400,11 +3400,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9047d2256dcb2ab47996f751b38f853a, type: 2}
   - {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
   player: {fileID: 2114525329}
---- !u!95 &662896114 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3704257293009440442, guid: d847b124b76355543a5d330b342ae129, type: 3}
-  m_PrefabInstance: {fileID: 6821346795540691467}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &671704223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4931,7 +4926,7 @@ PrefabInstance:
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 662896114}
+      objectReference: {fileID: 0}
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: playerObject
       value: 
@@ -9530,7 +9525,7 @@ PrefabInstance:
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 662896114}
+      objectReference: {fileID: 0}
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: playerObject
       value: 
@@ -15911,7 +15906,7 @@ PrefabInstance:
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 662896114}
+      objectReference: {fileID: 0}
     - target: {fileID: 753324298454303443, guid: fd52621605a567f46b2ae1f6d8757e93, type: 3}
       propertyPath: playerObject
       value: 
@@ -16762,6 +16757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestGoblin
       objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659562, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: speed
       value: 2
@@ -16828,6 +16827,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+--- !u!1 &3560901944725056551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3560901945625659552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+  m_PrefabInstance: {fileID: 3560901944725056550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &3560901944725056552
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560901944725056551}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.08}
+  m_Size: {x: 0.66, y: 1.31}
+  m_Direction: 0
 --- !u!1001 &6821346795540691467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16835,6 +16855,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6821346794253488033, guid: d847b124b76355543a5d330b342ae129, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6821346794253488033, guid: d847b124b76355543a5d330b342ae129, type: 3}
       propertyPath: playerObject
       value: 
