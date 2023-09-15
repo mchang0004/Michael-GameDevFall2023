@@ -6,7 +6,8 @@ public class Loot : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer sr;
 	[SerializeField] private BoxCollider2D collider;
-	[SerializeField] private float moveSpeed = 4f;
+	[SerializeField] private float moveSpeed = 10f;
+	[SerializeField] private float inactiveDuration = 1.5f; // Time before the loot can be collected again
 	[SerializeField] private float dropSpeed = 1f; // Set the desired drop speed
 
 	public Item item;
