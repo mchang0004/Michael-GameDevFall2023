@@ -169,7 +169,7 @@ public class EnemyController : MonoBehaviour
 		Color originalColor = spriteRenderer.color;
 		spriteRenderer.color = Color.red;
 
-		// Wait 1 second and reset states
+		//Wait 1 second and reset states
 		yield return new WaitForSeconds(invincibilityDuration);
 		spriteRenderer.color = originalColor;
 		isInvincible = false;

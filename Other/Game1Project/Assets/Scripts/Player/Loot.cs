@@ -102,14 +102,6 @@ public class Loot : MonoBehaviour
 		}
 	}
 
-	private IEnumerator ReactivateLoot()
-	{
-		yield return new WaitForSeconds(inactiveDuration);
-		isBeingCollected = false;
-		collider.enabled = true;
-		gameObject.SetActive(true); // Reactivate the loot after the inactive duration
-	}
-
 	public void MoveAndDrop(Vector3 targetPosition)
 	{
 		if (!hasBeenDropped)

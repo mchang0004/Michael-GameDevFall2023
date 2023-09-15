@@ -37,13 +37,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+       // Debug.Log("direction: " + getLastDirection());
         if (canMove)
         {
             movementInput = movement.action.ReadValue<Vector2>();
             Vector2 direction = movementInput;
-		    //Vector2 direction = moveAction.ReadValue<Vector2>().normalized;
-		    //bool isSprinting = sprintAction.ReadValue<float>() > 0;
-		    //bool isSlowWalking = slowWalkAction.ReadValue<float>() > 0;
 
 		    bool isSprinting = sprint.action.ReadValue<float>() > 0;
 		    bool isSlowWalking = slowWalk.action.ReadValue<float>() > 0;
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 		    // Direction for passing to PlayerCombat Script
 		    Direction = direction;
 
-            // Handles idle to movement Switching
+            //Handles idle to movement switching
             float movementAnimator = 0;
             if (Mathf.Abs(direction.x) > 0 || Mathf.Abs(direction.y) > 0)  //is moving
             {
@@ -63,12 +61,16 @@ public class PlayerMovement : MonoBehaviour
                 movementAnimator = 1;
                 animator.SetFloat("Speed", movementAnimator);
                 SaveLastDirection(direction);
+              
+
             }
             else  //not moving
             {
-                isMoving = false;
 
-				movementAnimator = 0;
+                isMoving = false;
+                animator.SetFloat("Horizontal", getLastDirection().x);
+                animator.SetFloat("Vertical", getLastDirection().y);
+                movementAnimator = 0;
                 animator.SetFloat("Speed", movementAnimator);
             }
 

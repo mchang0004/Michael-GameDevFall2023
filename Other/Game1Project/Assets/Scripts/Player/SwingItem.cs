@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwingItem : MonoBehaviour
@@ -10,13 +11,13 @@ public class SwingItem : MonoBehaviour
 	//alternate left and right swings
 
 	private bool allowRepeatSwing = false;
-	private bool waitingForNextSwing = false;
+	//private bool waitingForNextSwing = false;
 
-	public int defaultSortingOrder = 1; // The default sorting order value when not facing up
-	public int facingUpSortingOrder = -1; // The sorting order value when facing up
+	public int defaultSortingOrder = 1; 
+	public int facingUpSortingOrder = -1; 
 	//private SpriteRenderer spriteRenderer;
 
-	private float swingSpeed; // 180f = 1 sec, 360f = 0.5 sec etc:
+	private float swingSpeed; // 180f = 1 sec, 360f = 0.5 sec
 	private float currentSwingAngle;
 	[HideInInspector]
 	public bool isSwinging = false;
@@ -27,7 +28,7 @@ public class SwingItem : MonoBehaviour
 	public ChangeEquippedWeaponSprite weaponSprite;
 
 
-	public GameObject itemSpriteObject; // Reference to the child game object with the sprite renderer
+	public GameObject itemSpriteObject; 
 
 
 	private Vector2 lastNonZeroDirection;
@@ -40,7 +41,6 @@ public class SwingItem : MonoBehaviour
 	public Player player; // Reference to the PlayerMovement script
 	private float initialAngle;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 
@@ -48,7 +48,6 @@ public class SwingItem : MonoBehaviour
 		// itemSpriteObject.GetComponent<SpriteRenderer>().sprite = equippedItemSprite; // Update the sprite of the child game object
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		Vector2 facingDirection = player.playerDirection;
@@ -88,62 +87,56 @@ public class SwingItem : MonoBehaviour
 		//if(player.equipped_item.GetItemType() != ItemType.Weapon)
 		
 
-		if (player.canAttack && player.attack.action.ReadValue<float>() > 0.0f && !isSwinging && allowRepeatSwing && !waitingForNextSwing && player.equipped_item != null && player.equipped_item.GetItemType() == ItemType.Weapon)
+		if (player.canAttack && player.attack.action.ReadValue<float>() > 0.0f && !isSwinging && allowRepeatSwing && player.equipped_item != null && player.equipped_item.GetItemType() == ItemType.Weapon)
 		{
 			StartSwing();
 		}
-		else if (player.canAttack && player.attack.action.triggered && !allowRepeatSwing && !isSwinging && !waitingForNextSwing && player.equipped_item != null && player.equipped_item.GetItemType() == ItemType.Weapon)
+		else if (player.canAttack && player.attack.action.triggered && !allowRepeatSwing && !isSwinging && player.equipped_item != null && player.equipped_item.GetItemType() == ItemType.Weapon)
 		{
 			singleStartSwing();
 		}
 
 
-		if (isSwinging && player.canAttack)
+        if (isSwinging && player.canAttack)
+        {
+            swing();
+        }
+        else if (isSwinging && !allowRepeatSwing && player.canAttack)
+        {
+            singleSwing();
+        }
+
+		//Hides weapon when not swinging
+		if (!isSwinging)
 		{
-			weaponSprite.spriteRenderer.enabled = true; // Enable the spriteRenderer when isSwinging is true
-			swing();
-		}
-		else if (isSwinging && !allowRepeatSwing && player.canAttack)
+            weaponSprite.spriteRenderer.enabled = false;
+        }
+
+
+
+        //Resets the swing if the player's facing direction has changed and the swing is not in progress
+        if (facingDirection != previousDirection && !isSwinging)
 		{
-			weaponSprite.spriteRenderer.enabled = true;
-			singleSwing();
-		}
-		else
-		{
-			weaponSprite.spriteRenderer.enabled = false; // Disable the spriteRenderer when isSwinging is false
-		}
-
-		
-
-		
-
-		// Reset the swing if the player's facing direction has changed and the swing is not in progress
-		if (facingDirection != previousDirection && !isSwinging)
-			{
-
 			resetSwing();
-			}
+		}
+		previousDirection = facingDirection;
+		
 
-			// Update previousDirection every frame
-			previousDirection = facingDirection;
 		
 	}
 
 
 	void StartSwing()
 	{
-
 		isSwinging = true;
 		swingStartTime = Time.time;
 		initialRotation = transform.rotation;
-
-		waitingForNextSwing = true;
-	}
+    }
 
 	void swing()
 	{
-
-		float elapsedTime = Time.time - swingStartTime;
+        weaponSprite.spriteRenderer.enabled = true;
+        float elapsedTime = Time.time - swingStartTime;
 		currentSwingAngle = swingSpeed * elapsedTime;
 
 		if (currentSwingAngle >= 180f)
@@ -152,7 +145,6 @@ public class SwingItem : MonoBehaviour
 			isSwinging = false;
 			resetSwing();
 
-			waitingForNextSwing = false;
 		}
 		else
 		{
@@ -164,7 +156,7 @@ public class SwingItem : MonoBehaviour
 
 	void resetSwing()
 	{
-		transform.rotation = Quaternion.Euler(0, 0, targetAngle - 180);
+        transform.rotation = Quaternion.Euler(0, 0, targetAngle - 180);
 	}
 
 

@@ -31,26 +31,26 @@ This save was created on ##/##/20##:
 - Added new Animator for TargetDummy/PotionDummy and TesterGoblin to allow to future enemy attacks.
 - FIXED (Bug): When inventory is full and inventory UI is open, dragging an item out allows for new item to be picked up, causing the inventory to be full. Then releasing dragged item, causes said item to bind onto the recently added item. (Solution, disable pickup for items when dragging)
 - FIXED (Bug): Swapping weapons does not change the attack point position to new position for weapon. (Solution, created new getLastDirection function in playerMovement and simplified existing code in player update).
-1.0.07a
+1.0.07a (9/12/23)
 - Updated Version of Unity to 2021.3.30f
 - Enemy Attacking 
 - Enabled animator code for Enemycontroller
 - Uploaded to Github
-1.0.08a
-
+1.0.08a (9/14/23)
+- Added URP (Universal Render Pipeline)
+- Implemented basic lighting including Global Lighting, Player's Light, and A basic Torch Light (No Sprite for Torch)
+_ FIXED (Bug) Lines inbetween tiles when moving in game. (Pixel Perfect Camera can fix some of these issues, however, it still persists) (Solution was tilesets sprites on wrong layer).
+_ FIXED (Bug) When weapon swing ends, there is a chance that the sprite will flash at the reset position, instead of being hidden. Had to redo some logic in the swing class.
+_ FIXED (Bug) Can tap corner directions to have player sprite face a different direction than the swinging direction. Solution was to use last direction for player sprite animator instead of direction.
 
 
 BUGS:
 _The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
-_ (LOW PRIORITY) Can tap corner directions to have player sprite face a different direction than the swinging direction
 
 TODO:
-
-
-_Better Enemy Pathing
+_Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 
 _Abilities/Ranged Attacks/AOE
 _ART/Map Design
 _UI/Game Triggers for Quests
 _Dialogue/NPC UI
 _QuestItems
-_Implemented URP (Universal Render Pipeline) or other RP
