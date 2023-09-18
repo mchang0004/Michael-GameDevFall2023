@@ -1,59 +1,53 @@
-# Game Project #1
-## Stars of Sorellia
-A 2D RPG Game
+# Stars of Sorellia - A 2D RPG Game
 
-Current Version 1.0.08a (as of 9/18/23)
+**Current Version:** 1.0.08a (as of 9/18/23)
 
-This game is created in Unity.
+This 2D RPG game is created in Unity. The game will have a dungeon that the player must explore and kill the boss. The boss will drop a Star which is the current end game for this version. 
 
-The game will have a dungeon that the player must explore and kill the boss. The boss will drop a Star which is the current end game for this version. 
+## Features
 
-### **Currently the game implements:**
+### Player
+- Smooth 4-directional movement.
 
-Player
-- 4 direction movement
+### Combat System
+- Player's melee attack.
+- Enemy's melee attack.
+- Health systems for both player and enemies.
+- Short invulnerability period after taking damage.
 
-Simple Combat System:
-- Player's melee attack
-- Enemy's melee attack
-- Health for both player and nemy
-- Short period of invulnerability after getting hit
+### Inventory System
+- User-friendly drag-and-drop inventory management.
+- Press 'Q' to drop items.
+- Engaging swinging animation scripts for melee weapon attacks, complete with dynamic sprite changes.
+- Dedicated slots for equipping armor and accessories.
+- Healing consumable items to aid your journey.
 
-Inventory System:
-- Drag and drop inventory
-- Q to drop items
-- Swinging animation scripts which swings the melee weapon and changes the sprite of the equipped weapon.
-- Slots for armor/accessories
-- Healing consumble items
+### Enemies
+- Engage with enemies using a simple following script (no pathfinding/navmap).
+- Collect valuable items dropped by defeated enemies.
 
-Enemies
-- Simple following script (no pathfinding/navmap)
-- Enemy drops items which can be collected
+### Game Environment
+- Atmospheric lighting system utilizing URP (Universal Render Pipeline).
 
-Game
-- Lighting system using URP
+## Planned Additions
 
+### Dialogue/Chat UI
+- Pause the game to display interactive dialogue screens.
+- Include options for player responses (yes/no/other) and character portraits.
 
-### **Planned Additions:**
+### Pathfinding
+- Implement a navigation map for improved enemy movement and AI.
 
-Diologue/Chat UI
-- Need to freeze game and show a diologue screen
-- Maybe have a section to select yes/no/other options of text
-- Maybe have a sprite portrait of the character that is speaking
+### Combat Enhancements
+- Expand combat options with ranged attacks.
+- Introduce a variety of spells and abilities to diversify gameplay.
 
-Pathing
-- Implement a navmap for better enemy movement
+### User Interface (UI)
+- Create an options menu, exit functionality, and extras menu.
+- Design an engaging main menu screen to enhance user experience.
 
-Combat
-- Add a ranged attack
-- Add spells/abilities
-
-UI
-- Add an options/exit/extras menu
-- Add a main menu screen
-
-### Extra
-- Add a saving/save script to save the game state
-- Create a map area for the dungeon and starting area
-- Add shops and currency
-- Add chests that the player can put items into for storage
+### Extras
+- Implement a saving system to preserve game progress.
+- Develop a map area to facilitate navigation within the dungeon and starting area.
+- Introduce shops and a currency system to enrich the in-game economy.
+- Enable the use of chests for item storage, allowing players to manage their inventory effectively.
