@@ -7,7 +7,8 @@ This 2D RPG game is created in Unity. The game will have a dungeon that the play
 ## Features
 
 ### Player
-- Smooth 4-directional movement.
+- Smooth Camera
+- 4-directional movement.
 
 ### Combat System
 - Player's melee attack.
@@ -51,3 +52,4 @@ This 2D RPG game is created in Unity. The game will have a dungeon that the play
 - Develop a map area to facilitate navigation within the dungeon and starting area.
 - Introduce shops and a currency system to enrich the in-game economy.
 - Enable the use of chests for item storage, allowing players to manage their inventory effectively.
+- Audio & particle effects
