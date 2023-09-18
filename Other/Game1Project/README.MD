@@ -1,57 +1,59 @@
-This save was created on ##/##/20##:
+# Game Project #1
+## Stars of Sorellia
+### A 2D RPG Game
+
+Current Version 1.0.08a (as of 9/18/23)
+
+This game is created in Unity.
+
+The game will have a dungeon that the player must explore and kill the boss. The boss will drop a Star which is the current end game for this version. 
+
+##Currently the game implements:
+
+### Player
+- 4 direction movement
+
+### Simple Combat System:
+- Player's melee attack
+- Enemy's melee attack
+- Health for both player and nemy
+- Short period of invulnerability after getting hit
+
+### Inventory System:
+- Drag and drop inventory
+- Q to drop items
+- Swinging animation scripts which swings the melee weapon and changes the sprite of the equipped weapon.
+- Slots for armor/accessories
+- Healing consumble items
+
+### Enemies
+- Simple following script (no pathfinding/navmap)
+- Enemy drops items which can be collected
+
+### Game
+- Lighting system using URP
 
 
-1.0.01a
-- This contains basic inventory + hotbar
-- Combat, Movement, and Enemies Scripts
-- Functional Melee Weapon
-- Basic Map Area
-1.0.02a
-- It implements loot and changes the attackspeed, damage, and repeating swings onto the actual weapon
-- It modifies the Enemy Controller script to allow for dropped loot items
-- Changes layering of the swinging weapon based on direction
-1.0.03a
-- Added New Floor Tileset
-- Edited Basic Map Area
-- Fixed Test Button for Taking Damage
-- Allowed consuming using left click
-- Added filtering to inventory slots
-- Added new slots for armor and accessories, but currently they only filter for armor
-1.0.04a
-- Handled Full Inventory and Still Collecting Loot
-   - Detects when inventory is full and when there is a stackable item that can still be filled
-- IDK SOMETHING ELSE
-1.0.05a
-- Added code to loot to randomy delay to prevent 2 items from entering at the same time when 1 slot is available.
-- Added Health UI
-- Collectable Items will be Green for Bug Testing
-1.0.06a
-- Added new Item Types and organized the inventory to accept those new item types in specific equipment slots. (Started in 1.0.03a, but its now finished)
-- Modified the collection to be faster to avoid items trailing behind the player when walking/running
-- Added new Animator for TargetDummy/PotionDummy and TesterGoblin to allow to future enemy attacks.
-- FIXED (Bug): When inventory is full and inventory UI is open, dragging an item out allows for new item to be picked up, causing the inventory to be full. Then releasing dragged item, causes said item to bind onto the recently added item. (Solution, disable pickup for items when dragging)
-- FIXED (Bug): Swapping weapons does not change the attack point position to new position for weapon. (Solution, created new getLastDirection function in playerMovement and simplified existing code in player update).
-1.0.07a (9/12/23)
-- Updated Version of Unity to 2021.3.30f
-- Enemy Attacking 
-- Enabled animator code for Enemycontroller
-- Uploaded to Github
-1.0.08a (9/14/23)
-- Added URP (Universal Render Pipeline)
-- Implemented basic lighting including Global Lighting, Player's Light, and A basic Torch Light
-- Added health text to UI over the health bar.
-_ FIXED (Bug) Lines inbetween tiles when moving in game. (Pixel Perfect Camera can fix some of these issues, however, it still persists) (Solution was tilesets sprites on wrong layer).
-_ FIXED (Bug) When weapon swing ends, there is a chance that the sprite will flash at the reset position, instead of being hidden. Had to redo some logic in the swing class.
-_ FIXED (Bug) Can tap corner directions to have player sprite face a different direction than the swinging direction. Solution was to use last direction for player sprite animator instead of direction.
+##Planned Additions:
 
+### Diologue/Chat UI
+- Need to freeze game and show a diologue screen
+- Maybe have a section to select yes/no/other options of text
+- Maybe have a sprite portrait of the character that is speaking
 
-BUGS:
-_The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
+### Pathing
+- Implement a navmap for better enemy movement
 
-TODO:
-_Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 
-_Abilities/Ranged Attacks/AOE
-_ART/Map Design
-_UI/Game Triggers for Quests
-_Dialogue/NPC UI
-_QuestItems
+### Combat
+- Add a ranged attack
+- Add spells/abilities
+
+### UI
+- Add an options/exit/extras menu
+- Add a main menu screen
+
+### Extra
+- Add a saving/save script to save the game state
+- Create a map area for the dungeon and starting area
+- Add shops and currency
+- Add chests that the player can put items into for storage
