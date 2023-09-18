@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class UIManager : MonoBehaviour
 	public float maxHealth;
     public InventoryManager inventoryManager;
     public bool isChatting = false;
+
+    public TextMeshProUGUI healthText;
+    
     
 
     void Update()
@@ -20,8 +24,9 @@ public class UIManager : MonoBehaviour
         healthAmount = player.currentHP;
 		maxHealth = player.maxHP;
         refreshHealthUI();
-        //This interferes too much with the overall game. Need to reimplement
-        /*if (isChatting)
+        
+		//This interferes too much with the overall game. Need to reimplement
+		/*if (isChatting)
         {
 			disableAll();
 		}
@@ -32,6 +37,12 @@ public class UIManager : MonoBehaviour
 	}
 
     //Health UI
+
+    public void updateHealthText()
+    {
+        healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
+
+    }
 
     public void reduceHealthUI(float amount)
     {
@@ -52,7 +63,7 @@ public class UIManager : MonoBehaviour
     public void refreshHealthUI()
     {
 		healthBar.fillAmount = healthAmount / maxHealth;
-
+		updateHealthText();
 	}
 
     //this method disables attacking and movement so that the UI Interface can be accessed

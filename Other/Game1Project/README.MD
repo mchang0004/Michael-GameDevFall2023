@@ -38,7 +38,8 @@ This save was created on ##/##/20##:
 - Uploaded to Github
 1.0.08a (9/14/23)
 - Added URP (Universal Render Pipeline)
-- Implemented basic lighting including Global Lighting, Player's Light, and A basic Torch Light (No Sprite for Torch)
+- Implemented basic lighting including Global Lighting, Player's Light, and A basic Torch Light
+- Added health text to UI over the health bar.
 _ FIXED (Bug) Lines inbetween tiles when moving in game. (Pixel Perfect Camera can fix some of these issues, however, it still persists) (Solution was tilesets sprites on wrong layer).
 _ FIXED (Bug) When weapon swing ends, there is a chance that the sprite will flash at the reset position, instead of being hidden. Had to redo some logic in the swing class.
 _ FIXED (Bug) Can tap corner directions to have player sprite face a different direction than the swinging direction. Solution was to use last direction for player sprite animator instead of direction.
