@@ -8,7 +8,7 @@ This game is created in Unity.
 
 The game will have a dungeon that the player must explore and kill the boss. The boss will drop a Star which is the current end game for this version. 
 
-##Currently the game implements:
+**Currently the game implements:**
 
 ### Player
 - 4 direction movement
@@ -34,7 +34,7 @@ The game will have a dungeon that the player must explore and kill the boss. The
 - Lighting system using URP
 
 
-##Planned Additions:
+**Planned Additions:**
 
 ### Diologue/Chat UI
 - Need to freeze game and show a diologue screen
