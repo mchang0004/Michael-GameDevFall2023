@@ -30,11 +30,14 @@ This 2D RPG game is created in Unity. The game will have a dungeon that the play
 ### Game Environment
 - Atmospheric lighting system utilizing URP (Universal Render Pipeline).
 
+### Dialogue/Chat UI
+- Include options for player responses (yes/no/other)
+
 ## Planned Additions
 
 ### Dialogue/Chat UI
 - Pause the game to display interactive dialogue screens.
-- Include options for player responses (yes/no/other) and character portraits.
+- Portrait of the NPC who the player is talking to.
 
 ### Pathfinding
 - Implement a navigation map for improved enemy movement and AI.

@@ -55,5 +55,5 @@ _Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/Nav
 _Abilities/Ranged Attacks/AOE
 _ART/Map Design
 _UI/Game Triggers for Quests
-_Dialogue/NPC UI
+_Shops/NPC UI or Triggering Dialogue
 _QuestItems
