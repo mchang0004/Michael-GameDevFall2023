@@ -31,10 +31,8 @@ public class Player : MonoBehaviour
 
 	public InventoryManager inventoryManager;
 
-	[SerializeField]
 	public PlayerMovement playerMovement; //PlayerMovement Script for Direction
 
-	[SerializeField]
 	public InputActionReference attack;
 
 	[Header("Player Stats")]
