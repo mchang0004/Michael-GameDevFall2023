@@ -24,8 +24,10 @@ public class InventoryManager : MonoBehaviour
 	public GameObject inventoryBar;
 	public GameObject lootPrefab;
 
-	public GameObject itemInfoPanel; 
-	public ItemInfo currentInfo;			//info ui
+	//info ui
+	public GameObject itemInfoPanel;
+	public RectTransform itemInfoRect;
+	public ItemInfo currentInfo;		
 
 	public Item defaultItem;
 	public Player player;
@@ -45,7 +47,9 @@ public class InventoryManager : MonoBehaviour
 		{
 			AddItem(defaultItem);
 		}
-		
+
+		itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
+
 	}
 
 	private void Update()
@@ -60,10 +64,16 @@ public class InventoryManager : MonoBehaviour
 		if (swingItem.isSwinging)
 		{
 			DisableAllDragging();
-		}
+			inventoryEnabled = false;
+		} 
 		else if (inventoryShown)
 		{
 			EnableAllDragging();
+		}
+		
+		if(!swingItem.isSwinging)
+		{
+			inventoryEnabled = true;
 		}
 
 		//toggleInventory
@@ -117,6 +127,17 @@ public class InventoryManager : MonoBehaviour
 			}
 			
 		}
+
+
+
+		// Get the mouse position in screen coordinates
+		Vector3 mousePosition = Input.mousePosition;
+
+		mousePosition.x += 5;
+		mousePosition.y += 5;
+
+		// Set the position of the itemInfoPanel to exactly match the mouse cursor
+		itemInfoRect.position = mousePosition;
 	}
 
 	void ChangeSelectedSlot(int newSlot)
@@ -271,7 +292,8 @@ public class InventoryManager : MonoBehaviour
 			inventoryShown = false;
 			player.canAttack = true;
 			DisableAllDragging();
-			
+			itemInfoPanel.SetActive(false);
+
 			return false;
 		}
 	}

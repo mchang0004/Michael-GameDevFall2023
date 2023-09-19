@@ -22,11 +22,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	[HideInInspector] public Transform parentAfterDrag;
 
 	public Player player;
-
+	private Coroutine hideCoroutine;
 	private GameObject draggingItem;
 	private Transform originalParent;
 
 	public bool canDrag = false;
+
+
 	//private bool isDragging = false;
 	//private static bool isAnyItemDragging = false;
 
@@ -48,24 +50,26 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		if(item != null)
+		if (item != null && inventoryManager.inventoryMenu.activeSelf)
 		{
 			inventoryManager.currentInfo.currentItem = item;
-			showInfoPanel = true;
-			Debug.Log(showInfoPanel);
-
+			inventoryManager.itemInfoPanel.SetActive(true);
+			Debug.Log("showing");
 		}
 
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-		
-		inventoryManager.currentInfo.currentItem = null;
-		showInfoPanel = false;
-		Debug.Log(showInfoPanel);
+		if (item != null)
+		{
+			inventoryManager.currentInfo.currentItem = null;
+			inventoryManager.itemInfoPanel.SetActive(false);
+			Debug.Log("exit");
 
-		
+		}
+
+
 	}
 
 

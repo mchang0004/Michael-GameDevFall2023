@@ -25,8 +25,12 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
 		//setText(); //change later 
-		setText();
-		inDialogue = true;
+		if(currentText != null)
+		{
+			setText();
+			inDialogue = true;
+		}
+		
 
 	}
 
@@ -103,7 +107,7 @@ public class DialogueManager : MonoBehaviour
 
 		//change later
 
-		public void startDialogue(DialogueNode dialogueNode)
+	public void startDialogue(DialogueNode dialogueNode)
 	{
 		currentText = dialogueNode;
 		inDialogue = true;
