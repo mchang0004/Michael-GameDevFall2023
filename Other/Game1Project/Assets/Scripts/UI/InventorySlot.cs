@@ -70,14 +70,18 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 		return false; // Item type is not allowed
 	}
 
-	// Add a method to disable dragging in the InventorySlot
 	public void SetDraggable(bool draggable)
 	{
-		// Disable the dragging behavior for the InventoryItem in this slot
 		InventoryItem itemInSlot = GetComponentInChildren<InventoryItem>();
 		if (itemInSlot != null)
 		{
 			itemInSlot.canDrag = draggable;
+			Debug.Log("Setting canDrag to " + draggable + " for item in slot.");
+		}
+		else
+		{
+			Debug.LogWarning("InventoryItem component not found in children.");
 		}
 	}
+
 }

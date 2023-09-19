@@ -29,7 +29,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public bool canDrag = false;
 
 
-	//private bool isDragging = false;
+	public bool isDragging = false;
 	//private static bool isAnyItemDragging = false;
 
 	// Start is called before the first frame update
@@ -75,27 +75,29 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		if (canDrag)
-		{
-			inventoryManager.globalAllowCollection = false;
-			image.raycastTarget = false;
-			parentAfterDrag = transform.parent;
-			transform.SetParent(transform.root);
-		}
+		if (!canDrag)
+			return;
+		isDragging = true;
+		inventoryManager.globalAllowCollection = false;
+		image.raycastTarget = false;
+		parentAfterDrag = transform.parent;
+		transform.SetParent(transform.root);
+		
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (canDrag)
-		{
+		if (!canDrag)
+			return;
+
+		transform.position = Input.mousePosition;
 			
-			transform.position = Input.mousePosition;
-			
-		}
+		
 	}
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+		isDragging = false;
 		if (canDrag)
 		{
 			inventoryManager.globalAllowCollection = true;

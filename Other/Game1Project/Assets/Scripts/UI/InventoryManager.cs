@@ -42,6 +42,7 @@ public class InventoryManager : MonoBehaviour
 
 	private void Start()
 	{
+		inventoryShown = false;
 		ChangeSelectedSlot(0);
 		for(int i = 0; i < 1; i++)
 		{
@@ -66,12 +67,15 @@ public class InventoryManager : MonoBehaviour
 			DisableAllDragging();
 			inventoryEnabled = false;
 		} 
-		else if (inventoryShown)
-		{
-			EnableAllDragging();
-		}
 		
-		if(!swingItem.isSwinging)
+
+		if (inventoryShown == false)
+		{
+			Debug.Log("Inventory Is Hidden");
+			DisableAllDragging();
+		}
+
+		if (!swingItem.isSwinging)
 		{
 			inventoryEnabled = true;
 		}
@@ -81,14 +85,10 @@ public class InventoryManager : MonoBehaviour
 			toggleInventoryMenu();
 			
 		} 
-		if (inventoryEnabled)
-		{
-			EnableAllDragging();
-		} else
-		{
-			DisableAllDragging();
 
-		}
+
+
+	
 
 		//scrolling hotbar
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
