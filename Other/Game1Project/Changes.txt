@@ -44,7 +44,7 @@ _ FIXED (Bug) Lines inbetween tiles when moving in game. (Pixel Perfect Camera c
 _ FIXED (Bug) When weapon swing ends, there is a chance that the sprite will flash at the reset position, instead of being hidden. Had to redo some logic in the swing class.
 _ FIXED (Bug) Can tap corner directions to have player sprite face a different direction than the swinging direction. Solution was to use last direction for player sprite animator instead of direction.
 1.0.09a
-- Added DialogueManager script and created a simple dialogue box
+- Added DialogueManager script, a scriptable object to create new dialogue options, and created a dialogue box with option buttons
 - Changed the InventoryUI to a 64x64 image and sliced it for better scaling and usability 
 
 BUGS:
