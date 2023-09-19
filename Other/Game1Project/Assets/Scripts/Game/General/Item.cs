@@ -28,7 +28,10 @@ public class Item : ScriptableObject
 	public Sprite image;
 	public ItemType itemType; // Update the field type to be of type ItemType
 	public ActionType actionType;
-
+	public string itemName;
+	public string itemInfo;
+	public string itemStat;
+	public string itemGold; 
 
 	[Header(" ")]
 	public bool stackable = true;

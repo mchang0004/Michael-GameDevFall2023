@@ -15,6 +15,10 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c3c1a20c0a1888f4b89b35c8ad6743f2, type: 3}
   itemType: 0
   actionType: 1
+  itemName: Broken Armor  (Tester)
+  itemInfo: Broken Chestplate...
+  itemStat: 
+  itemGold: 
   stackable: 0
   <MaxStackSize>k__BackingField: 1
   isBroken: 0

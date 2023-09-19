@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	[Header("UI")]
 	public Image image;
@@ -14,6 +14,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public SwingItem swingItem;
 	public InventoryManager inventoryManager;
 	public InventorySlot slot;
+	public bool showInfoPanel;
+
 
 	[HideInInspector] public Item item;
 	[HideInInspector] public int count = 1;
@@ -22,7 +24,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public Player player;
 
 	private GameObject draggingItem;
-
 	private Transform originalParent;
 
 	public bool canDrag = false;
@@ -35,6 +36,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		item = newItem;
 		image.sprite = newItem.image;
 		RefreshCount();
+		Debug.Log(item);
 	}
 
 	public void RefreshCount()
@@ -43,6 +45,29 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		bool textActive = count > 1;
 		countText.gameObject.SetActive(textActive);
 	}
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		if(item != null)
+		{
+			inventoryManager.currentInfo.currentItem = item;
+			showInfoPanel = true;
+			Debug.Log(showInfoPanel);
+
+		}
+
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		
+		inventoryManager.currentInfo.currentItem = null;
+		showInfoPanel = false;
+		Debug.Log(showInfoPanel);
+
+		
+	}
+
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{

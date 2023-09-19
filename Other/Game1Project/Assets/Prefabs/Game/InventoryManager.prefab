@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4ec356da6f66243964fdc0cf31a342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStackedItems: 4
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -102,6 +101,8 @@ MonoBehaviour:
   inventoryMenu: {fileID: 0}
   inventoryBar: {fileID: 0}
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
+  itemInfoPanel: {fileID: 0}
+  currentInfo: {fileID: 0}
   defaultItem: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
   player: {fileID: 0}
   toggleInventory: {fileID: -4563868567857077713, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}

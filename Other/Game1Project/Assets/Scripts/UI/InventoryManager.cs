@@ -24,6 +24,9 @@ public class InventoryManager : MonoBehaviour
 	public GameObject inventoryBar;
 	public GameObject lootPrefab;
 
+	public GameObject itemInfoPanel; 
+	public ItemInfo currentInfo;			//info ui
+
 	public Item defaultItem;
 	public Player player;
 
@@ -47,6 +50,8 @@ public class InventoryManager : MonoBehaviour
 
 	private void Update()
 	{
+		
+
 
 		bool isInventoryFull = CheckInventoryIsFull();
 
