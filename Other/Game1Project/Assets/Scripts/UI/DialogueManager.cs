@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
 	public TextMeshProUGUI dialogueBox;
     public GameObject dialogueBoxArea;
 
+	public SwingItem swingItem;
+
     public DialogueNode currentText;
     public Button option1, option2, option3, option4;
 
@@ -36,6 +38,7 @@ public class DialogueManager : MonoBehaviour
 		//Show or hide the dialogue text area depending on current state:
 		if (inDialogue)
 		{
+			swingItem.weaponSprite.spriteRenderer.enabled = false;
 			dialogueBoxArea.SetActive(true);
 			inventory.inventoryShown = playerMovement.canMove = false;
 
@@ -136,7 +139,17 @@ public class DialogueManager : MonoBehaviour
 
 	void endDialogue()
     {
-        inDialogue = false;
-        
-    }
+		inDialogue = false;
+		StartCoroutine(hideWeaponFor(3f));
+
+
+	}
+
+	IEnumerator hideWeaponFor(float delayTime)
+	{
+		swingItem.weaponSprite.spriteRenderer.enabled = false;
+		yield return new WaitForSeconds(delayTime);
+	}
+
+
 }
