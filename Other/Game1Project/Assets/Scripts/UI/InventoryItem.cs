@@ -38,7 +38,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		item = newItem;
 		image.sprite = newItem.image;
 		RefreshCount();
-		Debug.Log(item);
+		//Debug.Log(item);
 	}
 
 	public void RefreshCount()

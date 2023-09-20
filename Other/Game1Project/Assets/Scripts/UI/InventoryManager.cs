@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
 
 		if (inventoryShown == false)
 		{
-			Debug.Log("Inventory Is Hidden");
+			//Debug.Log("Inventory Is Hidden");
 			DisableAllDragging();
 		}
 

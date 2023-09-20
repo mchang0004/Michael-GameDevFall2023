@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
 	public InputActionReference attack;
 
+	public EnemyController rangedAttackTarget; //ranged attack target for arrow
+
 	public GameObject arrow;	//arrow game object
 
 	[Header("Player Stats")]
@@ -155,14 +157,27 @@ public class Player : MonoBehaviour
 					nextAttackTime = Time.time + attackSpeed;
 				}
 			}
-		//if item is a rnaged weapon
-			if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Ranged_Weapon) { 
-				
-				
-				/*Vector3 mousePosition = Input.mousePosition;
-				Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
-				float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
-				transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - swingItem.rangedRotationOffset);*/
+			//if item is a rnaged weapon
+
+			if (Time.time >= nextAttackTime && equipped_item != null)
+			{
+
+				if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Ranged_Weapon)
+				{
+					Vector3 mousePosition = Input.mousePosition;
+					Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+					float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
+
+					GameObject arrowObject = Instantiate(arrow, transform.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
+
+					Rigidbody2D rb = arrowObject.GetComponent<Rigidbody2D>();
+
+					Vector2 velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 15f;
+
+					rb.velocity = velocity;
+
+					//attack speed is reset with the actual ranged attack 
+				}
 			}
 
 
@@ -192,6 +207,10 @@ public class Player : MonoBehaviour
 
 	}
 
+	public void setRangedAttackTarget(EnemyController enemy)
+	{
+		rangedAttackTarget = enemy;
+	}
 
 	IEnumerator invincibleAndHighlight()
 	{
@@ -238,7 +257,7 @@ public class Player : MonoBehaviour
 		//Enemies in range of attack?
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			Debug.Log("Hit: " + enemy.name);
+			//Debug.Log("Hit: " + enemy.name);
 			EnemyController enemyHealth = enemy.GetComponent<EnemyController>();
 			if (enemyHealth != null)
 			{
@@ -246,7 +265,21 @@ public class Player : MonoBehaviour
 			}
 			//uiManager.reduceHealthUI(1f);
 		}
+	}
 
+	//called in arrow class
+	public void RangedAttack(EnemyController enemy)
+	{
+		if (Time.time >= nextAttackTime && equipped_item != null)
+		{
+			
+			//Debug.Log(enemy.maxHealth + " HIT #####");
+
+			enemy.TakeDamage(equipped_item.attackDamage);
+			nextAttackTime = Time.time + attackSpeed; //attack speed
+
+		}
+			
 
 	}
 

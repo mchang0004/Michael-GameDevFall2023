@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4501205970775413296}
   - component: {fileID: 4501205970775413297}
   - component: {fileID: 4501205970775413301}
+  - component: {fileID: -1588056545351274069}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -37,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.635, y: -0.417}
-  m_SizeDelta: {x: 0.08, y: 0.45}
+  m_AnchoredPosition: {x: 2.503, y: -0.498}
+  m_SizeDelta: {x: 0.4483, y: 0.0883}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &4501205970775413299
 BoxCollider2D:
@@ -51,9 +52,9 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0.18, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -64,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.08}
+  m_Size: {x: 0.08, y: 0.02}
   m_EdgeRadius: 0
 --- !u!222 &4501205970775413296
 CanvasRenderer:
@@ -140,4 +141,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  defaultLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  damageDealt: 0
+--- !u!50 &-1588056545351274069
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501205970775413310}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -128,7 +128,7 @@ public class EnemyController : MonoBehaviour
 
 	public void TakeDamage(float damage)
 	{
-		Debug.Log("OW!");
+		//Debug.Log("OW!");
 		if (isInvincible)
 			return;
 

@@ -603,6 +603,7 @@ MonoBehaviour:
   inventoryManager: {fileID: 0}
   playerMovement: {fileID: 7960984697927364944}
   attack: {fileID: -5174839665303231394, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
+  rangedAttackTarget: {fileID: 0}
   arrow: {fileID: 4501205970775413310, guid: ddbaf3f025fa8194d8e441e36df3fe2e, type: 3}
   Strength: 1
   Dexterity: 1
