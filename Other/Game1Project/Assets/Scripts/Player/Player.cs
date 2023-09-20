@@ -37,15 +37,17 @@ public class Player : MonoBehaviour
 
 	public EnemyController rangedAttackTarget; //ranged attack target for arrow
 
-	public GameObject arrow;	//arrow game object
+	public GameObject arrow;    //arrow game object
 
 	[Header("Player Stats")]
-	public float Strength = 1f;
-	public float Dexterity = 1f;
-	public float Constitution = 1f;
-	public float Intelligence = 1f;
-	public float Wisdom = 1f;
-	public float Charisma = 1f;
+	public PlayerStats playerStats;
+
+	public float Strength = playerStats.Strength;
+	public float Dexterity = playerStats.Dexterity;
+	public float Constitution = playerStats.Constitution;
+	public float Intelligence = playerStats.Intelligence;
+	public float Wisdom = playerStats.Wisdom;
+	public float Charisma = playerStats.Charisma;
 
 
 	//[Header("Toggles")]
