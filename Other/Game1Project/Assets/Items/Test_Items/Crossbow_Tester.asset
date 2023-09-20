@@ -31,8 +31,8 @@ MonoBehaviour:
   HPBonus: 0
   armorBonus: 0
   isEquipped: 0
-  attackDamage: 5
-  attackSpeed: 2
+  attackDamage: 3
+  attackSpeed: 0.5
   attackRange: 0
   attackPointOffset: 0
   allowRepeatSwing: 0

@@ -46,14 +46,15 @@ _ FIXED (Bug) Can tap corner directions to have player sprite face a different d
 1.0.09a
 - Added DialogueManager script, a scriptable object to create new dialogue options, and created a dialogue box with option buttons
 - Changed the InventoryUI to a 64x64 image and sliced it for better scaling and usability 
+- Ranged Attack (Done)
 
 BUGS:
 _The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
 
 TODO:
 _Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 
-_Abilities/Ranged Attacks/AOE
+_Abilities/AOE
 _ART/Map Design
 _UI/Game Triggers for Quests
-_Shops/NPC UI or Triggering Dialogue
+_Shops/NPC UI and Triggering Dialogue
 _QuestItems

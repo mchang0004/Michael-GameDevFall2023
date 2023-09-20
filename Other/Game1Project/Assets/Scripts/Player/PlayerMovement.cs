@@ -36,22 +36,27 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {
-       // Debug.Log("direction: " + getLastDirection());
-        if (canMove)
+	{
+		movementInput = movement.action.ReadValue<Vector2>();
+		Vector2 direction = movementInput;
+
+		bool isSprinting = sprint.action.ReadValue<float>() > 0;
+		bool isSlowWalking = slowWalk.action.ReadValue<float>() > 0;
+		bool isStopped = stopMoving.action.ReadValue<float>() > 0;
+
+
+		float movementAnimator = 0;
+
+		// Direction for passing to PlayerCombat Script
+		Direction = direction;
+
+		// Debug.Log("direction: " + getLastDirection());
+		if (canMove)
         {
-            movementInput = movement.action.ReadValue<Vector2>();
-            Vector2 direction = movementInput;
-
-		    bool isSprinting = sprint.action.ReadValue<float>() > 0;
-		    bool isSlowWalking = slowWalk.action.ReadValue<float>() > 0;
-            bool isStopped = stopMoving.action.ReadValue<float>() > 0;
-
-		    // Direction for passing to PlayerCombat Script
-		    Direction = direction;
+            
 
             //Handles idle to movement switching
-            float movementAnimator = 0;
+            
             if (Mathf.Abs(direction.x) > 0 || Mathf.Abs(direction.y) > 0)  //is moving
             {
                 isMoving = true;
@@ -61,9 +66,8 @@ public class PlayerMovement : MonoBehaviour
                 movementAnimator = 1;
                 animator.SetFloat("Speed", movementAnimator);
                 SaveLastDirection(direction);
-              
-
-            }
+               
+			}
             else  //not moving
             {
 
@@ -72,29 +76,44 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetFloat("Vertical", getLastDirection().y);
                 movementAnimator = 0;
                 animator.SetFloat("Speed", movementAnimator);
-            }
+				
+			}
+            if (isMoving)
+            {
+				if (isSprinting)
+				{
+					currentSpeed = sprintSpeed;
+				}
+				else if (isSlowWalking)
+				{
+					currentSpeed = slowWalkSpeed;
+				}
+				else if (isStopped)
+				{
+					currentSpeed = 0f;
 
-            if (isSprinting)
-            {
-                currentSpeed = sprintSpeed;
-            }
-            else if (isSlowWalking)
-            {
-                currentSpeed = slowWalkSpeed;
-            }
-            else if(isStopped)
-            {
-                currentSpeed = 0f;
-
-		    }
-            else
-            {
-                currentSpeed = normalSpeed;
-            }
+				}
+				else
+				{
+					currentSpeed = normalSpeed;
+				}
+			}
+           
 
 
             rb.velocity = direction * currentSpeed;
 
+		} else
+        {
+            currentSpeed = 0f;
+			rb.velocity = direction * currentSpeed;
+
+
+			isMoving = false;
+			animator.SetFloat("Horizontal", getLastDirection().x);
+			animator.SetFloat("Vertical", getLastDirection().y);
+			movementAnimator = 0;
+			animator.SetFloat("Speed", movementAnimator);
 		}
 	}
 

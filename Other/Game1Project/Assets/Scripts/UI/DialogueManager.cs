@@ -16,7 +16,9 @@ public class DialogueManager : MonoBehaviour
     public DialogueNode currentText;
     public Button option1, option2, option3, option4;
 
-    //Things to disable when in dialogue
+	//Things to disable when in dialogue
+
+	public Player player;
 	public PlayerMovement playerMovement; 
 	public InventoryManager inventory; 
     //disable enemy's AI? 
@@ -42,8 +44,10 @@ public class DialogueManager : MonoBehaviour
 		//Show or hide the dialogue text area depending on current state:
 		if (inDialogue)
 		{
-			swingItem.weaponSprite.spriteRenderer.enabled = false;
+
+
 			dialogueBoxArea.SetActive(true);
+			swingItem.weaponSprite.spriteRenderer.enabled = player.canAttack =false;
 			inventory.inventoryShown = playerMovement.canMove = false;
 
 			//This shows the buttons for each option 
@@ -65,8 +69,9 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
 		{
+
 			dialogueBoxArea.SetActive(false);
-			inventory.inventoryShown = playerMovement.canMove = true;
+			inventory.inventoryShown = playerMovement.canMove = player.canAttack = true;
 
 		}
 	}
@@ -110,6 +115,7 @@ public class DialogueManager : MonoBehaviour
 	public void startDialogue(DialogueNode dialogueNode)
 	{
 		currentText = dialogueNode;
+		setText();
 		inDialogue = true;
 	}
 
@@ -129,7 +135,7 @@ public class DialogueManager : MonoBehaviour
 
 	void setText()
 	{
-		Debug.Log(currentText.text);
+		//Debug.Log(currentText.text);
 		
 		if (dialogueBox != null && currentText != null)
 		{
