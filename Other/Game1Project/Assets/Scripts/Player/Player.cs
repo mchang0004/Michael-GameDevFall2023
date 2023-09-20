@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
 	public InputActionReference attack;
 
+	public GameObject arrow;	//arrow game object
+
 	[Header("Player Stats")]
 	public float Strength = 1f;
 	public float Dexterity = 1f;
@@ -153,6 +155,17 @@ public class Player : MonoBehaviour
 					nextAttackTime = Time.time + attackSpeed;
 				}
 			}
+		//if item is a rnaged weapon
+			if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Ranged_Weapon) { 
+				
+				
+				/*Vector3 mousePosition = Input.mousePosition;
+				Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+				float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
+				transform.rotation = Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg - swingItem.rangedRotationOffset);*/
+			}
+
+
 		//if item is a consumable
 			if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Consumable)
 			{
@@ -231,7 +244,7 @@ public class Player : MonoBehaviour
 			{
 				enemyHealth.TakeDamage(damage);
 			}
-			uiManager.reduceHealthUI(1f);
+			//uiManager.reduceHealthUI(1f);
 		}
 
 

@@ -11,6 +11,7 @@ public enum ItemType
 	Consumable,
 	Greave,
 	Helmet,
+	Ranged_Weapon,
 	Weapon,
 	QuestItem
 }

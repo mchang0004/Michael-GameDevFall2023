@@ -18,9 +18,9 @@ public class ChangeEquippedWeaponSprite : MonoBehaviour
 
     void ChangeSprite()
     {
-		if (inventoryManager.GetSelectedItem(false) != null && inventoryManager.GetSelectedItem(false).GetItemType() == ItemType.Weapon)
+		if (inventoryManager.GetSelectedItem(false) != null && (inventoryManager.GetSelectedItem(false).GetItemType() == ItemType.Weapon || inventoryManager.GetSelectedItem(false).GetItemType() == ItemType.Ranged_Weapon))
 		{
-			//Debug.Log("Sprite is Shown");
+			Debug.Log("Sprite is Shown");
 			spriteRenderer.enabled = true;
 			spriteRenderer.sprite = inventoryManager.GetSelectedItem(false).image;
 		} else

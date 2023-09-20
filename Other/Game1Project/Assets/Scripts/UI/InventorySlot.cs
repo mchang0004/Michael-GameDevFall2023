@@ -76,12 +76,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 		if (itemInSlot != null)
 		{
 			itemInSlot.canDrag = draggable;
-			Debug.Log("Setting canDrag to " + draggable + " for item in slot.");
+		
 		}
-		else
-		{
-			Debug.LogWarning("InventoryItem component not found in children.");
-		}
+		
 	}
 
 }

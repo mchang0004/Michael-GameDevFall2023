@@ -102,6 +102,7 @@ MonoBehaviour:
   inventoryBar: {fileID: 0}
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
   itemInfoPanel: {fileID: 0}
+  itemInfoRect: {fileID: 0}
   currentInfo: {fileID: 0}
   defaultItem: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
   player: {fileID: 0}

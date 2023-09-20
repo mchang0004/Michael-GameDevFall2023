@@ -130,13 +130,13 @@ public class InventoryManager : MonoBehaviour
 
 
 
-		// Get the mouse position in screen coordinates
+		//Mouse position 
 		Vector3 mousePosition = Input.mousePosition;
 
 		mousePosition.x += 5;
 		mousePosition.y += 5;
 
-		// Set the position of the itemInfoPanel to exactly match the mouse cursor
+		//Set position of the itemInfoPanel to the mouse 
 		itemInfoRect.position = mousePosition;
 	}
 
