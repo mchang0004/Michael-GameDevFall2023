@@ -156,14 +156,15 @@ public class Player : MonoBehaviour
 					Attack();
 					nextAttackTime = Time.time + attackSpeed;
 				}
-			}
+			
+		
 			//if item is a rnaged weapon
 
-			if (Time.time >= nextAttackTime && equipped_item != null)
-			{
+			
 
 				if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Ranged_Weapon)
 				{
+
 					Vector3 mousePosition = Input.mousePosition;
 					Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
 					float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
@@ -270,16 +271,15 @@ public class Player : MonoBehaviour
 	//called in arrow class
 	public void RangedAttack(EnemyController enemy)
 	{
-		if (Time.time >= nextAttackTime && equipped_item != null)
-		{
+		
 			
 			//Debug.Log(enemy.maxHealth + " HIT #####");
 
-			enemy.TakeDamage(equipped_item.attackDamage);
-			nextAttackTime = Time.time + attackSpeed; //attack speed
+		enemy.TakeDamage(equipped_item.attackDamage);
+		nextAttackTime = Time.time + attackSpeed; //attack speed
 
-		}
-			
+		
+
 
 	}
 

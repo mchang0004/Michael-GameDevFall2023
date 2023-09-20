@@ -54,6 +54,9 @@ public class Arrow : MonoBehaviour
 
 			Destroy(gameObject);
 
+		} else
+		{
+			player.nextAttackTime = Time.time + player.attackSpeed; //attack speed
 		}
 		
 		Debug.Log(enemy);
