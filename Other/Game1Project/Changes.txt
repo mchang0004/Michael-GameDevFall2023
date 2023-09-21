@@ -52,6 +52,7 @@ BUGS:
 _The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
 
 TODO:
+_Shooting an enemy should temporarily set the agro range higher
 _Shops/NPC UI
 _ART/Map Design/Create Items
 _Menu Screen/Start Game
