@@ -1,0 +1,8 @@
+Mechanics added to Roll A Ball Project:
+
+- Added a New Counting System that uses squares that disappear each time a cube is collected in game
+- Restart Button When Game Ends
+- Pressing Space will slow down the ball
+- Added Particles to the squares when picking up
+- Added Instructions that disappear when moving at start of the game
+- Changed the Camera to Orthographic
