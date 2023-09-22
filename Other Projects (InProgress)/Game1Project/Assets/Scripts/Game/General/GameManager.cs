@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
         //instance = this;
         Debug.Log("Game Manger is Awake");
+
+        //Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
         Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 
         //NEED TO SET ITEMS ACTIVE BEFORE SEARCHING

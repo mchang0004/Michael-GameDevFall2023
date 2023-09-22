@@ -15,7 +15,8 @@ public class DialogueTrigger : MonoBehaviour
 	void Start()
     {
         //dialogueManager.inDialogue = false;
-		triggered = false;
+        dialogueManager = GameObject.Find("DialogueManager");
+        triggered = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
