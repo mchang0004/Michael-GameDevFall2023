@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 753324298454303441}
   m_Layer: 6
   m_Name: Potion Drop Dummy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   meleeAttack: 0
   invincibilityDuration: 1
   itemDrops:
-  - {fileID: 11400000, guid: cdf8297ca21bec645b14e416c9d7a831, type: 2}
+  - {fileID: 11400000, guid: e4edf523559031c4fafc2f37be16b58b, type: 2}
   - {fileID: 11400000, guid: 61ca3fd218692954fa3f6ac5efc3ddfa, type: 2}
   - {fileID: 11400000, guid: f2b0e04284ec0da4893bc3bee4b9130d, type: 2}
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

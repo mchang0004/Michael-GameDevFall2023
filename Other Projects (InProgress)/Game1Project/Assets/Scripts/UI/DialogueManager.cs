@@ -18,7 +18,9 @@ public class DialogueManager : MonoBehaviour
 
 	//Things to disable when in dialogue
 
-	public Player player;
+	public GameManager gameManager;
+
+    public Player player;
 	public PlayerMovement playerMovement; 
 	public InventoryManager inventory; 
     //disable enemy's AI? 
@@ -45,8 +47,9 @@ public class DialogueManager : MonoBehaviour
 		if (inDialogue)
 		{
 
+            gameManager.pauseGame();
 
-			dialogueBoxArea.SetActive(true);
+            dialogueBoxArea.SetActive(true);
 			swingItem.weaponSprite.spriteRenderer.enabled = player.canAttack =false;
 			inventory.inventoryShown = playerMovement.canMove = false;
 
@@ -69,8 +72,8 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
 		{
-
-			dialogueBoxArea.SetActive(false);
+            gameManager.unpauseGame();
+            dialogueBoxArea.SetActive(false);
 			inventory.inventoryShown = playerMovement.canMove = player.canAttack = true;
 
 		}

@@ -111,7 +111,9 @@ public class EnemyController : MonoBehaviour
 			if (distance > distanceToStop)
 			{
 				direction = (player.position - transform.position).normalized;
-				rb.velocity = direction * speed; //movement (will delete later)
+               
+
+                rb.velocity = direction * speed; //movement (will delete later)
 			}
 			else
 			{
@@ -128,7 +130,7 @@ public class EnemyController : MonoBehaviour
 
 	public void TakeDamage(float damage)
 	{
-		//Debug.Log("OW!");
+		Debug.Log("OW!");
 		if (isInvincible)
 			return;
 
@@ -225,5 +227,11 @@ public class EnemyController : MonoBehaviour
 		
 	}
 
+	//used to reset speed after pause/unpause in gameManger
+	public Vector2 getSpeed()
+	{
+		return direction * speed;
+
+    }
 
 }

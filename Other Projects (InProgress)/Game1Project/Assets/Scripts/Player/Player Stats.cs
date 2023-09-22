@@ -71,6 +71,7 @@ public class PlayerStats : MonoBehaviour
 
 	public float getStatForLevel(int level, string type)
 	{
+		return 0f;
 		//maybe make a new class that holds each stat by level
 	}
 }

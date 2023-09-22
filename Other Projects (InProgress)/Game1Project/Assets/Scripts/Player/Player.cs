@@ -39,8 +39,17 @@ public class Player : MonoBehaviour
 
 	public GameObject arrow;    //arrow game object
 
+
 	[Header("Player Stats")]
-	public PlayerStats playerStats;
+
+	public float Strength = 1f;
+    public float Dexterity = 1f;
+    public float Constitution = 1f;
+    public float Intelligence = 1f;
+	public float Wisdom = 1f;
+    public float Charisma = 1f;
+    /*public PlayerStats playerStats;
+
 
 	public float Strength = playerStats.Strength;
 	public float Dexterity = playerStats.Dexterity;
@@ -48,10 +57,10 @@ public class Player : MonoBehaviour
 	public float Intelligence = playerStats.Intelligence;
 	public float Wisdom = playerStats.Wisdom;
 	public float Charisma = playerStats.Charisma;
+*/
 
-
-	//[Header("Toggles")]
-	public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
+    //[Header("Toggles")]
+    public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
 
 	
 	//Attacking:

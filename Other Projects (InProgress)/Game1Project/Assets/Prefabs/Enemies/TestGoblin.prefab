@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3560901944725056552}
   m_Layer: 6
   m_Name: TestGoblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,8 +233,8 @@ MonoBehaviour:
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
   speed: 2
   distanceToStop: 0
-  aggroRange: 2
-  deaggroRange: 7
+  aggroRange: 5
+  deaggroRange: 9
   playerObject: {fileID: 0}
   animator: {fileID: 3560901945625659553}
   playerLayer:
