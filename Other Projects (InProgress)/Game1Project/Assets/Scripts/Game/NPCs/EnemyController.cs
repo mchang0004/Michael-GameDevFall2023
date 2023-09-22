@@ -17,6 +17,9 @@ public class EnemyController : MonoBehaviour
 	public float knockbackResistance;
 	public float attackSpeed;
 
+	public bool increaseAgro = false;
+
+
 	public GameObject attackArea;
 	public GameObject enemyCenter;
 
@@ -37,9 +40,14 @@ public class EnemyController : MonoBehaviour
 	[Header("Movement Stats")]
 	public float speed = 2f;
 	public float distanceToStop = 0f;
-	public float aggroRange = 5f;
-	public float deaggroRange = 7f;
-	public Player playerObject;
+	public float baseAggroRange = 5f;
+	public float baseDeaggroRange = 7f;
+
+	private float aggroRange;
+	private float deaggroRange;
+
+
+    public Player playerObject;
 	private Transform player;
 	private Rigidbody2D rb;
 	private bool isFollowingPlayer;
@@ -71,6 +79,15 @@ public class EnemyController : MonoBehaviour
 		
 		}
 
+		if (increaseAgro)
+		{
+			aggroRange = baseAggroRange + 5f;
+			deaggroRange = baseDeaggroRange + 5f;
+		} else
+		{
+			aggroRange = baseAggroRange;
+			deaggroRange = baseDeaggroRange;
+        }
 	
 
 		if(canAttack && enemyCenter != null) //need to add a check to see if player is in radius before attacking 
@@ -95,8 +112,10 @@ public class EnemyController : MonoBehaviour
 			return;
 
 		float distance = Vector2.Distance(transform.position, player.position);
+		
+		
 
-		if (distance <= aggroRange)
+        if (distance <= aggroRange)
 		{
 			isFollowingPlayer = true;
 		}
@@ -130,7 +149,10 @@ public class EnemyController : MonoBehaviour
 
 	public void TakeDamage(float damage)
 	{
-		Debug.Log("OW!");
+		//If enemy is hit, increase agro range (this is for ranged attacks that were made from far away)
+		increaseAgro = true;
+
+        Debug.Log("OW!");
 		if (isInvincible)
 			return;
 
@@ -211,7 +233,9 @@ public class EnemyController : MonoBehaviour
 
 	void Attack()
 	{
-		if (meleeAttack)
+		increaseAgro = false;
+
+        if (meleeAttack)
 		{
 			if (checkAttackRange())
 			{

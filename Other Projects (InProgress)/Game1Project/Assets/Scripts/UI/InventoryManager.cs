@@ -31,17 +31,22 @@ public class InventoryManager : MonoBehaviour
 
 	public Item defaultItem;
 	public Player player;
+	public GameManager gameManager;
 
 	int selectedSlot = -1;
 
 	[SerializeField]
 	private InputActionReference toggleInventory, scrollInput, dropItemInput;
 
-	
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
-	private void Start()
+    private void Start()
 	{
+		gameManager = GetComponent<GameManager>();
 		inventoryShown = false;
 		ChangeSelectedSlot(0);
 		for(int i = 0; i < 1; i++)
@@ -51,14 +56,16 @@ public class InventoryManager : MonoBehaviour
 
 		itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
 
-	}
+		
+
+    }
 
 	private void Update()
 	{
-		
 
+        //getInventoryState();
 
-		bool isInventoryFull = CheckInventoryIsFull();
+        bool isInventoryFull = CheckInventoryIsFull();
 
 		if(dropItemInput.action.triggered) { DropItem(); }
 
@@ -363,6 +370,19 @@ public class InventoryManager : MonoBehaviour
 	}
 
 
+	public void getInventoryState()
+	{
+        if (!inventoryMenu.activeSelf)
+        {
+            inventoryMenu.SetActive(true);
+            gameManager.getInventorySlots();
+            inventoryMenu.SetActive(false);
+        } else
+		{
+            gameManager.getInventorySlots();
+        }
+
+    }
 
 }
 

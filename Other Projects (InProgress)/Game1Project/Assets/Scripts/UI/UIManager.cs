@@ -16,8 +16,11 @@ public class UIManager : MonoBehaviour
     public bool isChatting = false;
 
     public TextMeshProUGUI healthText;
-    
-    
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     void Update()
     {

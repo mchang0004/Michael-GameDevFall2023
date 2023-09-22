@@ -65,9 +65,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 479182882}
-  collider: {fileID: 479182881}
+  colliderLoot: {fileID: 479182881}
   moveSpeed: 6
-  inactiveDuration: 1.5
   dropSpeed: 1
   item: {fileID: 0}
   isCollectable: 0

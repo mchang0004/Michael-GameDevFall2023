@@ -89,8 +89,11 @@ public class Player : MonoBehaviour
 
 
 
-
-	void Start()
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    void Start()
 	{
 		
 		uiManager.maxHealth = maxHP;

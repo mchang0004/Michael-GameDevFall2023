@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 563371054389580665}
   m_Layer: 5
   m_Name: InventorySlot
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,6 +93,9 @@ MonoBehaviour:
   image: {fileID: 3244906007003578370}
   selectedColor: {r: 0.6581399, g: 1, b: 0.6462264, a: 1}
   notSelectedColor: {r: 1, g: 1, b: 1, a: 1}
+  allowAllItemTypes: 0
+  allowedItemTypes: 
+  isEquipmentSlot: 0
 --- !u!114 &563371054389580665
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class LootCollectionArea : MonoBehaviour
 {
     public float walkingRadius = 1f;
     public float standingRadius = 0.5f;
-    public CircleCollider2D collider;
+    public CircleCollider2D colliderArea;
 	public PlayerMovement playerMovement;
     // Update is called once per frame
     void Update()
@@ -21,18 +21,18 @@ public class LootCollectionArea : MonoBehaviour
 
 			yield return new WaitForSeconds(0.5f);
 
-			collider.radius = walkingRadius;
+            colliderArea.radius = walkingRadius;
 
 		}
 		else
 		{
 			yield return new WaitForSeconds(0.1f);
 
-			collider.radius = standingRadius;
+            colliderArea.radius = standingRadius;
 
 		}
 
-		collider.radius = 0f; //temp reset to check if collectable item is on player
+        colliderArea.radius = 0f; //temp reset to check if collectable item is on player
 	}
 
 	

@@ -22,11 +22,16 @@ public class DialogueManager : MonoBehaviour
 
     public Player player;
 	public PlayerMovement playerMovement; 
-	public InventoryManager inventory; 
-    //disable enemy's AI? 
+	public InventoryManager inventory;
+	//disable enemy's AI? 
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		DontDestroyOnLoad(this);
+	}
+
+        // Start is called before the first frame update
+        void Start()
     {
 		//setText(); //change later 
 		if(currentText != null)

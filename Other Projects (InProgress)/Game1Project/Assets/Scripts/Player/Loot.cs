@@ -5,9 +5,9 @@ using UnityEngine;
 public class Loot : MonoBehaviour
 {
 	[SerializeField] private SpriteRenderer sr;
-	[SerializeField] private BoxCollider2D collider;
+	[SerializeField] private BoxCollider2D colliderLoot;
 	[SerializeField] private float moveSpeed = 10f;
-	[SerializeField] private float inactiveDuration = 1.5f; // Time before the loot can be collected again
+	//[SerializeField] private float inactiveDuration = 1.5f; // Time before the loot can be collected again
 	[SerializeField] private float dropSpeed = 1f; // Set the desired drop speed
 
 	public Item item;
@@ -76,7 +76,7 @@ public class Loot : MonoBehaviour
 
 	private IEnumerator MoveAndCollect(Transform target)
 	{
-		Destroy(collider);
+		Destroy(colliderLoot);
 
 		// Move the loot towards the player
 		while (transform.position != target.position)
