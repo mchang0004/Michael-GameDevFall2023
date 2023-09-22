@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 	void Start()
     {
         //dialogueManager.inDialogue = false;
-        dialogueManager = GameObject.Find("DialogueManager");
+        dialogueManager = GameObject.FindAnyObjectByType<DialogueManager>();
         triggered = false;
     }
 
