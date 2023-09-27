@@ -32,6 +32,8 @@ public class InventoryManager : MonoBehaviour
 	public Item defaultItem;
 	public Player player;
 	public GameManager gameManager;
+	public DialogueManager dialogueManager;
+
 
 	int selectedSlot = -1;
 
@@ -56,34 +58,37 @@ public class InventoryManager : MonoBehaviour
 
 		itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
 
-		
+		player = GameObject.FindAnyObjectByType<Player>();
 
-    }
+
+
+
+	}
 
 	private void Update()
 	{
-
+		
         //getInventoryState();
 
         bool isInventoryFull = CheckInventoryIsFull();
 
 		if(dropItemInput.action.triggered) { DropItem(); }
+	
 
-		if (swingItem.isSwinging)
+		if (!inventoryShown)
 		{
 			DisableAllDragging();
-			inventoryEnabled = false;
-		} 
-		
-
-		if (inventoryShown == false)
-		{
 			//Debug.Log("Inventory Is Hidden");
-			DisableAllDragging();
 		}
 
-		if (!swingItem.isSwinging)
+		//sets instances where player can open inventory
+		if (swingItem.isSwinging || dialogueManager.inDialogue)
 		{
+			//DisableAllDragging();
+			inventoryEnabled = false;
+		} else
+		{
+			Debug.Log("# Ie " + inventoryEnabled);
 			inventoryEnabled = true;
 		}
 
@@ -283,7 +288,8 @@ public class InventoryManager : MonoBehaviour
 
 
 	public bool toggleInventoryMenu()
-	{
+	{//!inventoryMenu.activeSelf
+		//if inventory is closed and in dialogue
 		if (!inventoryMenu.activeSelf)
 		{
 			inventoryMenu.SetActive(true);

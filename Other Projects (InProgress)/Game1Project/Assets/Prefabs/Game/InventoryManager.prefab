@@ -107,6 +107,7 @@ MonoBehaviour:
   defaultItem: {fileID: 11400000, guid: f2b0e04284ec0da4893bc3bee4b9130d, type: 2}
   player: {fileID: 0}
   gameManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
   toggleInventory: {fileID: -4563868567857077713, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
   scrollInput: {fileID: -7843857054105217974, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
   dropItemInput: {fileID: 2857683605913019517, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}

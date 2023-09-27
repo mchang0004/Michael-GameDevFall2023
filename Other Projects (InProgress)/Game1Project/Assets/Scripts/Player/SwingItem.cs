@@ -44,7 +44,7 @@ public class SwingItem : MonoBehaviour
 
 	void Start()
 	{
-
+		player = FindObjectOfType<Player>();
 		initialAngle = transform.rotation.eulerAngles.z;
 		// itemSpriteObject.GetComponent<SpriteRenderer>().sprite = equippedItemSprite; // Update the sprite of the child game object
 	}

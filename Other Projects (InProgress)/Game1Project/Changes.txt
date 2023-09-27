@@ -50,19 +50,19 @@ _ FIXED (Bug) Can tap corner directions to have player sprite face a different d
 - GameManager pauses enemies when in dialogue
 - Shooting an enemy should temporarily set the agro range higher
 - Singleton & New Scene switching
-
+- Start Game Screen UI
 
 BUGS:
+_Lines between tiles due to package.
 _The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
 
 TODO:
-_Singletons!!! Swapping Scenes
 _Shops/NPC UI
-_ART/Map Design/Create Items
-_Menu Screen/Start Game
-_Player Stats/Leveling
-_(low priority) Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 
-_(low priority) Abilities/AOE 
-_(low priority) UI/Game Triggers for Quests
-_(low priority) QuestItems
+_ART/Map Design/Create Items (Redo Tilset Spites using Atlas to remove lines)
+_Update Start Screen
+_Player Stats / Leveling
+_Quest Journal UI / Game Triggers for Quests & Quest Items
 _(low priority) Saving
+_(low priority) QuestItems
+_(low priority) Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 
+_(low priority) Abilities/AOE

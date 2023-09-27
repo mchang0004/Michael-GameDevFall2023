@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
 
 	public bool increaseAgro = false;
 
+	public bool died;
 
 	public GameObject attackArea;
 	public GameObject enemyCenter;
@@ -63,7 +64,15 @@ public class EnemyController : MonoBehaviour
 	{
 		currentHealth = maxHealth;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		playerObject = GameObject.FindAnyObjectByType<Player>();
 		rb = GetComponent<Rigidbody2D>();
+
+		if (died)
+		{
+			Destroy(gameObject);
+		}
+
+
 	}
 
 	void FixedUpdate()
@@ -169,7 +178,7 @@ public class EnemyController : MonoBehaviour
 	{
 		// Add death animation or particle effects here if needed
 		Destroy(gameObject);
-
+		died = true;
 
 		// Drop loot
 		foreach (var item in itemDrops)

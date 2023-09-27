@@ -16,37 +16,53 @@ public class GameManager : MonoBehaviour
     public List<GameObject> Inventory = new List<GameObject>();
 
 
-   /* public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                Debug.Log("Game Manager is Null");
-            }
-
-            return instance;    
-        }
+	public GameObject player;
+    public GameObject inventoryManager;
+    public GameObject dialogueManager;
+    public GameObject UICanvas;
+    public SwingItem swingItem;
 
 
-    }*/
+	/* public static GameManager Instance
+	 {
+		 get
+		 {
+			 if(instance == null)
+			 {
+				 Debug.Log("Game Manager is Null");
+			 }
+
+			 return instance;    
+		 }
 
 
-    private void Awake()
+	 }*/
+
+
+	private void Awake()
     {
         DontDestroyOnLoad(this);
         //instance = this;
         Debug.Log("Game Manger is Awake");
 
-        //Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
-        Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        player = GameObject.Find("Player");
+		inventoryManager = GameObject.Find("InventoryManager");
+		dialogueManager = GameObject.Find("DialogueManager");
+		UICanvas = GameObject.Find("UI Canvas");
+        swingItem = FindAnyObjectByType<SwingItem>();
+		//Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
+		Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 
-        //NEED TO SET ITEMS ACTIVE BEFORE SEARCHING
-        //Inventory.AddRange(GameObject.FindGameObjectsWithTag("InvSlot"));
+		//NEED TO SET ITEMS ACTIVE BEFORE SEARCHING
+		//Inventory.AddRange(GameObject.FindGameObjectsWithTag("InvSlot"));
 
-        
+		player.SetActive(false);
+		inventoryManager.SetActive(false);
+		dialogueManager.SetActive(false);
+		UICanvas.SetActive(false);
+		swingItem.enabled = false;
 
-    }
+	}
 
     private void Update()
     {
@@ -54,13 +70,22 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("New Scene?");
             SceneManager.LoadScene("Testing Scene");
-        }
-        else if (Input.GetKeyDown("k"))
-        {
-            SceneManager.LoadScene("SampleScene");
 
         }
-        if (Enemies.Count > 0)
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+
+			player.SetActive(true);
+			inventoryManager.SetActive(true);
+			dialogueManager.SetActive(true);
+			UICanvas.SetActive(true);
+			swingItem.enabled = true;
+
+		}
+
+
+
+		if (Enemies.Count > 0)
         {
             foreach (GameObject enemy in Enemies)
             {
@@ -73,9 +98,23 @@ public class GameManager : MonoBehaviour
         }
 
 
+
     }
 
-    public void pauseGame()
+
+    public void startGame()
+    {
+
+
+		player.SetActive(true);
+		inventoryManager.SetActive(true);
+		dialogueManager.SetActive(true);
+		UICanvas.SetActive(true);
+		swingItem.enabled = true;
+		SceneManager.LoadScene("SampleScene");
+	}
+
+	public void pauseGame()
     {
 
         //Pauses Enemies

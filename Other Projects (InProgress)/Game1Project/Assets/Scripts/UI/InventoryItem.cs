@@ -32,6 +32,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	public bool isDragging = false;
 	//private static bool isAnyItemDragging = false;
 
+	void Awake()
+	{
+		player = GameObject.FindAnyObjectByType<Player>();
+	}
+
 	// Start is called before the first frame update
 	public void InitializeItem(Item newItem)
 	{
@@ -55,6 +60,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			inventoryManager.currentInfo.currentItem = item;
 			inventoryManager.itemInfoPanel.SetActive(true);
 			Debug.Log("showing");
+			
 		}
 
 	}
@@ -66,7 +72,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			inventoryManager.currentInfo.currentItem = null;
 			inventoryManager.itemInfoPanel.SetActive(false);
 			Debug.Log("exit");
-
 		}
 
 

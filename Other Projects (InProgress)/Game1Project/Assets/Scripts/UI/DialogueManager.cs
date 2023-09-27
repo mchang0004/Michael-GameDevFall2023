@@ -46,18 +46,17 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+
 
 		//Show or hide the dialogue text area depending on current state:
 		if (inDialogue)
 		{
 
-            gameManager.pauseGame();
+			gameManager.pauseGame();
 
-            dialogueBoxArea.SetActive(true);
-			swingItem.weaponSprite.spriteRenderer.enabled = player.canAttack =false;
-			inventory.inventoryShown = playerMovement.canMove = false;
-
+			dialogueBoxArea.SetActive(true);
+			swingItem.weaponSprite.spriteRenderer.enabled = player.canAttack = playerMovement.canMove = false;
+			//inventory.inventoryShown = false;
 			//This shows the buttons for each option 
 			if (currentText != null)
 			{
@@ -77,11 +76,19 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
 		{
-            gameManager.unpauseGame();
-            dialogueBoxArea.SetActive(false);
-			inventory.inventoryShown = playerMovement.canMove = player.canAttack = true;
+			gameManager.unpauseGame();
+			dialogueBoxArea.SetActive(false);
+			playerMovement.canMove = inventory.inventoryEnabled = true;
+			if (!inventory.inventoryShown)
+			{
+				player.canAttack = true;
 
+			}
+			
 		}
+
+
+
 	}
 
 
