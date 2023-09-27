@@ -110,5 +110,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			transform.SetParent(parentAfterDrag);
 		}
 	}
+
+	public Item getItem()
+	{
+		return item;
+
+    }
 }
 

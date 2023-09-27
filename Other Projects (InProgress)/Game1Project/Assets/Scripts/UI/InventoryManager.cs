@@ -8,6 +8,12 @@ using UnityEngine;
 using System;
 using UnityEngine.InputSystem;
 
+
+/*
+ * https://www.youtube.com/watch?v=oJAE6CbsQQA
+
+*/
+
 public class InventoryManager : MonoBehaviour
 {
 	//public int maxStackedItems = 4;
@@ -65,10 +71,29 @@ public class InventoryManager : MonoBehaviour
 
 	}
 
-	private void Update()
+	public void loadSlotTester()
 	{
-		
-        //getInventoryState();
+		foreach(InventorySlot slot in inventorySlots)
+		{
+			InventoryItem currentItem = slot.GetComponentInChildren<InventoryItem>();
+            if(currentItem != null)
+			{
+				Debug.Log(currentItem.getItem());
+            } else
+			{
+				Debug.Log("Slot: " + slot + " is empty.");
+			}
+           
+
+        }
+
+    }
+
+private void Update()
+	{
+
+		loadSlotTester();
+		//getInventoryState();
 
         bool isInventoryFull = CheckInventoryIsFull();
 
