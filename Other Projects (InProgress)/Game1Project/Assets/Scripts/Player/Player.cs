@@ -15,9 +15,6 @@ public class Player : MonoBehaviour
 	[Header("HP Stats")]
 	public float currentHP = 25f;
 	public float maxHP = 100f;
-	public int level;
-	public int gold; 
-
 	public UIManager uiManager;
 
 	public float invincibilityDuration = 1f;
