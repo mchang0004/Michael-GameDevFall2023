@@ -5,20 +5,27 @@ using UnityEngine;
 public class SaveLoadTester : MonoBehaviour
 {
     Player player;
+    InventoryManager inventoryManager;
 
     void Start()
     {
         player = FindAnyObjectByType<Player>();
+        inventoryManager = FindAnyObjectByType<InventoryManager>();
     }
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(player);
+        //SaveSystem.SaveInventory(inventoryManager);
+
     }
 
     public void LoadPlayer()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        //SaveSystem.LoadPlayer();
 
+        PlayerData data = SaveSystem.LoadPlayer();
+        //InventoryData data = SaveSystem.LoadPlayer();
+        
         player.level = data.playerLevel;
         player.currentHP = data.playerCurrentHP;
         player.gold = data.playerGold;

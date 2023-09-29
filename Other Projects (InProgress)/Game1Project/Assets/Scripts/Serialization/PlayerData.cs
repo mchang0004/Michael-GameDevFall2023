@@ -1,12 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /*
+ * Formatter:
  * https://www.youtube.com/watch?v=XOjd_qU2Ido
+ * 
+ * JSON:
+ * https://medium.com/@gsuryateja9030/displaying-a-game-object-using-json-file-in-unity-a-step-by-step-guide-d8df7d094220
+ * https://docs.unity3d.com/ScriptReference/JsonUtility.FromJson.html
+ * https://docs.unity3d.com/2020.1/Documentation/Manual/JSONSerialization.html
+ * 
  */
 
-[System.Serializable]
+[Serializable]
 public class PlayerData
 {
     public int playerLevel;

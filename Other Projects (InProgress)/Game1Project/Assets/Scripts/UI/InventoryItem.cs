@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+[System.Serializable]
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	[Header("UI")]
@@ -22,9 +23,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	[HideInInspector] public Transform parentAfterDrag;
 
 	public Player player;
-	private Coroutine hideCoroutine;
-	private GameObject draggingItem;
-	private Transform originalParent;
 
 	public bool canDrag = false;
 
@@ -73,7 +71,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			inventoryManager.itemInfoPanel.SetActive(false);
 			Debug.Log("exit");
 		}
-
 
 	}
 

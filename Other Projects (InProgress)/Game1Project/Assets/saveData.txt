@@ -1,0 +1,1 @@
+{"playerLevel":0,"playerCurrentHP":50.0,"playerGold":0,"position":[-1.367660403251648,-2.5566599369049074,0.0]}

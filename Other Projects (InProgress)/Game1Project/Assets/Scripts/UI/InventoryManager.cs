@@ -22,6 +22,8 @@ public class InventoryManager : MonoBehaviour
 
 	public bool globalAllowCollection = true;
 
+	public InventorySlot[] inventorySaved; 
+
 	public SwingItem swingItem;
 	public bool inventoryEnabled = true;
 	public bool inventoryShown = false;
@@ -71,8 +73,10 @@ public class InventoryManager : MonoBehaviour
 
 	}
 
+
 	public void loadSlotTester()
 	{
+
 		foreach(InventorySlot slot in inventorySlots)
 		{
 			InventoryItem currentItem = slot.GetComponentInChildren<InventoryItem>();
@@ -92,7 +96,9 @@ public class InventoryManager : MonoBehaviour
 private void Update()
 	{
 
-		loadSlotTester();
+		//loadSlotTester();
+		
+		
 		//getInventoryState();
 
         bool isInventoryFull = CheckInventoryIsFull();
@@ -113,7 +119,7 @@ private void Update()
 			inventoryEnabled = false;
 		} else
 		{
-			Debug.Log("# Ie " + inventoryEnabled);
+			//Debug.Log("# Inv enabled " + inventoryEnabled);
 			inventoryEnabled = true;
 		}
 
