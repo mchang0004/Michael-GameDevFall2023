@@ -4,37 +4,71 @@ using UnityEngine;
 
 public class SaveLoadTester : MonoBehaviour
 {
-    Player player;
-    InventoryManager inventoryManager;
+	public Player player;
+	public InventoryManager inventoryManager;
 
-    void Start()
-    {
-        player = FindAnyObjectByType<Player>();
-        inventoryManager = FindAnyObjectByType<InventoryManager>();
-    }
-    public void SavePlayer()
-    {
-        SaveSystem.SavePlayer(player);
-        //SaveSystem.SaveInventory(inventoryManager);
+	[SerializeField]
+	private ItemDatabase itemDatabase;
 
-    }
+	void Start()
+	{
+		player = FindAnyObjectByType<Player>();
+		inventoryManager = FindAnyObjectByType<InventoryManager>();
+		itemDatabase = Resources.Load<ItemDatabase>("ItemDatabase");
 
-    public void LoadPlayer()
-    {
-        //SaveSystem.LoadPlayer();
+	}
+	public void SavePlayer()
+	{
+		SaveSystem.SavePlayerData(player, itemDatabase);
 
-        PlayerData data = SaveSystem.LoadPlayer();
-        //InventoryData data = SaveSystem.LoadPlayer();
-        
-        player.level = data.playerLevel;
-        player.currentHP = data.playerCurrentHP;
-        player.gold = data.playerGold;
 
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-        player.transform.position = position;
-        
-    }
+	}
+
+	public void LoadPlayer()
+	{
+		//delete everything in the inventory before loading new items
+		player.inventoryManager.ClearInventory();
+
+		PlayerData data = SaveSystem.LoadPlayerData(player, itemDatabase);
+
+
+		if (data != null)
+		{
+			//player data
+			player.level = data.playerLevel;
+			player.currentHP = data.playerCurrentHP;
+			player.gold = data.playerGold;
+
+			Vector3 position;
+			position.x = data.position[0];
+			position.y = data.position[1];
+			position.z = data.position[2];
+			player.transform.position = position;
+
+			//inventory loading/saving
+			if (player.inventoryManager != null)
+			{
+				foreach (InventoryItemData itemData in data.inventoryData)
+				{
+
+					Item item = itemDatabase.GetItemByName(itemData.itemName);
+					if (item != null)
+					{
+						
+						player.inventoryManager.SpawnNewItem(item, inventoryManager.inventorySlots[itemData.slotIndex], itemData.count);
+						Debug.Log("Count " + inventoryManager.inventorySlots[itemData.slotIndex].GetComponentInChildren<InventoryItem>().count);
+						
+					}
+				}
+			}
+
+
+			//other:
+
+
+		}
+	}
+
+
+
 }

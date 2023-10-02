@@ -269,7 +269,7 @@ private void Update()
 				InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 				if (itemInSlot == null)
 				{
-					SpawnNewItem(itemToAdd, slot);
+					SpawnNewItem(itemToAdd, slot, 1);
 					return true;
 				}
 			}
@@ -281,12 +281,14 @@ private void Update()
 
 
 
-	void SpawnNewItem(Item item, InventorySlot slot)
+	public void SpawnNewItem(Item item, InventorySlot slot, int count)
 	{
 		GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
 		InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
+		inventoryItem.count = count;												//need to set count before initializing for save/load to work
 		inventoryItem.InitializeItem(item);
-		inventoryItem.inventoryManager = this; // Assign the inventoryManager reference
+		inventoryItem.inventoryManager = this; 
+		
 	}
 
 	public Item GetSelectedItem(bool use)
@@ -420,6 +422,82 @@ private void Update()
         }
 
     }
+
+	public void ClearInventory()
+	{
+		Debug.Log("Clearing");
+		foreach (InventorySlot slot in inventorySlots)
+		{
+			foreach (Transform child in slot.transform)
+			{
+				Destroy(child.gameObject);
+			}
+		}
+	}
+
+	public void AddItemToSlot(Item item, int slotIndex, int count)
+	{
+		if (slotIndex >= 0 && slotIndex < inventorySlots.Length)
+		{
+			InventorySlot slot = inventorySlots[slotIndex];
+
+
+			/*InventoryItem existingItem = slot.GetComponentInChildren<InventoryItem>();
+			if (existingItem != null && existingItem.item == item && item.stackable)
+			{
+				existingItem.count += count;
+				existingItem.RefreshCount();
+			}
+			else
+			{
+				// Spawn a new item if the slot is empty or the item is not stackable
+				SpawnNewItem(item, slot);
+				InventoryItem newItem = slot.GetComponentInChildren<InventoryItem>();
+				newItem.count = count;
+				newItem.RefreshCount();
+			} */
+		}
+	}
+
+
+
+	public bool DropItemFromSlot(int slotIndex)
+	{
+		if (slotIndex >= 0 && slotIndex < inventorySlots.Length)
+		{
+			InventorySlot slot = inventorySlots[slotIndex];
+			InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+			if (itemInSlot != null)
+			{
+				Item itemToDrop = itemInSlot.item;
+
+				Vector3 attackPointPosition = player.GetDropPointPosition();
+				Vector3 playerFacingDirection = player.GetPlayerDirection();
+				float offsetDistance = 2f; // Adjust the offset distance as needed
+
+				Vector3 spawnPosition = attackPointPosition + playerFacingDirection * offsetDistance;
+
+				GameObject lootObj = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
+				Loot loot = lootObj.GetComponent<Loot>();
+				loot.Initialize(itemToDrop);
+
+				// Remove the item from the slot
+				Destroy(itemInSlot.gameObject);
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public int GetSlotIndex(InventorySlot slot)
+	{
+		return Array.IndexOf(inventorySlots, slot);
+	}
+
+
 
 }
 

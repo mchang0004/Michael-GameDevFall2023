@@ -21,8 +21,9 @@ public class PlayerData
     public float playerCurrentHP;
     public int playerGold;
     public float[] position;
+	public List<InventoryItemData> inventoryData;
 
-    public PlayerData(Player player)
+	public PlayerData(Player player)
     {
         playerLevel = player.level;
         playerCurrentHP = player.currentHP;
@@ -34,7 +35,26 @@ public class PlayerData
         position[2] = player.transform.position.z;
 
 
+		inventoryData = new List<InventoryItemData>();
 
-    }
+		
+
+
+		for (int i = 0; i < player.inventoryManager.inventorySlots.Length; i++)
+		{
+			InventorySlot slot = player.inventoryManager.inventorySlots[i];
+			InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+			if (itemInSlot != null)
+			{
+				Item item = itemInSlot.item;
+				int count = itemInSlot.count;
+
+				// Pass the slot index as the third argument
+				inventoryData.Add(new InventoryItemData(item, count, i));
+			}
+		}
+
+	}
 
 }

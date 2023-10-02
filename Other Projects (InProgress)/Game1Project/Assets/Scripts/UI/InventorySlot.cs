@@ -53,12 +53,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 	{
 		if (!allowAllItemTypes)
 		{
-			// Check if the itemType is present in the allowedItemTypes array
+			//if the itemType is in the allowedItemTypes array
 			foreach (ItemType allowedType in allowedItemTypes)
 			{
 				if (itemType == allowedType)
 				{
-					return true; // Item type is allowed
+					return true; 
 				}
 			}
 		} else
@@ -66,8 +66,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 			return true;
 		}
 		
-
-		return false; // Item type is not allowed
+		return false; 
 	}
 
 	public void SetDraggable(bool draggable)
@@ -79,6 +78,11 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 		
 		}
 		
+	}
+
+	public bool IsEmpty()
+	{
+		return transform.childCount == 0;
 	}
 
 }

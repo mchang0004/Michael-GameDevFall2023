@@ -19,7 +19,7 @@ MonoBehaviour:
   itemInfo: Pew Pew
   itemStat: 
   itemGold: 2
-  stackable: 1
+  stackable: 0
   <MaxStackSize>k__BackingField: 1
   isBroken: 0
   itemCurrentHP: 0

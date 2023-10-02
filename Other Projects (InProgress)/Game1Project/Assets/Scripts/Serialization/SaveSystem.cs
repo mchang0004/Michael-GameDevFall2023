@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
 using Unity.VisualScripting;
 
 /*
@@ -11,80 +11,50 @@ using Unity.VisualScripting;
 public static class SaveSystem
 {
 
-    public static void SavePlayer(Player player)
-    {
+	public static void SavePlayerData(Player player, ItemDatabase itemDatabase)
+	{
+		PlayerData data = new PlayerData(player);
 
-        PlayerData data = new PlayerData(player);
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(Application.dataPath + "/saveData.txt", json);
-        Debug.Log(json);
+		data.inventoryData.Clear();
 
+		foreach (InventorySlot slot in player.inventoryManager.inventorySlots)
+		{
+			InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+			if (itemInSlot != null)
+			{
+				int slotIndex = player.inventoryManager.GetSlotIndex(slot);
+				Item item = itemDatabase.GetItemByName(itemInSlot.item.itemName);
 
-    }
+				if (item != null)
+				{
+					InventoryItemData itemData = new InventoryItemData(item, itemInSlot.count, slotIndex);
+					data.inventoryData.Add(itemData);
+				}
+			}
+		}
 
-    public static PlayerData LoadPlayer()
-    {
-        if(File.Exists(Application.dataPath + "/saveData.txt"))
-        {
-            string saveString = File.ReadAllText(Application.dataPath + "/saveData.txt");
-            PlayerData data = JsonUtility.FromJson<PlayerData>(saveString);
-            return data;
+		string json = JsonUtility.ToJson(data);
+		File.WriteAllText(Application.dataPath + "/saveData.txt", json);
+		Debug.Log(json);
+	}
 
-        }
-        return null;
+	public static PlayerData LoadPlayerData(Player player, ItemDatabase itemDatabase)
+	{
+		if (File.Exists(Application.dataPath + "/saveData.txt"))
+		{
+			string saveString = File.ReadAllText(Application.dataPath + "/saveData.txt");
+			PlayerData data = JsonUtility.FromJson<PlayerData>(saveString);
 
-        // JsonUtility.FromJson<PlayerData>(jsonString);
-    }
+			string json = JsonUtility.ToJson(data);
+			Debug.Log(json);
 
-    /*
-    public static void SavePlayer(Player player)
-    {
-        BinaryFormatter formatter  = new BinaryFormatter();
-        string path = Application.persistentDataPath + "player.data";
+			return data;
+		}
 
-        FileStream stream = new FileStream(path, FileMode.Create);
-        PlayerData data = new PlayerData(player);
+		
 
-        formatter.Serialize(stream, data);
-        stream.Close();
-
-
-
-    }
-
-    public static PlayerData LoadPlayer()
-    {
-        string path = Application.persistentDataPath + "player.data";
-        if(File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            stream.Close();
-
-            return data;
-        } else
-        {
-            Debug.LogError("Save File Not Found! " + path);
-            return null;
-        }
-    }
+		return null;
+	}
 
 
-    public static void SaveInventory(InventoryManager inv)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "inv.data";
-
-        FileStream stream = new FileStream(path, FileMode.Create);
-        InventoryData data = new InventoryData(inv);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-
-
-    }
-
-    */
 }

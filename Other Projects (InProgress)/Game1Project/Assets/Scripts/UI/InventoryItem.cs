@@ -19,7 +19,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
 	[HideInInspector] public Item item;
-	[HideInInspector] public int count = 1;
+	[HideInInspector] public int count;
 	[HideInInspector] public Transform parentAfterDrag;
 
 	public Player player;
@@ -40,6 +40,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	{
 		item = newItem;
 		image.sprite = newItem.image;
+		Debug.Log(" Initialized Item Count:" + count);
 		RefreshCount();
 		//Debug.Log(item);
 	}
