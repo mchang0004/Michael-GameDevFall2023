@@ -1,6 +1,6 @@
 # Stars of Sorellia - A 2D RPG Game
 
-**Current Version:** 1.0.09a (as of 9/20/23)
+**Current Version:** 1.0.10a (as of 10/1/23)
 
 This 2D RPG game is created in Unity. The game will have a dungeon that the player must explore and kill the boss. The boss will drop a Star which is the current end game for this version. 
 
@@ -33,25 +33,31 @@ This 2D RPG game is created in Unity. The game will have a dungeon that the play
 ### Dialogue/Chat UI
 - Dialogue system to accept quests and talk to NPCs
 
+### User Interface (UI)
+- Basic Main Menu Start Screen
+
+### Other:
+- Implemented a saving system (Currently on Player/Inventory, not world)
+
 ## Planned Additions
 
-### Dialogue/Chat UI
+### Dialogue/Chat UI (Scrapped for Time)
 - Portrait of the NPC who the player is talking to.
 
-### Pathfinding
+### Pathfinding (Scrapped for Time)
 - Implement a navigation map for improved enemy movement and AI.
 
-### Combat Enhancements
+### Combat Enhancements (Scrapped for Time)
 - Introduce spells and abilities 
 - Also add classes 
 
 ### User Interface (UI)
-- Create an options menu, exit.
+- Create an options menu, exit, credits.
 - Design a main menu screen.
 
 ### Extras
-- Implement a saving system
 - Develop a map area for dungeon and starting area.
-- Shops and a currency system
-- Enable the use of chests for item storage
 - Audio & particle effects
+- Shops and a currency system (Items have a gold value, but it is currently meaningless)  (Scrapped for Time)
+- Enable the use of chests for item storage  (Scrapped for Time)
+
