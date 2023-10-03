@@ -22,6 +22,7 @@ public class PlayerData
     public int playerGold;
     public float[] position;
 	public List<InventoryItemData> inventoryData;
+	public List<int> killedEnemies; 
 
 	public PlayerData(Player player)
     {
@@ -31,10 +32,13 @@ public class PlayerData
         playerCurrentHP = player.currentHP;
         playerGold = player.gold;
 
-        position = new float[3];
+		position = new float[3];
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
+
+		killedEnemies = player.KilledEnemyIDs;
+
 
 		//inventory saving
 

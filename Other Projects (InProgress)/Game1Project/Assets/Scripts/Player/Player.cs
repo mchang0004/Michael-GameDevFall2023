@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
 
 	public GameObject arrow;    //arrow game object
 
+	public List<int> KilledEnemyIDs;
 
 	[Header("Player Stats")]
 

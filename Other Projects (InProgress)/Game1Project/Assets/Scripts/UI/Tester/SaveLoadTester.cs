@@ -25,7 +25,7 @@ public class SaveLoadTester : MonoBehaviour
 		
 
 	}
-
+	//remeber to load the player when starting each scene to reset enemy spawns
 	public void LoadPlayer()
 	{
 		//delete everything in the inventory before loading new items
@@ -46,6 +46,11 @@ public class SaveLoadTester : MonoBehaviour
 			position.y = data.position[1];
 			position.z = data.position[2];
 			player.transform.position = position;
+
+
+			//enemy IDs 
+			player.KilledEnemyIDs = data.killedEnemies;
+
 
 			//inventory loading/saving
 			if (player.inventoryManager != null)

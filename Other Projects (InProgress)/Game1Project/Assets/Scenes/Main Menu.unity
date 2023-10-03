@@ -5151,7 +5151,6 @@ MonoBehaviour:
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
   itemDatabase: {fileID: 0}
-  enemyDatabase: {fileID: 0}
 --- !u!4 &661689156
 Transform:
   m_ObjectHideFlags: 0
@@ -6705,8 +6704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies: []
-  DeadEnemiesID: 
-  Inventory: []
+  DeadEnemyIDs: 
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
   dialogueManager: {fileID: 0}
@@ -7521,7 +7519,6 @@ MonoBehaviour:
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
   itemDatabase: {fileID: 0}
-  enemyDatabase: {fileID: 0}
 --- !u!1001 &1122781174
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,14 +15,19 @@ public class EnemySpawnpoint : MonoBehaviour
 
 	public int ID;
 
+	private SpriteRenderer sr;
 
+	public Player player;
 
 	void Start()
 	{
+		player = GameObject.FindAnyObjectByType<Player>();
+		sr = GetComponent<SpriteRenderer>();
+		sr.enabled = false;
 
 		enemyController = enemyPrefab.GetComponent<EnemyController>();
 		
-		if (ID == enemyController.EnemyID)
+		if (ID == enemyController.EnemyID && !player.KilledEnemyIDs.Contains(ID))
 		{
 
 			isSpawned = false;

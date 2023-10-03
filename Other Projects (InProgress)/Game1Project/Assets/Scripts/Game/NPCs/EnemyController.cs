@@ -52,8 +52,8 @@ public class EnemyController : MonoBehaviour
 	private float deaggroRange;
 
 
-    public Player playerObject;
-	private Transform player;
+    public Player player;
+	private Transform playerTransform;
 	private Rigidbody2D rb;
 	private bool isFollowingPlayer;
 	public GameManager gameManager;
@@ -70,8 +70,8 @@ public class EnemyController : MonoBehaviour
 	void Start()
 	{
 		currentHealth = maxHealth;
-		player = GameObject.FindGameObjectWithTag("Player").transform;
-		playerObject = GameObject.FindAnyObjectByType<Player>();
+		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindAnyObjectByType<Player>();
 		rb = GetComponent<Rigidbody2D>();
 		gameManager = FindAnyObjectByType<GameManager>();
 
@@ -127,10 +127,10 @@ public class EnemyController : MonoBehaviour
 	//temp function that handles the pathing. Will need to change later, but keep direction part
 	void FollowPlayer() 
 	{
-		if (player == null)
+		if (playerTransform == null)
 			return;
 
-		float distance = Vector2.Distance(transform.position, player.position);
+		float distance = Vector2.Distance(transform.position, playerTransform.position);
 		
 		
 
@@ -148,7 +148,7 @@ public class EnemyController : MonoBehaviour
 		{
 			if (distance > distanceToStop)
 			{
-				direction = (player.position - transform.position).normalized;
+				direction = (playerTransform.position - transform.position).normalized;
                
 
                 rb.velocity = direction * speed; //movement (will delete later)
@@ -200,8 +200,9 @@ public class EnemyController : MonoBehaviour
 
 		}
 
-		
-		gameManager.moveEnemyToDead(gameObject);
+		player.KilledEnemyIDs.Add(EnemyID);
+
+
 
 		//gameObject.SetActive(false);
 	}
@@ -234,9 +235,9 @@ public class EnemyController : MonoBehaviour
 	{
 		
 		//transform the attack area around the enemy so that it points towards the player.
-		if (player != null && enemyCenter != null)
+		if (playerTransform != null && enemyCenter != null)
 		{
-			Vector3 attackDirection = (player.position - transform.position).normalized;
+			Vector3 attackDirection = (playerTransform.position - transform.position).normalized;
 			Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, attackDirection);
 			enemyCenter.transform.rotation = targetRotation;	//if errors happen, make sure each enemy has a enemyCenter gameObject. Some will not
 		}
@@ -244,11 +245,11 @@ public class EnemyController : MonoBehaviour
 
 	bool checkAttackRange()
 	{
-		if (playerObject != null && attackArea != null)
+		if (player != null && attackArea != null)
 		{
 			BoxCollider2D attackCollider = attackArea.GetComponent<BoxCollider2D>();
 
-			CapsuleCollider2D playerCollider = playerObject.GetComponent<CapsuleCollider2D>();
+			CapsuleCollider2D playerCollider = player.GetComponent<CapsuleCollider2D>();
 
 			if (attackCollider != null && playerCollider != null)
 			{
@@ -271,7 +272,7 @@ public class EnemyController : MonoBehaviour
 			if (checkAttackRange())
 			{
 				Debug.Log("Enemy Attacked!");
-				playerObject.takeDamage(attackDamage);
+				player.takeDamage(attackDamage);
 			}
 		} else //if attack is ranged (make sure to modify the attackArea box collider to be longer)
 		{
