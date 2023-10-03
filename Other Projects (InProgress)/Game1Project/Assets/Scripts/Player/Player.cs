@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
 
 	public Item equipped_item; //pass item that is selected to use image and get stats
-	
+	public GameObject equippedItemObject;
 
 	public InventoryManager inventoryManager;
 
@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
 
 		swingItem = weaponObject.GetComponent<SwingItem>();
 		uiManager.healthAmount = maxHP;
+
 	}
 
 	void Update()
@@ -187,7 +188,7 @@ public class Player : MonoBehaviour
 					Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
 					float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
 
-					GameObject arrowObject = Instantiate(arrow, transform.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
+					GameObject arrowObject = Instantiate(arrow, equippedItemObject.transform.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
 
 					Rigidbody2D rb = arrowObject.GetComponent<Rigidbody2D>();
 

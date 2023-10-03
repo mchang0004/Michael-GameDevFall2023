@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingRadius: 1
   standingRadius: 0.5
-  collider: {fileID: 1454806281}
+  colliderArea: {fileID: 1454806281}
   playerMovement: {fileID: 7960984697927364944}
 --- !u!1 &1572187785
 GameObject:
@@ -326,7 +326,7 @@ MonoBehaviour:
   itemSpriteObject: {fileID: 1572187785}
   swingOffset: 45
   rangedRotationOffset: -90
-  player: {fileID: 259097193}
+  player: {fileID: 0}
 --- !u!114 &1572187789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,8 +502,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: -0.27}
-  m_Size: {x: 0.61, y: 0.81}
+  m_Offset: {x: 0, y: -0.15}
+  m_Size: {x: 0.48, y: 1}
   m_Direction: 0
 --- !u!95 &7960984697927364945
 Animator:
@@ -595,16 +595,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 50
   maxHP: 100
+  level: 0
+  gold: 0
   uiManager: {fileID: 0}
   invincibilityDuration: 1
   swingItem: {fileID: 1572187788}
   allowRepeatSwing: 0
   equipped_item: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
+  equippedItemObject: {fileID: 1572187785}
   inventoryManager: {fileID: 0}
   playerMovement: {fileID: 7960984697927364944}
   attack: {fileID: -5174839665303231394, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
   rangedAttackTarget: {fileID: 0}
   arrow: {fileID: 4501205970775413310, guid: ddbaf3f025fa8194d8e441e36df3fe2e, type: 3}
+  KilledEnemyIDs: 
   Strength: 1
   Dexterity: 1
   Constitution: 1
