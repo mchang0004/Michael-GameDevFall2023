@@ -35,7 +35,7 @@ public static class SaveSystem
 
 		string json = JsonUtility.ToJson(data);
 		File.WriteAllText(Application.dataPath + "/saveData.txt", json);
-		Debug.Log(json);
+		Debug.Log("##### SAVING " + json);
 	}
 
 	public static PlayerData LoadPlayerData(Player player, ItemDatabase itemDatabase)
@@ -46,7 +46,7 @@ public static class SaveSystem
 			PlayerData data = JsonUtility.FromJson<PlayerData>(saveString);
 
 			string json = JsonUtility.ToJson(data);
-			Debug.Log(json);
+			Debug.Log("##### LOADING " + json);
 
 			return data;
 		}

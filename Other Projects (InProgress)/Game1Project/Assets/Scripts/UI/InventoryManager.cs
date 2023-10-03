@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
 	public RectTransform itemInfoRect;
 	public ItemInfo currentInfo;		
 
-	public Item defaultItem;
+	
 	public Player player;
 	public GameManager gameManager;
 	public DialogueManager dialogueManager;
@@ -59,10 +59,7 @@ public class InventoryManager : MonoBehaviour
 		gameManager = GetComponent<GameManager>();
 		inventoryShown = false;
 		ChangeSelectedSlot(0);
-		for(int i = 0; i < 1; i++)
-		{
-			AddItem(defaultItem);
-		}
+		
 
 		itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
 

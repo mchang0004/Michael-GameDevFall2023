@@ -207,6 +207,9 @@ public class GameManager : MonoBehaviour
 		saveLoadTester.SavePlayer();
 	}
 
-	
+	public void testButton()
+	{
+		Debug.Log("TESTING WORKS");
+	}
 
 }
