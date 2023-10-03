@@ -98,8 +98,7 @@ private void Update()
 
 		//loadSlotTester();
 		
-		
-		//getInventoryState();
+
 
         bool isInventoryFull = CheckInventoryIsFull();
 
@@ -409,19 +408,19 @@ private void Update()
 	}
 
 
-	public void getInventoryState()
+	/*public void getInventoryState()
 	{
         if (!inventoryMenu.activeSelf)
         {
             inventoryMenu.SetActive(true);
-            gameManager.getInventorySlots();
+            //gameManager.getInventorySlots();
             inventoryMenu.SetActive(false);
         } else
 		{
-            gameManager.getInventorySlots();
+            //gameManager.getInventorySlots();
         }
 
-    }
+    }*/
 
 	public void ClearInventory()
 	{

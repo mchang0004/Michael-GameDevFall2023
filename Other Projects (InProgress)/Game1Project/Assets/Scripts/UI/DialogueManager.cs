@@ -76,7 +76,9 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
 		{
-			gameManager.unpauseGame();
+			if(gameManager != null) gameManager.unpauseGame();
+			
+			
 			dialogueBoxArea.SetActive(false);
 			playerMovement.canMove = inventory.inventoryEnabled = true;
 			if (!inventory.inventoryShown)

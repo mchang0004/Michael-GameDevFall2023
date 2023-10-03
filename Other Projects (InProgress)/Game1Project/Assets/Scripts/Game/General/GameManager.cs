@@ -13,8 +13,12 @@ public class GameManager : MonoBehaviour
     //private static GameManager instance;
 
     public List<GameObject> Enemies = new List<GameObject>();
-    public List<GameObject> Inventory = new List<GameObject>();
+	public List<int> DeadEnemyIDs = new List<int>();
+	private Dictionary<int, GameObject> enemyDictionary = new Dictionary<int, GameObject>();
 
+
+
+	public EnemyDatabase enemyDatabase;
 
 	public GameObject player;
     public GameObject inventoryManager;
@@ -43,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         //instance = this;
-        Debug.Log("Game Manger is Awake");
+        //Debug.Log("Game Manger is Awake");
 
         player = GameObject.Find("Player");
 		inventoryManager = GameObject.Find("InventoryManager");
@@ -53,8 +57,7 @@ public class GameManager : MonoBehaviour
 		//Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
 		Enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 
-		//NEED TO SET ITEMS ACTIVE BEFORE SEARCHING
-		//Inventory.AddRange(GameObject.FindGameObjectsWithTag("InvSlot"));
+
 
 		player.SetActive(false);
 		inventoryManager.SetActive(false);
@@ -69,40 +72,74 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             Debug.Log("New Scene?");
-            SceneManager.LoadScene("Testing Scene");
+			
+			loadNewScene();
+			SceneManager.LoadScene("Testing Scene");
 
         }
 		if (Input.GetKeyDown(KeyCode.K))
 		{
+			loadNewScene();
+			SceneManager.LoadScene("SampleScene");
 
-			player.SetActive(true);
+			/*player.SetActive(true);
 			inventoryManager.SetActive(true);
 			dialogueManager.SetActive(true);
 			UICanvas.SetActive(true);
-			swingItem.enabled = true;
+			swingItem.enabled = true;*/
 
 		}
 
 
+		//Handles Moving Enemy from alive list to dead list
+		GameObject[] enemyGameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach (GameObject enemy in enemyGameObjects)
+		{
 
-		if (Enemies.Count > 0)
-        {
-            foreach (GameObject enemy in Enemies)
-            {
-                if (enemy == null)
-                {
-                    Enemies.Remove(enemy);
-                }
-            }
+			if (!Enemies.Contains(enemy))
+			{
+				Enemies.Add(enemy);
+                Debug.Log("# Added " + enemy);
+			}
 
-        }
+			List<GameObject> enemiesCopy = new List<GameObject>(Enemies);
 
+			foreach (GameObject enemiesToDelete in enemiesCopy)
+			{
+				if (enemiesToDelete == null)
+				{
+					Enemies.Remove(enemy);
+				}
+			}
 
+		}
+	}
 
-    }
+    //Helper function to move enemies from alive to dead (called in enemyController script)
+    public void moveEnemyToDead(GameObject enemy)
+    {
+		Debug.Log("# Is Dead " + enemy);		
 
+		EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-    public void startGame()
+		if (enemyController != null)
+		{
+			DeadEnemyIDs.Add(enemyController.EnemyID);
+			Enemies.Remove(enemy);
+			enemyDictionary[enemyController.EnemyID] = enemy; // Store the reference
+		}
+	}
+
+	private GameObject FindDeadEnemyByID(int enemyID)
+	{
+		if (enemyDictionary.ContainsKey(enemyID))
+		{
+			return enemyDictionary[enemyID];
+		}
+		return null;
+	}
+
+	public void startGame()
     {
 
 
@@ -116,50 +153,69 @@ public class GameManager : MonoBehaviour
 
 	public void pauseGame()
     {
+		//Pauses Enemies
+		if (Enemies.Count > 0)
+		{
+			
+			foreach (GameObject enemy in Enemies)
+			{
 
-        //Pauses Enemies
-        foreach(GameObject enemy in Enemies)
-        {
-           
-            enemy.GetComponent<EnemyController>().enabled = false;
-            enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
+				enemy.GetComponent<EnemyController>().enabled = false;
+				enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			}
+		}
     }
 
-    public void unpauseGame()
-    {
+	public void unpauseGame()
+	{
+		//Unpauses Enemies
 
-        //Unpauses Enemies
-        foreach (GameObject enemy in Enemies)
-        {
-            enemy.GetComponent<EnemyController>().enabled = true;
-            enemy.GetComponent<Rigidbody2D>().velocity = enemy.GetComponent<EnemyController>().getSpeed(); //gets Vector2 
-        }
-    }
+		if (Enemies != null && Enemies.Count > 0)
+		{
+			foreach (GameObject enemy in Enemies)
+			{
+				if (enemy != null && !enemy.Equals(null))
+				{
+					EnemyController enemyController = enemy.GetComponent<EnemyController>();
 
-    public void getInventorySlots()
-    {
-        Debug.Log("Test");
-        //make sure to set all inventory slots as active!!! 
-        foreach(GameObject slots in Inventory)
-        {
-            //write to save file or a saved InventoryManager
-            Debug.Log("##: " + slots);
-        }
+					if (enemyController != null)
+					{
+						enemyController.enabled = true;
+						Rigidbody2D rb2d = enemy.GetComponent<Rigidbody2D>();
+
+						if (rb2d != null)
+						{
+							rb2d.velocity = enemyController.getSpeed();
+						}
+					}
+				}
+			}
+		}
+	}
 
 
-    }
+	//function for loading new scene must clear enemies list, but not dead enemies. The Enemies list will be regenerated based on the DeadEnemies.
+	public void loadNewScene() //probably a string
+	{
 
-    public void setInventorySlots()
-    {
+		Enemies.Clear();
+		//add parameter for which scene later
+		//SceneManager.LoadScene("STRING FOR SCENE?");
 
-        //make sure to set all inventory slots as active!!! 
+		foreach (int deadEnemyID in DeadEnemyIDs)
+		{
+			GameObject deadEnemy = FindDeadEnemyByID(deadEnemyID);
 
-        //get the saved file 
-        foreach (GameObject slot in Inventory)
-        {
-            //inventoryManger has an array
-        }
-    }
+			if (deadEnemy != null)
+			{
+				deadEnemy.SetActive(false);
+			}
+		}
+
+
+
+	}
+
+	
 
 }

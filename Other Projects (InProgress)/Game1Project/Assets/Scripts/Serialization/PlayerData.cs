@@ -25,6 +25,8 @@ public class PlayerData
 
 	public PlayerData(Player player)
     {
+		//player saving
+
         playerLevel = player.level;
         playerCurrentHP = player.currentHP;
         playerGold = player.gold;
@@ -34,10 +36,10 @@ public class PlayerData
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
 
+		//inventory saving
 
 		inventoryData = new List<InventoryItemData>();
 
-		
 
 
 		for (int i = 0; i < player.inventoryManager.inventorySlots.Length; i++)
@@ -50,10 +52,11 @@ public class PlayerData
 				Item item = itemInSlot.item;
 				int count = itemInSlot.count;
 
-				// Pass the slot index as the third argument
 				inventoryData.Add(new InventoryItemData(item, count, i));
 			}
 		}
+
+
 
 	}
 

@@ -6,10 +6,14 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
+
+	[Header("EnemyID")]
+	public int EnemyID;
+
 	[Header("Combat Stats")]
 	public float maxHealth = 100;
 	[SerializeField]
-	private float currentHealth;
+	public float currentHealth;
 	public float attackDamage;
 	public float resistance;
 	public float magicResistance;
@@ -52,6 +56,7 @@ public class EnemyController : MonoBehaviour
 	private Transform player;
 	private Rigidbody2D rb;
 	private bool isFollowingPlayer;
+	public GameManager gameManager;
 
 	[Header("Animation Stats")]
 	public Animator animator;
@@ -60,16 +65,19 @@ public class EnemyController : MonoBehaviour
 
 	public LayerMask playerLayer;
 
+
+
 	void Start()
 	{
 		currentHealth = maxHealth;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		playerObject = GameObject.FindAnyObjectByType<Player>();
 		rb = GetComponent<Rigidbody2D>();
+		gameManager = FindAnyObjectByType<GameManager>();
 
 		if (died)
 		{
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 		}
 
 
@@ -77,6 +85,8 @@ public class EnemyController : MonoBehaviour
 
 	void FixedUpdate()
 	{
+
+		dontSpawnEnemy();
 		FollowPlayer();
 		moveAttackArea();
 		Vector2 movement = rb.velocity; 
@@ -177,7 +187,7 @@ public class EnemyController : MonoBehaviour
 	void Die()
 	{
 		// Add death animation or particle effects here if needed
-		Destroy(gameObject);
+		gameObject.SetActive(false);
 		died = true;
 
 		// Drop loot
@@ -190,7 +200,19 @@ public class EnemyController : MonoBehaviour
 
 		}
 
-		Destroy(gameObject);
+		
+		gameManager.moveEnemyToDead(gameObject);
+
+		//gameObject.SetActive(false);
+	}
+
+	//checks if enemy is dead and whether or not it should be active:
+	void dontSpawnEnemy()
+	{
+		if (died)
+		{
+			gameObject.SetActive(false);
+		}
 	}
 
 	//Sets the enemy object to invincible for a short period of time and highlights them red

@@ -112,6 +112,8 @@ MonoBehaviour:
   knockback: 0
   knockbackResistance: 0
   attackSpeed: 0
+  increaseAgro: 0
+  died: 0
   attackArea: {fileID: 0}
   enemyCenter: {fileID: 0}
   meleeAttack: 0
@@ -123,9 +125,10 @@ MonoBehaviour:
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
   speed: 1
   distanceToStop: 0
-  aggroRange: 2
-  deaggroRange: 5
+  baseAggroRange: 5
+  baseDeaggroRange: 7
   playerObject: {fileID: 0}
+  gameManager: {fileID: 0}
   animator: {fileID: 0}
   playerLayer:
     serializedVersion: 2

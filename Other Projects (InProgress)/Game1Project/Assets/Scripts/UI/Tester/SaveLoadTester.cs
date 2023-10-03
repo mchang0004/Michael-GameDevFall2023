@@ -10,17 +10,19 @@ public class SaveLoadTester : MonoBehaviour
 	[SerializeField]
 	private ItemDatabase itemDatabase;
 
+	
 	void Start()
 	{
 		player = FindAnyObjectByType<Player>();
 		inventoryManager = FindAnyObjectByType<InventoryManager>();
 		itemDatabase = Resources.Load<ItemDatabase>("ItemDatabase");
+	
 
 	}
 	public void SavePlayer()
 	{
 		SaveSystem.SavePlayerData(player, itemDatabase);
-
+		
 
 	}
 

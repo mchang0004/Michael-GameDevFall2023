@@ -5151,6 +5151,7 @@ MonoBehaviour:
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
   itemDatabase: {fileID: 0}
+  enemyDatabase: {fileID: 0}
 --- !u!4 &661689156
 Transform:
   m_ObjectHideFlags: 0
@@ -5791,7 +5792,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773578398}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &773578400
 Camera:
   m_ObjectHideFlags: 0
@@ -6704,6 +6705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemies: []
+  DeadEnemiesID: 
   Inventory: []
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
@@ -7519,6 +7521,7 @@ MonoBehaviour:
   player: {fileID: 0}
   inventoryManager: {fileID: 0}
   itemDatabase: {fileID: 0}
+  enemyDatabase: {fileID: 0}
 --- !u!1001 &1122781174
 PrefabInstance:
   m_ObjectHideFlags: 0

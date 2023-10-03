@@ -57,4 +57,43 @@ public static class SaveSystem
 	}
 
 
+
+	
+	/*public static void SaveEnemyDatabase(EnemyDatabase enemyDatabase)
+	{
+		List<EnemyData> enemyDataList = new List<EnemyData>();
+
+		foreach (GameObject enemy in enemyDatabase.enemies)
+		{
+			EnemyController enemyController = enemy.GetComponent<EnemyController>();
+			if (enemyController != null)
+			{
+				EnemyData enemyData = new EnemyData(enemyController);
+				enemyDataList.Add(enemyData);
+
+			}
+		}
+
+		string json = JsonUtility.ToJson(enemyDataList);
+		File.WriteAllText(Application.dataPath + "/enemyData.txt", json);
+		Debug.Log("### Enemy Save: " + json);
+	}
+
+	public static List<EnemyData> LoadEnemyDatabase(EnemyDatabase enemyDatabase)
+	{
+		if (File.Exists(Application.dataPath + "/enemyData.txt"))
+		{
+			string enemyDataString = File.ReadAllText(Application.dataPath + "/enemyData.txt");
+			List<EnemyData> enemyDataList = JsonUtility.FromJson<List<EnemyData>>(enemyDataString);
+
+			string json = JsonUtility.ToJson(enemyDataList);
+			Debug.Log(json);
+
+			return enemyDataList;
+		}
+
+		return null;
+	}*/
+
+
 }
