@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	public GameObject player;
     public GameObject inventoryManager;
     public GameObject dialogueManager;
+	public GameObject questManager;
     public GameObject UICanvas;
     public SwingItem swingItem;
 
@@ -50,10 +51,13 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
 		inventoryManager = GameObject.Find("InventoryManager");
 		dialogueManager = GameObject.Find("DialogueManager");
+		questManager = GameObject.Find("QuestManager");
 		UICanvas = GameObject.Find("UI Canvas");
         swingItem = FindAnyObjectByType<SwingItem>();
 
 		saveLoadTester = FindAnyObjectByType<SaveLoadTester>();
+
+
 		//Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
 
 
@@ -64,6 +68,7 @@ public class GameManager : MonoBehaviour
 		UICanvas.SetActive(false);
 		swingItem.enabled = false;
 
+		saveLoadTester.enabled = true;
 	}
 
 	private void Update()
@@ -88,7 +93,26 @@ public class GameManager : MonoBehaviour
 			swingItem.enabled = true;*/
 
 		}
+
+		/*GameObject questUI = GameObject.Find("QuestUI");
+
+		bool toggleQuestUI = false;
+		if (Input.GetKeyDown(KeyCode.F))
+		{
+			if (toggleQuestUI)
+			{
+				toggleQuestUI = false;
+				questUI.SetActive(toggleQuestUI);
+				
+			} else
+			{
+				toggleQuestUI = true;
+				questUI.SetActive(toggleQuestUI);
+			}
+		
+		}*/
 	}
+	
 
 
 		
@@ -166,6 +190,21 @@ public class GameManager : MonoBehaviour
 
 
 
+	}
+
+
+	public void LoadSave()
+	{
+		player.SetActive(true);
+		inventoryManager.SetActive(true);
+		dialogueManager.SetActive(true);
+		UICanvas.SetActive(true);
+		swingItem.enabled = true;
+
+		SceneManager.LoadScene("SampleScene");
+
+		saveLoadTester.LoadPlayer();
+		saveLoadTester.SavePlayer();
 	}
 
 	

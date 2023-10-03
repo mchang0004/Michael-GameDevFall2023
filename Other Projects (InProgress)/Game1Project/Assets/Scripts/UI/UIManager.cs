@@ -27,16 +27,7 @@ public class UIManager : MonoBehaviour
         healthAmount = player.currentHP;
 		maxHealth = player.maxHP;
         refreshHealthUI();
-        
-		//This interferes too much with the overall game. Need to reimplement
-		/*if (isChatting)
-        {
-			disableAll();
-		}
-		else
-        {
-			enableAll();
-		}*/
+       
 	}
 
     //Health UI
@@ -71,7 +62,7 @@ public class UIManager : MonoBehaviour
 
     //this method disables attacking and movement so that the UI Interface can be accessed
     //Both functions currently intefere too much. 
-    public void disableAll()
+    /*public void disableAll()
     {
         inventoryManager.inventoryEnabled = false;
         player.canAttack = false;
@@ -83,7 +74,7 @@ public class UIManager : MonoBehaviour
 		player.canAttack = true;
         playerMovement.canMove = true;
 	}
-
+    */
 
 
 }

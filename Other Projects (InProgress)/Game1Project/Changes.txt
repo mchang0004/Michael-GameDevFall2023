@@ -53,18 +53,17 @@ _ FIXED (Bug) Can tap corner directions to have player sprite face a different d
 - Start Game Screen UI
 - Save/Load System Started
 1.0.10a (10/2/23)
-
+- Saving System Complete (For Now)
 
 BUGS:
 _Lines between tiles due to package.
 _The currently 'commented out' isChatting conditional interferes with attacking and movement, forcing it to always be on or off depending on the bool. When enabled, it makes it so you can attack when inventory is open & can move items when inventory is closed. (May need to rethink the chatting function)
 
 TODO:
-_Saving
-_Player Stats / Leveling
 _Quest Journal UI / Game Triggers for Quests & Quest Items
 _Update Start Screen
 _ART/Map Design/Create Items (Redo Tilset Spites using Atlas to remove lines)
+_(low priority) Player Stats / Leveling
 _(low priority) Shops/NPC UI
 _(low priority) QuestItems
 _(low priority) Better Enemy Pathing https://github.com/h8man/RedHotSweetPepper/tree/master/NavMeshDocs 

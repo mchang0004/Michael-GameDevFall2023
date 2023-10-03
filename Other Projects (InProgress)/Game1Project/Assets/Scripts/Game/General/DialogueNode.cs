@@ -12,4 +12,6 @@ public class DialogueNode : ScriptableObject
 	public DialogueNode option2;
 	public DialogueNode option3;
 	public DialogueNode option4;
+
+	public Quest quest;
 }
