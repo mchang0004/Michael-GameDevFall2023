@@ -61,6 +61,7 @@ _The currently 'commented out' isChatting conditional interferes with attacking 
 
 TODO:
 _Quest Journal UI / Game Triggers for Quests & Quest Items
+_Scene Transition Trigger Game Objects
 _Update Start Screen
 _ART/Map Design/Create Items (Redo Tilset Spites using Atlas to remove lines)
 _(low priority) Player Stats / Leveling

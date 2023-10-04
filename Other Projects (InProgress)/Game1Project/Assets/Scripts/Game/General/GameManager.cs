@@ -94,23 +94,6 @@ public class GameManager : MonoBehaviour
 
 		}
 
-		/*GameObject questUI = GameObject.Find("QuestUI");
-
-		bool toggleQuestUI = false;
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			if (toggleQuestUI)
-			{
-				toggleQuestUI = false;
-				questUI.SetActive(toggleQuestUI);
-				
-			} else
-			{
-				toggleQuestUI = true;
-				questUI.SetActive(toggleQuestUI);
-			}
-		
-		}*/
 	}
 	
 
@@ -178,7 +161,6 @@ public class GameManager : MonoBehaviour
 	public void loadNewScene() //probably a string
 	{
 
-		//Enemies.Clear();
 		//add parameter for which scene later
 		//SceneManager.LoadScene("STRING FOR SCENE?");
 
@@ -205,11 +187,6 @@ public class GameManager : MonoBehaviour
 
 		saveLoadTester.LoadPlayer();
 		saveLoadTester.SavePlayer();
-	}
-
-	public void testButton()
-	{
-		Debug.Log("TESTING WORKS");
 	}
 
 }

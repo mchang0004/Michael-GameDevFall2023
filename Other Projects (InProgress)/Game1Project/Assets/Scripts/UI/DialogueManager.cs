@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
 	public SwingItem swingItem;
 
     public DialogueNode currentText;
+	public DialogueNode nothingText;
+
     public Button option1, option2, option3, option4;
 
 	//Things to disable when in dialogue
@@ -47,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
 
-
+	
 		//Show or hide the dialogue text area depending on current state:
 		if (inDialogue)
 		{
@@ -89,7 +91,7 @@ public class DialogueManager : MonoBehaviour
 			
 		}
 
-
+		
 
 	}
 
@@ -131,9 +133,15 @@ public class DialogueManager : MonoBehaviour
 
 	public void startDialogue(DialogueNode dialogueNode)
 	{
+
+		
+		
 		currentText = dialogueNode;
 		setText();
 		inDialogue = true;
+		
+
+
 	}
 
 	public void nextNode(DialogueNode nextNode)
@@ -146,6 +154,7 @@ public class DialogueManager : MonoBehaviour
 		{
 			currentText = nextNode;
 			setText();
+
 		}
 		
 	}
@@ -154,6 +163,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		//Debug.Log(currentText.text);
 		
+
 		if (dialogueBox != null && currentText != null)
 		{
 			dialogueBox.text = currentText.text;
@@ -162,13 +172,20 @@ public class DialogueManager : MonoBehaviour
 		{
 			Debug.Log("dialogueBox or currentText is null");
 		}
+
+
+		if (currentText.giveQuest || currentText.giveQuestItem)
+		{
+			currentText.triggerQuestUpdate();
+		}
+		
 	}
 
 	void endDialogue()
     {
 		inDialogue = false;
 		StartCoroutine(hideWeaponFor(3f));
-
+		currentText = nothingText;
 
 	}
 

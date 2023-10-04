@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 2- Agree to help
+  m_Name: Get Quest Tester
   m_EditorClassIdentifier: 
-  text: Thanks so much, you need to find the dungeon nearby. Watchout for the monsters!
-  buttonText: Yes
+  text: Just to test, can you go and get the item from the other Target Dummy? Thanks.
+  buttonText: 
   endAfter: 1
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 84114b9baf432a946a69869b235df7c7, type: 2}
   questItem: {fileID: 0}
   questManager: {fileID: 0}
   NodeID: 0

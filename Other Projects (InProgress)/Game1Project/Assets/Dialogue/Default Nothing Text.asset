@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 2- Agree to help
+  m_Name: Default Nothing Text
   m_EditorClassIdentifier: 
-  text: Thanks so much, you need to find the dungeon nearby. Watchout for the monsters!
-  buttonText: Yes
+  text: Nothing to Say Right Now
+  buttonText: 
   endAfter: 1
   quest: {fileID: 0}
   questItem: {fileID: 0}

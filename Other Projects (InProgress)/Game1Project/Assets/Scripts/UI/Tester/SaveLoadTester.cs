@@ -22,9 +22,9 @@ public class SaveLoadTester : MonoBehaviour
 
 	void Start()
 	{
-		
-	
 
+
+		Debug.Log("TEST");
 	}
 	public void SavePlayer()
 	{

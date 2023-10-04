@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 2- Agree to help
+  m_Name: Obtain Quest Item Tester
   m_EditorClassIdentifier: 
-  text: Thanks so much, you need to find the dungeon nearby. Watchout for the monsters!
-  buttonText: Yes
+  text: Do you want this? Here.
+  buttonText: 
   endAfter: 1
   quest: {fileID: 0}
-  questItem: {fileID: 0}
+  questItem: {fileID: 11400000, guid: 1ded3b80efe1adb4faab0c590f477c89, type: 2}
   questManager: {fileID: 0}
   NodeID: 0
   option1: {fileID: 11400000, guid: 644ed46382a87c240b4b072dfaf7e40e, type: 2}

@@ -5,31 +5,77 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
 
-    public DialogueNode startingDialogue;
 
-    public DialogueManager dialogueManager;
+	public DialogueNode startingDialogue;
+	public DialogueNode completedDialogue;
+	public Quest dialogueQuest;
 
-    private bool triggered;
+	public DialogueManager dialogueManager;
+	public QuestManager questManager;
+
+
+	private bool triggered;
 
 	// Start is called before the first frame update
 	void Start()
     {
         //dialogueManager.inDialogue = false;
         dialogueManager = GameObject.FindAnyObjectByType<DialogueManager>();
-        triggered = false;
+		questManager = GameObject.FindAnyObjectByType<QuestManager>();
+
+		triggered = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
 	{
-        if (!triggered && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
+
+
+		if (!triggered && startingDialogue != null && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //dialogueManager.inDialogue = true;
-			//Debug.Log("Dialogue Triggered");
-            dialogueManager.startDialogue(startingDialogue);
-			triggered = true;
 
+			dialogueManager.startDialogue(startingDialogue);
+
+			if (checkQuestItems())
+			{
+				dialogueManager.startDialogue(completedDialogue);
+				//markQuestComplete();
+				disableDialogue();
+
+			} 
+			else
+			{
+				startingDialogue = dialogueManager.nothingText;
+
+			}
+
+
+			//triggered = true;
+
+		} 
+
+
+
+	}
+
+    public bool checkQuestItems()
+    {
+		//triggered = true;
+
+		if (dialogueQuest != null && dialogueQuest.allQuestItemsObtained)
+		{
+			Debug.Log("# Submitted Quest with All items");
+			dialogueQuest.Complete();
+			return true;
 		}
-    }
 
+		return false;
+	}
+
+	
+	public void disableDialogue()
+	{
+		triggered = true;
+	}
+	
 
 }

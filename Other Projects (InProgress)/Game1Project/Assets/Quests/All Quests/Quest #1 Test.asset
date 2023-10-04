@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca567de9aa97c6040ae51f37a2c33445, type: 3}
+  m_Name: Quest #1 Test
+  m_EditorClassIdentifier: 
+  questTitle: Test Quest
+  questText: This is a Test! Just to see if everything works!
+  questItems:
+  - {fileID: 11400000, guid: 1ded3b80efe1adb4faab0c590f477c89, type: 2}
+  questComplete: 0
