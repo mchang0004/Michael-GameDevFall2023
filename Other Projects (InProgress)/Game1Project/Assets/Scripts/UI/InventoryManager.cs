@@ -27,9 +27,6 @@ public class InventoryManager : MonoBehaviour
 	public SwingItem swingItem;
 	public bool inventoryEnabled = true;
 	public bool inventoryShown = false;
-	public bool allowDropping = true;
-	public InventoryItem currentlyHoveredItem;
-	public InventorySlot currentlyHoveredSlot;
 	
 	public GameObject inventoryMenu;
 	public GameObject inventoryBar;
@@ -40,9 +37,7 @@ public class InventoryManager : MonoBehaviour
 	public RectTransform itemInfoRect;
 	public ItemInfo currentInfo;		
 
-
 	
-
 	public Player player;
 	public GameManager gameManager;
 	public DialogueManager dialogueManager;
@@ -64,10 +59,9 @@ public class InventoryManager : MonoBehaviour
 		gameManager = GetComponent<GameManager>();
 		inventoryShown = false;
 		ChangeSelectedSlot(0);
-        DisableAllDragging();
+		
 
-
-        itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
+		itemInfoRect = itemInfoPanel.GetComponent<RectTransform>();
 
 		player = GameObject.FindAnyObjectByType<Player>();
 
@@ -100,25 +94,15 @@ private void Update()
 	{
 
 		//loadSlotTester();
+		
 
-		//Debug.Log(" #### " +	currentlyHoveredItem.getSlot());
 
         bool isInventoryFull = CheckInventoryIsFull();
 
-		//drop selected item: 
-		if (!inventoryShown && allowDropping && dropItemInput.action.triggered) DropItem();
-        
-		//drop item when inventory is open
-		if (currentlyHoveredItem != null && inventoryShown && allowDropping && dropItemInput.action.triggered)
-		{
-			Debug.Log("Trying to Drop From Slot: " + GetSlotIndex(currentlyHoveredItem.getSlot()));
-			Debug.Log("Current Item " + currentlyHoveredItem.getSlot());
-			
-			DropItemFromSlot(GetSlotIndex(currentlyHoveredItem.getSlot()));
-		
-		}
+		if(dropItemInput.action.triggered) { DropItem(); }
+	
 
-        if (!inventoryShown)
+		if (!inventoryShown)
 		{
 			DisableAllDragging();
 			//Debug.Log("Inventory Is Hidden");
@@ -208,7 +192,28 @@ private void Update()
 
 
 
-	
+	public bool DropItem() 
+	{
+		Item itemToDrop = GetSelectedItem(true);
+		if (itemToDrop == null)
+		{
+			Debug.Log("Nothing to Drop");
+			return false;
+		}
+
+		Vector3 attackPointPosition = player.GetDropPointPosition();
+		Vector3 playerFacingDirection = player.GetPlayerDirection();
+		float offsetDistance = 2f; // Adjust the offset distance as needed
+
+		Vector3 spawnPosition = attackPointPosition + playerFacingDirection * offsetDistance;
+
+		GameObject lootObj = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
+		Loot loot = lootObj.GetComponent<Loot>();
+		loot.Initialize(itemToDrop);
+
+		return true;
+	}
+
 	public void UseSelectedItem()
 	{
 		Item receivedItem = GetSelectedItem(true);
@@ -328,9 +333,7 @@ private void Update()
 			inventoryMenu.SetActive(false);
 			inventoryShown = false;
 			player.canAttack = true;
-			currentlyHoveredItem = null;
-
-            DisableAllDragging();
+			DisableAllDragging();
 			itemInfoPanel.SetActive(false);
 
 			return false;
@@ -461,13 +464,13 @@ private void Update()
 			InventorySlot slot = inventorySlots[slotIndex];
 			InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
 
-            if (itemInSlot != null)
+			if (itemInSlot != null)
 			{
 				Item itemToDrop = itemInSlot.item;
 
 				Vector3 attackPointPosition = player.GetDropPointPosition();
 				Vector3 playerFacingDirection = player.GetPlayerDirection();
-				float offsetDistance = 2f;
+				float offsetDistance = 2f; // Adjust the offset distance as needed
 
 				Vector3 spawnPosition = attackPointPosition + playerFacingDirection * offsetDistance;
 
@@ -475,68 +478,22 @@ private void Update()
 				Loot loot = lootObj.GetComponent<Loot>();
 				loot.Initialize(itemToDrop);
 
+				// Remove the item from the slot
+				Destroy(itemInSlot.gameObject);
 
-                itemInSlot.count--;
-                if (itemInSlot.count == 0)
-                {
-                    Destroy(itemInSlot.gameObject);
-                    currentlyHoveredItem = null;
-
-                }
-                else
-                {
-                    itemInSlot.RefreshCount();
-                }
-
-
-
-                return true;
+				return true;
 			}
 		}
 
 		return false;
 	}
 
-    public bool DropItem()
-    {
-        Item itemToDrop = GetSelectedItem(true);
-        if (itemToDrop == null)
-        {
-            Debug.Log("Nothing to Drop");
-            return false;
-        }
-
-        Vector3 attackPointPosition = player.GetDropPointPosition();
-        Vector3 playerFacingDirection = player.GetPlayerDirection();
-        float offsetDistance = 2f; // Adjust the offset distance as needed
-
-        Vector3 spawnPosition = attackPointPosition + playerFacingDirection * offsetDistance;
-
-        GameObject lootObj = Instantiate(lootPrefab, spawnPosition, Quaternion.identity);
-        Loot loot = lootObj.GetComponent<Loot>();
-        loot.Initialize(itemToDrop);
-
-        return true;
-    }
-
-
-
-
-    public int GetSlotIndex(InventorySlot slot)
+	public int GetSlotIndex(InventorySlot slot)
 	{
 		return Array.IndexOf(inventorySlots, slot);
 	}
 
-	public InventorySlot getCurrentlyHoveredSlot()
-	{
-		return currentlyHoveredSlot;
 
-    }
-
-	public void setCurrentlyHoveredSlot(InventorySlot slot)
-	{
-		currentlyHoveredSlot = slot;		
-    }
 
 }
 

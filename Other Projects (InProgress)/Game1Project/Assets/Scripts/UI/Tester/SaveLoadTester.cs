@@ -24,7 +24,7 @@ public class SaveLoadTester : MonoBehaviour
 	{
 
 
-		//Debug.Log("TEST");
+		Debug.Log("TEST");
 	}
 	public void SavePlayer()
 	{

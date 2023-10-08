@@ -12,7 +12,6 @@ using UnityEditorInternal;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-
 	public Image image;
 	public Color selectedColor, notSelectedColor;
 
@@ -23,10 +22,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
 	private void Awake()
 	{
-
-
-        Deselect();
-
+		Deselect();
 	}
 
 	public void Select()
@@ -62,16 +58,15 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 			{
 				if (itemType == allowedType)
 				{
-					return true;
+					return true; 
 				}
 			}
-		}
-		else
+		} else
 		{
 			return true;
 		}
-
-		return false;
+		
+		return false; 
 	}
 
 	public void SetDraggable(bool draggable)
@@ -80,17 +75,14 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 		if (itemInSlot != null)
 		{
 			itemInSlot.canDrag = draggable;
-
+		
 		}
-
+		
 	}
 
 	public bool IsEmpty()
 	{
 		return transform.childCount == 0;
 	}
-
-
-
 
 }

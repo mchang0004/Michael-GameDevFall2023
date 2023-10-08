@@ -33,30 +33,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	void Awake()
 	{
 		player = GameObject.FindAnyObjectByType<Player>();
-        inventoryManager = FindAnyObjectByType<InventoryManager>();
-    }
+	}
 
 	// Start is called before the first frame update
 	public void InitializeItem(Item newItem)
 	{
 		item = newItem;
 		image.sprite = newItem.image;
-        slot = this.GetComponentInParent<InventorySlot>();
-
-        Debug.Log(" Initialized Item Count:" + count);
+		Debug.Log(" Initialized Item Count:" + count);
 		RefreshCount();
 		//Debug.Log(item);
-
-		//Fixed bug where new item is added when inventory is open, and the newly added item cannot be dragged
-		if (inventoryManager.inventoryShown)
-		{
-			canDrag = true;
-
-        } else
-		{
-			canDrag = false;
-
-        }
 	}
 
 	public void RefreshCount()
@@ -68,18 +54,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		slot = this.GetComponentInParent<InventorySlot>();
-
-        inventoryManager.currentlyHoveredItem = this;
-        Debug.Log(this.getSlot() + " Current Item Hovering: " + inventoryManager.currentlyHoveredItem);
-        //Debug.Log();
-
-
-        if (item != null && inventoryManager.inventoryMenu.activeSelf)
+		if (item != null && inventoryManager.inventoryMenu.activeSelf)
 		{
 			inventoryManager.currentInfo.currentItem = item;
 			inventoryManager.itemInfoPanel.SetActive(true);
-
+			Debug.Log("showing");
 			
 		}
 
@@ -87,17 +66,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-        slot = this.GetComponentInParent<InventorySlot>();
-
-        inventoryManager.currentlyHoveredItem = null;
-        Debug.Log("No Item Hovering");
-
-
-        if (item != null)
+		if (item != null)
 		{
 			inventoryManager.currentInfo.currentItem = null;
 			inventoryManager.itemInfoPanel.SetActive(false);
-
+			Debug.Log("exit");
 		}
 
 	}
@@ -141,10 +114,5 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		return item;
 
     }
-
-	public InventorySlot getSlot()
-	{
-        return slot;
-	}
 }
 
