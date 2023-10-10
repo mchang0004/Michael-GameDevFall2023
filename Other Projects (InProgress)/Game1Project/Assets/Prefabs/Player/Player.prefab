@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401496671}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -604,6 +604,7 @@ MonoBehaviour:
   equipped_item: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
   equippedItemObject: {fileID: 1572187785}
   inventoryManager: {fileID: 0}
+  questManager: {fileID: 0}
   playerMovement: {fileID: 7960984697927364944}
   attack: {fileID: -5174839665303231394, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
   rangedAttackTarget: {fileID: 0}

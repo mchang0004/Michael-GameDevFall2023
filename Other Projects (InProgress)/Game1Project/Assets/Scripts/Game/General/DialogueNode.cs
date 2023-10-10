@@ -27,14 +27,14 @@ public class DialogueNode : ScriptableObject
 	public void triggerQuestUpdate()
 	{
 		questManager = FindAnyObjectByType<QuestManager>();
-		Debug.Log("Testing");
-		if (giveQuest)
+		//Debug.Log("Testing");
+		if (giveQuest && (!questManager.activeQuests.Contains(quest) || !questManager.completedQuests.Contains(quest)))
 		{
 			questManager.GiveQuest(quest);
 			Debug.Log("# Gave Quest " + quest);
 		}
 
-		if (giveQuestItem)
+		if (giveQuestItem && !questManager.questItemInventory.Contains(questItem))
 		{
 			questManager.GiveQuestItem(questItem);
 			Debug.Log("# Gave Quest Item " + questItem);

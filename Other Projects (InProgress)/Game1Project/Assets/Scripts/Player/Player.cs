@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 /*
  * This class handles the player character:
@@ -12,7 +13,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Player : MonoBehaviour
 {
-	[Header("HP Stats")]
+	[Header("HP & Stats")]
 	public float currentHP = 25f;
 	public float maxHP = 100f;
 	public int level;
@@ -34,6 +35,10 @@ public class Player : MonoBehaviour
 
 	public InventoryManager inventoryManager;
 
+	public GameManager gameManager;
+
+	public QuestManager questManager;
+
 	public PlayerMovement playerMovement; //PlayerMovement Script for Direction
 
 	public InputActionReference attack;
@@ -41,8 +46,13 @@ public class Player : MonoBehaviour
 	public EnemyController rangedAttackTarget; //ranged attack target for arrow
 
 	public GameObject arrow;    //arrow game object
+	public GameObject playerLight;
+	public GameObject disablePlayerLight;
 
 	public List<int> KilledEnemyIDs;
+
+
+
 
 	[Header("Player Stats")]
 
@@ -74,6 +84,7 @@ public class Player : MonoBehaviour
 	public Vector2 playerDirection { get; private set; } = Vector2.right;
 
 	[Header("Attacking")]
+
 	public Transform attackPoint;
 	[SerializeField] public Transform dropPoint;
 
@@ -83,6 +94,8 @@ public class Player : MonoBehaviour
 	public float baseAttackRange = 0.0f;
 	public float baseAttackSpeed = 3f;      //Base Attack Speed should be the slowest attack possible
 	public float nextAttackTime;
+
+	public float knockbackForce = 10f;
 
 	[HideInInspector]
 	public float attackDamage, attackPointOffset, attackRange, attackSpeed;
@@ -108,15 +121,29 @@ public class Player : MonoBehaviour
 		swingItem = weaponObject.GetComponent<SwingItem>();
 		uiManager.healthAmount = maxHP;
 
+		questManager = FindAnyObjectByType<QuestManager>();
+
+		gameManager = FindAnyObjectByType<GameManager>();
+
+		playerLight = GameObject.Find("PlayerVision(Light)");
 	}
 
 	void Update()
 	{
+		disablePlayerLight = GameObject.Find("DisablePlayerLight");
 
+		if (disablePlayerLight == null)
+		{
+			playerLight.SetActive(true);
+
+		} else
+		{
+			playerLight.SetActive(false);
+		}
 		//Health:
 		/*uiManager.maxHealth = maxHP;
 		uiManager.healthAmount = currentHP;*/
-		if(currentHP > maxHP)
+		if (currentHP > maxHP)
 		{
 			currentHP = maxHP;
 		}
@@ -273,7 +300,9 @@ public class Player : MonoBehaviour
 		//Set Up IF to check type of weapon equipped to determine type of attack;
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 		float damage = attackDamage; //tempfloat for swingDamage maybe change to just using attackDamage variable
-		
+
+		Vector2 knockbackDirection = playerDirection;
+
 		//Enemies in range of attack?
 		foreach (Collider2D enemy in hitEnemies)
 		{
@@ -282,6 +311,11 @@ public class Player : MonoBehaviour
 			if (enemyHealth != null)
 			{
 				enemyHealth.TakeDamage(damage);
+
+				Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+
+				if (enemyRigidbody != null) { enemyRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);  }
+
 			}
 			//uiManager.reduceHealthUI(1f);
 		}
@@ -320,12 +354,15 @@ public class Player : MonoBehaviour
 		if (currentHP <= 0)
 		{
 			//dead
+			SceneManager.LoadScene("Game Over");
+			gameManager.disableGameElements();
 			Debug.Log("DEAD!");
 		}
-		if(amount > 0)
+
+		/*if(amount > 0)
 		{
 			//uiManager.refreshHealthUI();
-		}
+		}*/
 
 	}
 

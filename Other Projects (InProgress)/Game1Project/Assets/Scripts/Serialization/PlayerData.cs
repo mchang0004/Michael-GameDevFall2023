@@ -24,6 +24,9 @@ public class PlayerData
 	public List<InventoryItemData> inventoryData;
 	public List<int> killedEnemies; 
 
+	//public List<int>
+
+
 	public PlayerData(Player player)
     {
 		//player saving
@@ -60,7 +63,20 @@ public class PlayerData
 			}
 		}
 
+		//quest saving
 
+		/*activeQuestIndex = new List<int>();
+		completedQuestIndex = new List<int>();
+
+		foreach (Quest quest in player.questManager.activeQuests)
+		{
+			activeQuestSaved.Add(quest.GetInstanceID());
+		}
+
+		foreach (Quest quest in player.questManager.completedQuests)
+		{
+			completedQuestIndex.Add(quest.GetInstanceID());
+		}*/
 
 	}
 

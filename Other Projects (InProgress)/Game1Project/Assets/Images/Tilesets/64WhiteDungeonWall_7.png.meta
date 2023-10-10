@@ -1,0 +1,1465 @@
+fileFormatVersion: 2
+guid: 3c7a9537e6895f94d9e5bc9a59777f9f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93713b5f446b6b4449c044a7f6cb7292
+      internalID: -1290904950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63db1390b33336b40bd515bb2888f0b0
+      internalID: 859719999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 671e084a08d6fcf42930f1fff2f505b0
+      internalID: 1406939979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f41180e422bb374d9ae3c2abba6ea14
+      internalID: 1005721342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70a49e1f392a3f44b0f5cce02691f30
+      internalID: 2120424743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ed4d6f6f7ccd94bb710cc22ea3c3f7
+      internalID: 865553672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76abc766628e10540ae058b374132482
+      internalID: -770220094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25aad5d0ebbb2404f837b0fc01eb3f6d
+      internalID: -631588065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2efbe57e0743ed4a88d93e8627ea7be
+      internalID: -181868948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639898520b7a9964080144529ac69831
+      internalID: -1948305641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36c26976e8e97b45b405c60c9aac070
+      internalID: -1964111992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1e17a572b39894085b1043460e7b94
+      internalID: 1199906306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1671e6d093c28aa45b9428bc14a002aa
+      internalID: 397100540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb077992b5cca34daacb05d16f582d1
+      internalID: 256413994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1776a6f1dbb092b4ba99d27e8bd609be
+      internalID: 342264087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12dd4351dc76fc468ec52a049713fb0
+      internalID: -721531641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb6acc3fd4859342ba1b4e596bace98
+      internalID: -37725464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c85fe56051595d41b6328a49b65ca16
+      internalID: 401440562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5406fcf42b3674fb2024a936d1df5e
+      internalID: 626002500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8efb7c53739882438314fb929c7b7b3
+      internalID: -1995524667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f135d53d90d61d34a97c295b54a3a457
+      internalID: -1798929043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931be535873c2114ba1ac28438716947
+      internalID: -1300039255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a9e7eb1f249b74b9b9a15dcd74b9be
+      internalID: 108217651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c76ff18a1ef8e499cd0cc1a5220979
+      internalID: -1368083029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_24
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1b0a774a8898443bdecb5e532b12ff
+      internalID: -1664144840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_25
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b481b20fe9dbc448eb1214bdceb459
+      internalID: -8005620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_26
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297fd17a2723e79419b67958009205b9
+      internalID: -184232939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbde1424871d0c34da57e4488e13d2c5
+      internalID: -75908462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913554cedcba0b6449b41a9ea1ca4bfb
+      internalID: -817627178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c264ec33dab9ad841b32adf18360fb94
+      internalID: -266640572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122274d7ca6f4524cb0a139dac99e2e4
+      internalID: -1362266953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de9515081314314298bdad3b9dde85c
+      internalID: -1344196399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0273e749a6a0c39459b634b1d10fb8a9
+      internalID: -384562826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574711d1ff267c6429f5749b7f476dfe
+      internalID: 1130825379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_34
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90da459f59ce3b4d943a491020aa934
+      internalID: 2052201069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47721b298c101c498b25914e8977b71
+      internalID: -1867098155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad878e0f2ac17a54796dd48af226e99d
+      internalID: -402459244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd875bff3893444e8e8f640e185d53b
+      internalID: -78803108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4e32c7d3dbd504aa7a37365629ccb3
+      internalID: 956373150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_39
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cde6219e469fed46b97e24f09f8b77c
+      internalID: -155436339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7dc2fc44b91f8a4795163f34e69661e
+      internalID: -408902920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf643b2f0dd1a1d41a8ddb7a6d91c3c7
+      internalID: -984495041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48bea1afb6a9ef4890be20b5dfb5061
+      internalID: 1134211608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_43
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b457797639862d4d80794c55da56fda
+      internalID: 1153108590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd749f71f7468b42b89ddd8cf4a2bc2
+      internalID: 438982146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_45
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17de9347a30b208478814a30c972107a
+      internalID: -575580368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_46
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bec0ced2e669c45960f2f0d87ee7bd
+      internalID: -557509429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_47
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c98dc8d6c8fe4f43abae06940a5b63d
+      internalID: 860324408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c52d61ec580e0478529934ef34ef8d
+      internalID: -2001850945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f42fe4e215e2e742b16f0c04cffcd0a
+      internalID: 1286723096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_50
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffca1ef9c0552f545a8215c6595b86e6
+      internalID: -93657397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_51
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650e2e03f9bbcd443bb0e9d32c337263
+      internalID: 2121074724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_52
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6176c8a77a7afde49b48a78b7369e08a
+      internalID: 1910490267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_53
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601339561366b19488490f8dd14cde16
+      internalID: 1078586018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_54
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea54921bbcf71cc4285825a8c30b0e1d
+      internalID: -1192818045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7b2e8c352dfcd44bfea69df0bbb0e5
+      internalID: 1416392802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_56
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c85116ce06be87478dbf7e0a4e7fa3b
+      internalID: -330293513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab9084488e24a24aa12954a9616eddf
+      internalID: -1062888575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce742c3aa88399e49a1327d31129451e
+      internalID: -780852230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_59
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2e238f6b574cd4d8cddd02bc3263d5
+      internalID: -1124593536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64WhiteDungeonWall_7_60
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b21677f6b1c8da499ba099dc63daf9e
+      internalID: -1245794105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      64WhiteDungeonWall_7_0: -1290904950
+      64WhiteDungeonWall_7_1: 859719999
+      64WhiteDungeonWall_7_10: -1964111992
+      64WhiteDungeonWall_7_11: 1199906306
+      64WhiteDungeonWall_7_12: 397100540
+      64WhiteDungeonWall_7_13: 256413994
+      64WhiteDungeonWall_7_14: 342264087
+      64WhiteDungeonWall_7_15: -721531641
+      64WhiteDungeonWall_7_16: -37725464
+      64WhiteDungeonWall_7_17: 401440562
+      64WhiteDungeonWall_7_18: 626002500
+      64WhiteDungeonWall_7_19: -1995524667
+      64WhiteDungeonWall_7_2: 1406939979
+      64WhiteDungeonWall_7_20: -1798929043
+      64WhiteDungeonWall_7_21: -1300039255
+      64WhiteDungeonWall_7_22: 108217651
+      64WhiteDungeonWall_7_23: -1368083029
+      64WhiteDungeonWall_7_24: -1664144840
+      64WhiteDungeonWall_7_25: -8005620
+      64WhiteDungeonWall_7_26: -184232939
+      64WhiteDungeonWall_7_27: -75908462
+      64WhiteDungeonWall_7_28: -817627178
+      64WhiteDungeonWall_7_29: -266640572
+      64WhiteDungeonWall_7_3: 1005721342
+      64WhiteDungeonWall_7_30: -1362266953
+      64WhiteDungeonWall_7_31: -1344196399
+      64WhiteDungeonWall_7_32: -384562826
+      64WhiteDungeonWall_7_33: 1130825379
+      64WhiteDungeonWall_7_34: 2052201069
+      64WhiteDungeonWall_7_35: -1867098155
+      64WhiteDungeonWall_7_36: -402459244
+      64WhiteDungeonWall_7_37: -78803108
+      64WhiteDungeonWall_7_38: 956373150
+      64WhiteDungeonWall_7_39: -155436339
+      64WhiteDungeonWall_7_4: 2120424743
+      64WhiteDungeonWall_7_40: -408902920
+      64WhiteDungeonWall_7_41: -984495041
+      64WhiteDungeonWall_7_42: 1134211608
+      64WhiteDungeonWall_7_43: 1153108590
+      64WhiteDungeonWall_7_44: 438982146
+      64WhiteDungeonWall_7_45: -575580368
+      64WhiteDungeonWall_7_46: -557509429
+      64WhiteDungeonWall_7_47: 860324408
+      64WhiteDungeonWall_7_48: -2001850945
+      64WhiteDungeonWall_7_49: 1286723096
+      64WhiteDungeonWall_7_5: 865553672
+      64WhiteDungeonWall_7_50: -93657397
+      64WhiteDungeonWall_7_51: 2121074724
+      64WhiteDungeonWall_7_52: 1910490267
+      64WhiteDungeonWall_7_53: 1078586018
+      64WhiteDungeonWall_7_54: -1192818045
+      64WhiteDungeonWall_7_55: 1416392802
+      64WhiteDungeonWall_7_56: -330293513
+      64WhiteDungeonWall_7_57: -1062888575
+      64WhiteDungeonWall_7_58: -780852230
+      64WhiteDungeonWall_7_59: -1124593536
+      64WhiteDungeonWall_7_6: -770220094
+      64WhiteDungeonWall_7_60: -1245794105
+      64WhiteDungeonWall_7_7: -631588065
+      64WhiteDungeonWall_7_8: -181868948
+      64WhiteDungeonWall_7_9: -1948305641
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

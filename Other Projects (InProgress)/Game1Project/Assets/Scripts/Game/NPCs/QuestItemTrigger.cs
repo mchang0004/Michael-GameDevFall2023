@@ -14,16 +14,16 @@ public class QuestItemTrigger : MonoBehaviour
 	void Start()
     {
 		questManager = FindAnyObjectByType<QuestManager>();
-		triggered = false;
+		//triggered = false;
 
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!triggered && questManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
+		if (questManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player") && !questManager.questItemInventory.Contains(item))
 		{
 			questManager.GiveQuestItem(item);
-			triggered = true;
+			//triggered = true;
 		}
 	}
 }

@@ -41,6 +41,7 @@ public class SaveLoadTester : MonoBehaviour
 		PlayerData data = SaveSystem.LoadPlayerData(player, itemDatabase);
 
 
+
 		if (data != null)
 		{
 			//player data
@@ -58,6 +59,8 @@ public class SaveLoadTester : MonoBehaviour
 			//enemy IDs 
 			player.KilledEnemyIDs = data.killedEnemies;
 
+
+			//need to add a way to respawn enemies that weren't killed yet in previous saves
 
 			//inventory loading/saving
 			if (player.inventoryManager != null)
@@ -78,7 +81,12 @@ public class SaveLoadTester : MonoBehaviour
 
 
 			//other:
+			Loot[] lootItems = FindObjectsOfType<Loot>();
 
+			foreach (Loot lootItem in lootItems)
+			{
+				Destroy(lootItem.gameObject);
+			}
 
 		}
 	}

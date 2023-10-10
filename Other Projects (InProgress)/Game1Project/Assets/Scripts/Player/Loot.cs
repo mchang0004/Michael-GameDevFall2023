@@ -7,8 +7,8 @@ public class Loot : MonoBehaviour
 	[SerializeField] private SpriteRenderer sr;
 	[SerializeField] private BoxCollider2D colliderLoot;
 	[SerializeField] private float moveSpeed = 10f;
-	//[SerializeField] private float inactiveDuration = 1.5f; // Time before the loot can be collected again
-	[SerializeField] private float dropSpeed = 1f; // Set the desired drop speed
+	//[SerializeField] private float inactiveDuration = 1.5f;
+	[SerializeField] private float dropSpeed = 1f; 
 
 	public Item item;
 	public bool isCollectable;
@@ -16,7 +16,7 @@ public class Loot : MonoBehaviour
 	public InventoryManager inventoryManager;
 
 	private bool isBeingCollected = false;
-	private bool hasBeenDropped = false; // Add this line to declare hasBeenDropped
+	private bool hasBeenDropped = false; 
 
 	public void Initialize(Item item)
 	{
@@ -34,7 +34,7 @@ public class Loot : MonoBehaviour
 
 		checkIfFull();
 
-		// Temp DELETE LATER
+	/*	// Temp DELETE LATER
 		if (isCollectable && inventoryManager.globalAllowCollection)
 		{
 			sr.color = Color.green;
@@ -43,7 +43,7 @@ public class Loot : MonoBehaviour
 		{
 			sr.color = Color.white;
 		}
-		// 
+		// */
 	}
 	
 	private void OnTriggerEnter2D(Collider2D other)
@@ -78,14 +78,12 @@ public class Loot : MonoBehaviour
 	{
 		Destroy(colliderLoot);
 
-		// Move the loot towards the player
 		while (transform.position != target.position)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
 			yield return null;
 		}
 
-		// Add the loot item to the inventory if it's collectible
 		if (isCollectable && checkIfFull())
 		{
 			InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
@@ -97,7 +95,6 @@ public class Loot : MonoBehaviour
 		}
 		else
 		{
-			// If the loot can't be collected, set isCollectable to false
 			isCollectable = false;
 		}
 	}

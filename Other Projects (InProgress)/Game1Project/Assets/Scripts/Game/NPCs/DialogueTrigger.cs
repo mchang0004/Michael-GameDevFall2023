@@ -18,22 +18,20 @@ public class DialogueTrigger : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start()
-    {
-        //dialogueManager.inDialogue = false;
-        dialogueManager = GameObject.FindAnyObjectByType<DialogueManager>();
+	{
+		//dialogueManager.inDialogue = false;
+		dialogueManager = GameObject.FindAnyObjectByType<DialogueManager>();
 		questManager = GameObject.FindAnyObjectByType<QuestManager>();
+
+		
 
 		triggered = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
 	{
-
-
-		if (!triggered && startingDialogue != null && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-
-			dialogueManager.startDialogue(startingDialogue);
+		if (questManager.activeQuests.Contains(dialogueQuest) || questManager.completedQuests.Contains(dialogueQuest))
+		{
 
 			if (checkQuestItems())
 			{
@@ -41,17 +39,28 @@ public class DialogueTrigger : MonoBehaviour
 				//markQuestComplete();
 				disableDialogue();
 
-			} 
+			}
 			else
 			{
 				startingDialogue = dialogueManager.nothingText;
 
 			}
 
+		}
+		else
+		{
 
-			//triggered = true;
+			if (!triggered && startingDialogue != null && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
+			{
 
-		} 
+				dialogueManager.startDialogue(startingDialogue);
+
+	
+
+			}
+		}
+
+		
 
 
 

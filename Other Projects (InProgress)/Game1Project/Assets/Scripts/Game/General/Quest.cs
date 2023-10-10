@@ -49,5 +49,11 @@ public class Quest : ScriptableObject
 		Debug.Log("# Quest is Complete: Give Loot/Bonus Here");
 	}
 
+	public void Reset()
+	{
+		questComplete = false;
+		allQuestItemsObtained = false;
+	}
+
 
 }

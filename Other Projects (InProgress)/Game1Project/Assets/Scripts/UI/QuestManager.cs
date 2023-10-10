@@ -116,9 +116,12 @@ public class QuestManager : MonoBehaviour
 
 	public void GiveQuest(Quest quest)
 	{
+		
 		if (!activeQuests.Contains(quest) && !completedQuests.Contains(quest))
 		{
+			quest.Reset();
 			activeQuests.Add(quest);
+			
 		}
 	}
 
@@ -127,4 +130,7 @@ public class QuestManager : MonoBehaviour
 	{
 		questItemInventory.Add(item);
 	}
+
+
+
 }

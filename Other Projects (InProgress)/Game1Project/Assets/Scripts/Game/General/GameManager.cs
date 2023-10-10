@@ -22,8 +22,11 @@ public class GameManager : MonoBehaviour
 	public GameObject questManager;
     public GameObject UICanvas;
     public SwingItem swingItem;
+	public InventoryManager inventoryManagerScript;
 
 	public SaveLoadTester saveLoadTester;
+
+	public List<Item> startingItems = new List<Item>();
 
 
 	/* public static GameManager Instance
@@ -54,13 +57,17 @@ public class GameManager : MonoBehaviour
 		questManager = GameObject.Find("QuestManager");
 		UICanvas = GameObject.Find("UI Canvas");
         swingItem = FindAnyObjectByType<SwingItem>();
+		inventoryManagerScript = FindAnyObjectByType<InventoryManager>();
 
 		saveLoadTester = FindAnyObjectByType<SaveLoadTester>();
 
 
+
 		//Add an Is dead bool, something that isn't reset. Each time you load a scene, it shouldn't respawn enemies.
-
-
+		foreach (Item item in startingItems)
+		{
+			inventoryManagerScript.AddItem(item);
+		}
 
 		player.SetActive(false);
 		inventoryManager.SetActive(false);
@@ -73,7 +80,7 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown("space"))
+		/*if (Input.GetKeyDown("space"))
 		{
 			Debug.Log("New Scene?");
 
@@ -86,13 +93,13 @@ public class GameManager : MonoBehaviour
 			loadNewScene();
 			SceneManager.LoadScene("SampleScene");
 
-			/*player.SetActive(true);
+			*//*player.SetActive(true);
 			inventoryManager.SetActive(true);
 			dialogueManager.SetActive(true);
 			UICanvas.SetActive(true);
-			swingItem.enabled = true;*/
+			swingItem.enabled = true;*//*
 
-		}
+		}*/
 
 	}
 	
@@ -111,7 +118,7 @@ public class GameManager : MonoBehaviour
 		dialogueManager.SetActive(true);
 		UICanvas.SetActive(true);
 		swingItem.enabled = true;
-		SceneManager.LoadScene("SampleScene");
+		SceneManager.LoadScene("Area 1");
 	}
 
 	public void pauseGame()
@@ -189,4 +196,12 @@ public class GameManager : MonoBehaviour
 		saveLoadTester.SavePlayer();
 	}
 
+	public void disableGameElements()
+	{
+		player.SetActive(false);
+		inventoryManager.SetActive(false);
+		dialogueManager.SetActive(false);
+		UICanvas.SetActive(false);
+		swingItem.enabled = false;
+	}
 }
