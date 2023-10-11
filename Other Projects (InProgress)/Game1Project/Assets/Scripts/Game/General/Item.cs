@@ -13,7 +13,8 @@ public enum ItemType
 	Helmet,
 	Ranged_Weapon,
 	Weapon,
-	QuestItem
+	QuestItem,
+	Ammo
 }
 
 public enum ActionType

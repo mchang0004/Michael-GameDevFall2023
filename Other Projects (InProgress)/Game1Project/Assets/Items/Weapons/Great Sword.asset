@@ -15,7 +15,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: beb30ebb13255db43a3da196ca8f7bcb, type: 3}
   itemType: 7
   actionType: 0
-  itemName: Iron Sword  (Tester)
+  itemName: Iron Greatsword
   itemInfo: Weapon
   itemStat: Slow to swing, but does lots of Damage
   itemGold: 3

@@ -625,6 +625,7 @@ MonoBehaviour:
   arrow: {fileID: 4501205970775413310, guid: ddbaf3f025fa8194d8e441e36df3fe2e, type: 3}
   playerLight: {fileID: 0}
   disablePlayerLight: {fileID: 0}
+  arrowItem: {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
   KilledEnemyIDs: 
   Strength: 1
   Dexterity: 1

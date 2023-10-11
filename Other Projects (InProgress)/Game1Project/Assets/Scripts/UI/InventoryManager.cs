@@ -574,6 +574,55 @@ public class InventoryManager : MonoBehaviour
 		equippedItems = newEquippedItems;
 
 	}
+
+
+	/*public bool hasArrow()
+	{
+		foreach (InventorySlot slot in inventorySlots)
+		{
+			InventoryItem currentItem = slot.GetComponentInChildren<InventoryItem>();
+
+			if (currentItem.getItem() == player.arrowItem)
+			{
+				return true;
+			}
+
+		}
+
+		return false;
+	}*/
+	
+	public bool fireArrow()
+	{
+		foreach (InventorySlot slot in inventorySlots)
+		{
+			InventoryItem currentItem = slot.GetComponentInChildren<InventoryItem>();
+
+			if (currentItem != null && currentItem.getItem() == player.arrowItem)
+			{
+
+				currentItem.count--;
+
+				if (currentItem.count == 0)
+				{
+					Destroy(currentItem.gameObject);
+				}
+				else
+				{
+					currentItem.RefreshCount();
+				}
+
+				return true;
+
+			}
+
+		}
+
+		return false;
+	}
+
+
+
 }
 
 

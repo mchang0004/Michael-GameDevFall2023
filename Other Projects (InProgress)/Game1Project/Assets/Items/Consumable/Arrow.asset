@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
-  m_Name: Potion_Tester 1
+  m_Name: Arrow
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: d0f7673d2cac08849a34e0fe3cebab89, type: 3}
-  itemType: 3
+  image: {fileID: 21300000, guid: a84ce07ecd912d94096a00a0169e765a, type: 3}
+  itemType: 9
   actionType: 0
-  itemName: Health Potion (Tester)
-  itemInfo: Sweet and Tasty!
+  itemName: Arrow
+  itemInfo: 
   itemStat: 
-  itemGold: 5
+  itemGold: 
   mainAudio: {fileID: 0}
   stackable: 1
-  <MaxStackSize>k__BackingField: 99
-  isBroken: 1
+  <MaxStackSize>k__BackingField: 25
+  isBroken: 0
   itemCurrentHP: 0
   itemMaxHP: 0
   isCollectable: 1
   basePrice: 1
   baseSellPrice: 0
   marketQuantity: 0
-  HPBonus: 5
+  HPBonus: 0
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0

@@ -19,6 +19,7 @@ MonoBehaviour:
   itemInfo: Pew Pew
   itemStat: 
   itemGold: 2
+  mainAudio: {fileID: 0}
   stackable: 0
   <MaxStackSize>k__BackingField: 1
   isBroken: 0
@@ -31,8 +32,11 @@ MonoBehaviour:
   HPBonus: 0
   armorBonus: 0
   isEquipped: 0
+  healthBonus: 0
+  damageBonus: 0
+  equipmentSlot: 0
   attackDamage: 3
-  attackSpeed: 1
+  attackSpeed: 3
   attackRange: 0
   attackPointOffset: 0
   allowRepeatSwing: 0

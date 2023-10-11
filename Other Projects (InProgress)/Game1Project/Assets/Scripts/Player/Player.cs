@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
 	public GameObject arrow;    //arrow game object
 	public GameObject playerLight;
 	public GameObject disablePlayerLight;
+	public Item arrowItem;
 
 	public List<int> KilledEnemyIDs;
 
@@ -251,19 +252,25 @@ public class Player : MonoBehaviour
 				if (equipped_item != null && attack.action.triggered && equipped_item.GetItemType() == ItemType.Ranged_Weapon)
 				{
 
-					Vector3 mousePosition = Input.mousePosition;
-					Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
-					float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
+					if (inventoryManager.fireArrow())
+					{
+						Vector3 mousePosition = Input.mousePosition;
+						Vector3 directionMouse = (mousePosition - Camera.main.WorldToScreenPoint(transform.position)).normalized;
+						float angle = Mathf.Atan2(directionMouse.y, directionMouse.x);
 
-					GameObject arrowObject = Instantiate(arrow, equippedItemObject.transform.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
+						GameObject arrowObject = Instantiate(arrow, equippedItemObject.transform.position, Quaternion.Euler(0f, 0f, angle * Mathf.Rad2Deg));
 
-					Rigidbody2D rb = arrowObject.GetComponent<Rigidbody2D>();
+						Rigidbody2D rb = arrowObject.GetComponent<Rigidbody2D>();
 
-					Vector2 velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 15f;
+						Vector2 velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 15f;
 
-					rb.velocity = velocity;
+						rb.velocity = velocity;
+						//attack speed is reset with the actual ranged attack 
 
-					//attack speed is reset with the actual ranged attack 
+					}
+
+
+
 				}
 			}
 
@@ -365,11 +372,12 @@ public class Player : MonoBehaviour
 	//called in arrow class
 	public void RangedAttack(EnemyController enemy)
 	{
-		
-			
-			//Debug.Log(enemy.maxHealth + " HIT #####");
 
-		enemy.TakeDamage(equipped_item.attackDamage);
+
+		//Debug.Log(enemy.maxHealth + " HIT #####");
+		float damage = attackDamage;
+
+		enemy.TakeDamage(damage);
 		nextAttackTime = Time.time + attackSpeed; //attack speed
 
 		
