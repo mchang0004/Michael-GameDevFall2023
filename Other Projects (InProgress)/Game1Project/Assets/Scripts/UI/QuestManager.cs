@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class QuestManager : MonoBehaviour
 
 	public GameObject questPrefab;
 	public GameObject questItemPrefab;
+	public TextMeshProUGUI questText;
 
 	private void Awake()
 	{
@@ -81,10 +83,26 @@ public class QuestManager : MonoBehaviour
 
 		foreach (Quest quest in activeQuests)
 		{
+
 			GameObject questUI = Instantiate(questPrefab, questUI_Quests.transform);
 
-			questUI.SetActive(true);
+			Transform questTextTransform = questUI.transform.Find("Quest Text"); 
+			
+			if (questTextTransform != null)
+			{
+				TextMeshProUGUI questText = questTextTransform.GetComponent<TextMeshProUGUI>();
+
+				if (questText != null)
+				{
+					questText.text = quest.questText;
+					//Debug.Log("### Quest Text Assigned");
+				}
+				
+			}
+			
 		}
+			
+		
 
 		foreach (QuestItem questItem in questItemInventory)
 		{

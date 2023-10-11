@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 1- Collect the Star
+  m_Name: 1- Road is Closed
   m_EditorClassIdentifier: 
-  text: Hey, we need to collect the start from the Dungeon for the Festival of Light,
-    can you help us?
+  text: 'By the order of Tobis Mands, this road is closed off. We are looking for
+    adventurers who can claim the dungeon star. '
   buttonText: Start
   endAfter: 0
+  quest: {fileID: 0}
+  questItem: {fileID: 0}
+  questManager: {fileID: 0}
+  NodeID: 0
   option1: {fileID: 11400000, guid: d7e395d14463d2248b09c3b7c5984e8e, type: 2}
-  option2: {fileID: 11400000, guid: 10f7ca2af75287d4b972bde01491f27d, type: 2}
+  option2: {fileID: 0}
   option3: {fileID: 0}
   option4: {fileID: 0}

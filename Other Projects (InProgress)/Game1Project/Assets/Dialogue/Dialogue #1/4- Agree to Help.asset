@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
+  m_Name: 4- Agree to Help
+  m_EditorClassIdentifier: 
+  text: 'Great! Good luck. The fate of Wulfrest depends on it!
+
+'
+  buttonText: Ok Fine...
+  endAfter: 1
+  quest: {fileID: 11400000, guid: 94b1722ebf3840542bafb22cd67ef09d, type: 2}
+  questItem: {fileID: 0}
+  questManager: {fileID: 0}
+  NodeID: 0
+  option1: {fileID: 11400000, guid: 644ed46382a87c240b4b072dfaf7e40e, type: 2}
+  option2: {fileID: 0}
+  option3: {fileID: 0}
+  option4: {fileID: 0}

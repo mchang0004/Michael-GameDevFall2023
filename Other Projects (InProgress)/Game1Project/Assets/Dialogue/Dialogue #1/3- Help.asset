@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 2- Agree to help
+  m_Name: 3- Help
   m_EditorClassIdentifier: 
-  text: Thanks so much, you need to find the dungeon nearby. Watchout for the monsters!
+  text: Great! Just make sure to be back before the Festival of Light, or this land
+    will be forever cursed!
   buttonText: Yes
   endAfter: 1
-  quest: {fileID: 0}
+  quest: {fileID: 11400000, guid: 94b1722ebf3840542bafb22cd67ef09d, type: 2}
   questItem: {fileID: 0}
   questManager: {fileID: 0}
   NodeID: 0

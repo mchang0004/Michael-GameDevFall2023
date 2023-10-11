@@ -10,12 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
-  m_Name: 2- Don't help
+  m_Name: 2- Will You Help
   m_EditorClassIdentifier: 
-  text: Please reconsider, if you don't help us we'll all die
-  buttonText: No
+  text: 'You seem like someone who can handle themselves against such a foe. Are
+    you up for the task? '
+  buttonText: Continue...
   endAfter: 0
-  option1: {fileID: 11400000, guid: d7e395d14463d2248b09c3b7c5984e8e, type: 2}
-  option2: {fileID: 0}
+  quest: {fileID: 0}
+  questItem: {fileID: 0}
+  questManager: {fileID: 0}
+  NodeID: 0
+  option1: {fileID: 11400000, guid: 10f7ca2af75287d4b972bde01491f27d, type: 2}
+  option2: {fileID: 11400000, guid: 34506c426458d4842ab18153e5b0d10e, type: 2}
   option3: {fileID: 0}
   option4: {fileID: 0}

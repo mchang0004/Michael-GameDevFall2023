@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
-  m_Name: Sword_Tester 1
+  m_Name: Starting Weapon
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: aa57f2ac1fa9e1249a4c9b36cab2f856, type: 3}
+  image: {fileID: 21300000, guid: f20cfc9458a448743b6cdb0e516a6832, type: 3}
   itemType: 7
   actionType: 0
-  itemName: Iron Sword  (Tester)
+  itemName: Simple Sword
   itemInfo: Weapon
   itemStat: 
-  itemGold: 3
+  itemGold: 
   stackable: 0
   <MaxStackSize>k__BackingField: 1
   isBroken: 0
@@ -31,8 +31,8 @@ MonoBehaviour:
   HPBonus: 0
   armorBonus: 0
   isEquipped: 0
-  attackDamage: 2
+  attackDamage: 1
   attackSpeed: 2.5
-  attackRange: 0.4
-  attackPointOffset: 0.45
-  allowRepeatSwing: 1
+  attackRange: 0.3
+  attackPointOffset: 0.5
+  allowRepeatSwing: 0

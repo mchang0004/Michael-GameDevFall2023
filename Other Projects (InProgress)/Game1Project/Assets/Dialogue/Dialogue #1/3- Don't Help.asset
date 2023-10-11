@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9480c15b150acc04289579c2740a7544, type: 3}
+  m_Name: 3- Don't Help
+  m_EditorClassIdentifier: 
+  text: " Are you sure? If we don\u2019t claim the power of the star, this area will
+    undergo severe blight. "
+  buttonText: No
+  endAfter: 0
+  quest: {fileID: 0}
+  questItem: {fileID: 0}
+  questManager: {fileID: 0}
+  NodeID: 0
+  option1: {fileID: 11400000, guid: 7eb763c3aa2ec9b449365ba41b89f19e, type: 2}
+  option2: {fileID: 0}
+  option3: {fileID: 0}
+  option4: {fileID: 0}
