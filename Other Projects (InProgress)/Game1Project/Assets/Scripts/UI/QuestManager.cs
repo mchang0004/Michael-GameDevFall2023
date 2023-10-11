@@ -20,9 +20,12 @@ public class QuestManager : MonoBehaviour
 	public GameObject questItemPrefab;
 	public TextMeshProUGUI questText;
 
+	public Player player;
+
 	private void Awake()
 	{
 		DontDestroyOnLoad(this);
+
 	}
 
 	// Start is called before the first frame update
@@ -32,12 +35,15 @@ public class QuestManager : MonoBehaviour
 
 		questUI.SetActive(false);
 
+
 		//questUI.SetActive(true);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if(player == null) player = FindAnyObjectByType<Player>();
+
 
 		if (Input.GetKeyDown(KeyCode.F))
 		{
@@ -139,7 +145,7 @@ public class QuestManager : MonoBehaviour
 		{
 			quest.Reset();
 			activeQuests.Add(quest);
-			
+			player.questAudio.Play();
 		}
 	}
 

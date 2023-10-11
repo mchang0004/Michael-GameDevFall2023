@@ -38,10 +38,11 @@ public class InventoryManager : MonoBehaviour
 	//info ui
 	public GameObject itemInfoPanel;
 	public RectTransform itemInfoRect;
-	public ItemInfo currentInfo;		
+	public ItemInfo currentInfo;
 
 
-	
+	public List<Item> equippedItems = new List<Item>();
+
 
 	public Player player;
 	public GameManager gameManager;
@@ -96,14 +97,17 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-private void Update()
+	private void Update()
 	{
+
+
+		assignEquippedItems();
 
 		//loadSlotTester();
 
 		//Debug.Log(" #### " +	currentlyHoveredItem.getSlot());
 
-        bool isInventoryFull = CheckInventoryIsFull();
+		bool isInventoryFull = CheckInventoryIsFull();
 
 		//drop selected item: 
 		if (!inventoryShown && allowDropping && dropItemInput.action.triggered) DropItem();
@@ -309,30 +313,38 @@ private void Update()
 		return null; // Return null when there is no item in the selected slot.
 	}
 
+	public void showInventory()
+	{
+		inventoryMenu.SetActive(true);
+		inventoryShown = true;
+		player.canAttack = false;
+		EnableAllDragging();
+		player.inventoryAudio.Play();
 
+	}
+
+	public void hideInventory() {
+		inventoryMenu.SetActive(false);
+		inventoryShown = false;
+		player.canAttack = true;
+		currentlyHoveredItem = null;
+		player.inventoryAudio.Play();
+
+		DisableAllDragging();
+		itemInfoPanel.SetActive(false);
+	}
 
 	public bool toggleInventoryMenu()
 	{//!inventoryMenu.activeSelf
 		//if inventory is closed and in dialogue
 		if (!inventoryMenu.activeSelf)
 		{
-			inventoryMenu.SetActive(true);
-			inventoryShown = true;
-			player.canAttack = false;
-			EnableAllDragging();
-			
+			showInventory();
 			return true;
 		}
 		else
 		{
-			inventoryMenu.SetActive(false);
-			inventoryShown = false;
-			player.canAttack = true;
-			currentlyHoveredItem = null;
-
-            DisableAllDragging();
-			itemInfoPanel.SetActive(false);
-
+			hideInventory();
 			return false;
 		}
 	}
@@ -538,6 +550,30 @@ private void Update()
 		currentlyHoveredSlot = slot;		
     }
 
+
+	public void assignEquippedItems()
+	{
+		List<Item> newEquippedItems = new List<Item>();
+		foreach (InventorySlot slot in inventorySlots)
+		{
+			
+
+			if (slot.isEquipmentSlot)
+			{
+				InventoryItem currentItem = slot.GetComponentInChildren<InventoryItem>();
+					
+				if (currentItem != null)
+				{
+					
+					newEquippedItems.Add(currentItem.getItem());
+
+				}
+			}
+		}
+
+		equippedItems = newEquippedItems;
+
+	}
 }
 
 

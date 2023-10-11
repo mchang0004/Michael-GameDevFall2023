@@ -71,8 +71,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		slot = this.GetComponentInParent<InventorySlot>();
 
         inventoryManager.currentlyHoveredItem = this;
-        Debug.Log(this.getSlot() + " Current Item Hovering: " + inventoryManager.currentlyHoveredItem);
-        //Debug.Log();
+        //Debug.Log(this.getSlot() + " Current Item Hovering: " + inventoryManager.currentlyHoveredItem);
+        
 
 
         if (item != null && inventoryManager.inventoryMenu.activeSelf)
@@ -90,7 +90,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         slot = this.GetComponentInParent<InventorySlot>();
 
         inventoryManager.currentlyHoveredItem = null;
-        Debug.Log("No Item Hovering");
+        //Debug.Log("No Item Hovering");
 
 
         if (item != null)
@@ -112,7 +112,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		image.raycastTarget = false;
 		parentAfterDrag = transform.parent;
 		transform.SetParent(transform.root);
-		
+		player.inventoryAudio.Play();
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -133,6 +133,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 			inventoryManager.globalAllowCollection = true;
 			image.raycastTarget = true;
 			transform.SetParent(parentAfterDrag);
+			player.inventoryAudio.Play();
+
 		}
 	}
 

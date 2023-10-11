@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SaveLoadTester : MonoBehaviour
 {
@@ -28,13 +30,24 @@ public class SaveLoadTester : MonoBehaviour
 	}
 	public void SavePlayer()
 	{
-		SaveSystem.SavePlayerData(player, itemDatabase);
-		
+		if (!inventoryManager.inventoryMenu.activeSelf)
+		{
+			inventoryManager.showInventory();
+		}
 
+		SaveSystem.SavePlayerData(player, itemDatabase);
+
+		inventoryManager.hideInventory();
 	}
 	//remeber to load the player when starting each scene to reset enemy spawns
 	public void LoadPlayer()
 	{
+		
+		if (!inventoryManager.inventoryMenu.activeSelf)
+		{
+			inventoryManager.showInventory();
+		}
+
 		//delete everything in the inventory before loading new items
 		player.inventoryManager.ClearInventory();
 
@@ -58,6 +71,13 @@ public class SaveLoadTester : MonoBehaviour
 
 			//enemy IDs 
 			player.KilledEnemyIDs = data.killedEnemies;
+
+			//scene 
+
+			player.currentScene = data.currentScene;
+
+			SceneManager.LoadScene(player.currentScene);
+
 
 
 			//need to add a way to respawn enemies that weren't killed yet in previous saves
@@ -89,6 +109,12 @@ public class SaveLoadTester : MonoBehaviour
 			}
 
 		}
+
+		inventoryManager.hideInventory();
+
+
+
+
 	}
 
 

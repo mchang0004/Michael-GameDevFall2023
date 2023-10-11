@@ -32,7 +32,8 @@ public class Item : ScriptableObject
 	public string itemName;
 	public string itemInfo;
 	public string itemStat;
-	public string itemGold; 
+	public string itemGold;
+	public AudioClip mainAudio;
 
 	[Header(" ")]
 	public bool stackable = true;
@@ -55,6 +56,9 @@ public class Item : ScriptableObject
 	[Header("Armor")]
 	public float armorBonus = 0;
 	public bool isEquipped = false;
+	public float healthBonus = 0;
+	public float damageBonus = 0;
+	public int equipmentSlot = 0;
 
 	[Header("Weapon")]
 	public float attackDamage;

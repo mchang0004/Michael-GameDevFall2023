@@ -22,7 +22,9 @@ public class PlayerData
     public int playerGold;
     public float[] position;
 	public List<InventoryItemData> inventoryData;
-	public List<int> killedEnemies; 
+	public List<int> killedEnemies;
+	public string currentScene;
+
 
 	//public List<int>
 
@@ -42,6 +44,7 @@ public class PlayerData
 
 		killedEnemies = player.KilledEnemyIDs;
 
+		currentScene = player.currentScene;
 
 		//inventory saving
 

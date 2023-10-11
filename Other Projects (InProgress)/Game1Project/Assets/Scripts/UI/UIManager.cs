@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         healthAmount = player.currentHP;
-		maxHealth = player.maxHP;
+		maxHealth = player.currentMaxHP;
         refreshHealthUI();
        
 	}

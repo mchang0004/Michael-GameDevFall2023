@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
-  m_Name: Armor_Tester
+  m_Name: Health Potion
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: c3c1a20c0a1888f4b89b35c8ad6743f2, type: 3}
-  itemType: 1
-  actionType: 1
-  itemName: Broken Armor  (Tester) + DAMAGE AND HP
-  itemInfo: Broken Chestplate...
+  image: {fileID: 21300000, guid: d0f7673d2cac08849a34e0fe3cebab89, type: 3}
+  itemType: 3
+  actionType: 0
+  itemName: Health Potion (Tester)
+  itemInfo: Sweet and Tasty!
   itemStat: 
-  itemGold: 
-  stackable: 0
-  <MaxStackSize>k__BackingField: 1
-  isBroken: 0
+  itemGold: 5
+  stackable: 1
+  <MaxStackSize>k__BackingField: 10
+  isBroken: 1
   itemCurrentHP: 0
   itemMaxHP: 0
   isCollectable: 1
   basePrice: 1
   baseSellPrice: 0
   marketQuantity: 0
-  HPBonus: 0
+  HPBonus: 10
   armorBonus: 0
   isEquipped: 0
-  healthBonus: 15
-  damageBonus: 15
+  healthBonus: 0
+  damageBonus: 0
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

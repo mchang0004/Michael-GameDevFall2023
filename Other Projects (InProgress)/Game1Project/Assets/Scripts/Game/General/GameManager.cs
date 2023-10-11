@@ -190,10 +190,10 @@ public class GameManager : MonoBehaviour
 		UICanvas.SetActive(true);
 		swingItem.enabled = true;
 
-		SceneManager.LoadScene("SampleScene");
+		SceneManager.LoadScene("Area 3");
 
 		saveLoadTester.LoadPlayer();
-		saveLoadTester.SavePlayer();
+		//saveLoadTester.SavePlayer();
 	}
 
 	public void disableGameElements()

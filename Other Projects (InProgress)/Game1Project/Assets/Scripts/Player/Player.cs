@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.SceneManagement;
 
+
 /*
  * This class handles the player character:
  * There is a separate class for the inventory, the swinging of the equipped weapon, and player movement.
@@ -14,10 +15,13 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 	[Header("HP & Stats")]
-	public float currentHP = 25f;
+	public float currentHP = 100f;
 	public float maxHP = 100f;
 	public int level;
-	public int gold; 
+	public int gold;
+
+
+	public float currentMaxHP;
 
 	public UIManager uiManager;
 
@@ -45,6 +49,17 @@ public class Player : MonoBehaviour
 
 	public EnemyController rangedAttackTarget; //ranged attack target for arrow
 
+	public AudioSource weaponAudio;
+	public AudioSource damageAudio;
+	public AudioSource inventoryAudio;
+	public AudioSource questAudio;
+
+
+	public AudioClip currentWeaponAudio;
+	public AudioClip damageSound;
+	public AudioClip inventorySound;
+	public AudioClip questSound;
+
 	public GameObject arrow;    //arrow game object
 	public GameObject playerLight;
 	public GameObject disablePlayerLight;
@@ -52,6 +67,9 @@ public class Player : MonoBehaviour
 	public List<int> KilledEnemyIDs;
 
 
+	//equipment:
+	private float equipmentHealthBonus;
+	private float equipmentDamageBonus;
 
 
 	[Header("Player Stats")]
@@ -104,7 +122,8 @@ public class Player : MonoBehaviour
 	public LayerMask enemyLayers;
 	public CapsuleCollider2D playerCollider;
 
-
+	//scene management:
+	public string currentScene;
 
     private void Awake()
     {
@@ -112,24 +131,37 @@ public class Player : MonoBehaviour
     }
     void Start()
 	{
-		
-		uiManager.maxHealth = maxHP;
+		currentMaxHP = maxHP + equipmentHealthBonus;
+		uiManager.maxHealth = currentMaxHP;
 		uiManager.healthAmount = currentHP;
 
 		GameObject weaponObject = transform.Find("Equipped Weapon").gameObject;
 
 		swingItem = weaponObject.GetComponent<SwingItem>();
-		uiManager.healthAmount = maxHP;
+		uiManager.healthAmount = currentMaxHP;
 
 		questManager = FindAnyObjectByType<QuestManager>();
 
 		gameManager = FindAnyObjectByType<GameManager>();
 
 		playerLight = GameObject.Find("PlayerVision(Light)");
+
+		damageAudio.clip = damageSound;
+		inventoryAudio.clip = inventorySound;
+		questAudio.clip = questSound;	
 	}
 
 	void Update()
 	{
+		weaponAudio.clip = currentWeaponAudio;
+
+		currentScene = SceneManager.GetActiveScene().name;
+
+		Debug.Log("HP # " + currentMaxHP);
+		currentMaxHP = maxHP + equipmentHealthBonus;
+
+		equipmentBuff();
+
 		disablePlayerLight = GameObject.Find("DisablePlayerLight");
 
 		if (disablePlayerLight == null)
@@ -141,11 +173,12 @@ public class Player : MonoBehaviour
 			playerLight.SetActive(false);
 		}
 		//Health:
-		/*uiManager.maxHealth = maxHP;
-		uiManager.healthAmount = currentHP;*/
-		if (currentHP > maxHP)
+		uiManager.maxHealth = currentMaxHP;
+		uiManager.healthAmount = currentHP;
+
+		if (currentHP > currentMaxHP)
 		{
-			currentHP = maxHP;
+			currentHP = currentMaxHP;
 		}
 
 		GameObject weaponObject = transform.Find("Equipped Weapon").gameObject;
@@ -165,16 +198,21 @@ public class Player : MonoBehaviour
 
 			attackRange = equipped_item.attackRange + baseAttackRange;
 			attackPointOffset = equipped_item.attackPointOffset + baseAttackPointOffset;
-			attackDamage = equipped_item.attackDamage + baseAttackDamage;
+			attackDamage = equipped_item.attackDamage + baseAttackDamage + equipmentDamageBonus;
 
 			allowRepeatSwing = equipped_item.allowRepeatSwing;
 
+
+			//set audio clip
+			currentWeaponAudio = equipped_item.mainAudio;
 		}
 		else
 		{
 			allowRepeatSwing = false;
 			attackPointOffset = attackRange = attackDamage = 0;
-			
+			currentWeaponAudio = null;
+
+			//disable audio clip
 		}
 		//if weapon is swapped to new weapon
 		
@@ -195,11 +233,13 @@ public class Player : MonoBehaviour
 				if (attack.action.ReadValue<float>() > 0.0f && weaponEquipped() && allowRepeatSwing)
 				{
 					Attack();
+					weaponAudio.Play();
 					nextAttackTime = Time.time + attackSpeed;
 				}
 				else if (attack.action.triggered && weaponEquipped() && !allowRepeatSwing)
 				{
 					Attack();
+					weaponAudio.Play();
 					nextAttackTime = Time.time + attackSpeed;
 				}
 			
@@ -249,6 +289,7 @@ public class Player : MonoBehaviour
 			attackPoint.position = playerCollider.bounds.center + (playerMovement.getLastDirection() * attackPointOffset);
 			playerDirection = playerMovement.getLastDirection();
 		}
+
 
 		
 
@@ -349,7 +390,8 @@ public class Player : MonoBehaviour
 			return;
 
 		currentHP -= amount;
-		Debug.Log("You took " + amount + " of damage! You are now at: " + currentHP);
+		//Debug.Log("You took " + amount + " of damage! You are now at: " + currentHP);
+		damageAudio.Play();
 		StartCoroutine(invincibleAndHighlight());
 		if (currentHP <= 0)
 		{
@@ -385,6 +427,23 @@ public class Player : MonoBehaviour
 	public Vector3 GetPlayerDirection() 
 	{
 		return transform.forward;
+	}
+
+	public void equipmentBuff()
+	{
+		float tempHealthBonus = 0;
+		float tempDamageBonus = 0;
+
+		foreach (Item item in inventoryManager.equippedItems)
+		{
+			//Debug.Log(item);
+			tempHealthBonus += item.healthBonus;
+			tempDamageBonus += item.damageBonus;
+		}
+
+		equipmentHealthBonus = tempHealthBonus;
+		equipmentDamageBonus = tempDamageBonus;
+
 	}
 
 }
