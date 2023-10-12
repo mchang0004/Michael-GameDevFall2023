@@ -58,7 +58,8 @@ public class Item : ScriptableObject
 	public float armorBonus = 0;
 	public bool isEquipped = false;
 	public float healthBonus = 0;
-	public float damageBonus = 0;
+	public float meleeDamageBonus = 0;
+	public float rangedDamageBonus = 0;
 	public int equipmentSlot = 0;
 
 	[Header("Weapon")]

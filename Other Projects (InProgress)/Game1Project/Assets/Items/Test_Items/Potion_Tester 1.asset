@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
   m_Name: Potion_Tester 1
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: d0f7673d2cac08849a34e0fe3cebab89, type: 3}
+  image: {fileID: 21300000, guid: 68a80f93cd5c94c4a964a7815be6f65d, type: 3}
   itemType: 3
   actionType: 0
   itemName: Health Potion (Tester)
@@ -29,7 +29,7 @@ MonoBehaviour:
   basePrice: 1
   baseSellPrice: 0
   marketQuantity: 0
-  HPBonus: 5
+  HPBonus: 1000
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0

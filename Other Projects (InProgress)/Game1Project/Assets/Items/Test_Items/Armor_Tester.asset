@@ -33,7 +33,8 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 250
-  damageBonus: 25
+  meleeDamageBonus: 250
+  rangedDamageBonus: 250
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

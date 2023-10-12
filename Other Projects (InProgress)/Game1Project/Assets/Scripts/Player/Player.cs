@@ -70,7 +70,8 @@ public class Player : MonoBehaviour
 
 	//equipment:
 	private float equipmentHealthBonus;
-	private float equipmentDamageBonus;
+	private float equipmentMeleeDamageBonus;
+	private float equipmentRangedDamageBonus;
 
 
 	[Header("Player Stats")]
@@ -117,7 +118,7 @@ public class Player : MonoBehaviour
 	public float knockbackForce = 10f;
 
 	[HideInInspector]
-	public float attackDamage, attackPointOffset, attackRange, attackSpeed;
+	public float attackDamage, attackRangedDamage, attackPointOffset, attackRange, attackSpeed;
 
 
 	public LayerMask enemyLayers;
@@ -199,8 +200,8 @@ public class Player : MonoBehaviour
 
 			attackRange = equipped_item.attackRange + baseAttackRange;
 			attackPointOffset = equipped_item.attackPointOffset + baseAttackPointOffset;
-			attackDamage = equipped_item.attackDamage + baseAttackDamage + equipmentDamageBonus;
-
+			attackDamage = equipped_item.attackDamage + baseAttackDamage + equipmentMeleeDamageBonus;
+			attackRangedDamage = equipped_item.attackDamage + baseAttackDamage + equipmentRangedDamageBonus;
 			allowRepeatSwing = equipped_item.allowRepeatSwing;
 
 
@@ -210,7 +211,7 @@ public class Player : MonoBehaviour
 		else
 		{
 			allowRepeatSwing = false;
-			attackPointOffset = attackRange = attackDamage = 0;
+			attackPointOffset = attackRange = attackDamage = attackRangedDamage = 0;
 			currentWeaponAudio = null;
 
 			//disable audio clip
@@ -375,7 +376,7 @@ public class Player : MonoBehaviour
 
 
 		//Debug.Log(enemy.maxHealth + " HIT #####");
-		float damage = attackDamage;
+		float damage = attackRangedDamage;
 
 		enemy.TakeDamage(damage);
 		nextAttackTime = Time.time + attackSpeed; //attack speed
@@ -440,17 +441,20 @@ public class Player : MonoBehaviour
 	public void equipmentBuff()
 	{
 		float tempHealthBonus = 0;
-		float tempDamageBonus = 0;
+		float tempMeleeDamageBonus = 0;
+		float tempRangedDamageBonus = 0;
 
 		foreach (Item item in inventoryManager.equippedItems)
 		{
 			//Debug.Log(item);
 			tempHealthBonus += item.healthBonus;
-			tempDamageBonus += item.damageBonus;
+			tempMeleeDamageBonus += item.meleeDamageBonus;
+			tempRangedDamageBonus += item.rangedDamageBonus;
 		}
 
 		equipmentHealthBonus = tempHealthBonus;
-		equipmentDamageBonus = tempDamageBonus;
+		equipmentMeleeDamageBonus = tempMeleeDamageBonus;
+		equipmentRangedDamageBonus = tempRangedDamageBonus;
 
 	}
 
