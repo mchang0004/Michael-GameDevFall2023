@@ -29,7 +29,7 @@ public class PlayerData
 	public List<int> submittedQuestItemIDs;
 
 	public string currentScene;
-
+	public int enemiesKilled;
 
 	//public List<int>
 
@@ -55,7 +55,7 @@ public class PlayerData
 		submittedQuestItemIDs = player.submittedQuestItemIDs;
 
 		currentScene = player.currentScene;
-
+		enemiesKilled = player.enemiesKilled;
 		//inventory saving
 
 		inventoryData = new List<InventoryItemData>();

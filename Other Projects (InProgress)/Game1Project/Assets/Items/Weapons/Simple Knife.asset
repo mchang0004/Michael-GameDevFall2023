@@ -37,7 +37,7 @@ MonoBehaviour:
   rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 2
-  attackSpeed: 2.9
+  attackSpeed: 2.5
   attackRange: 0.2
   attackPointOffset: 0.4
   allowRepeatSwing: 1

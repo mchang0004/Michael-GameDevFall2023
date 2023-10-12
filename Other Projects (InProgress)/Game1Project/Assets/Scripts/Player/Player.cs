@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 /*
@@ -65,6 +66,8 @@ public class Player : MonoBehaviour
 	public GameObject disablePlayerLight;
 	public Item arrowItem;
 
+	public int enemiesKilled;
+
 	public List<int> KilledEnemyIDs;
 	public List<int> activeQuestIDs;
 	public List<int> completedQuestIDs;
@@ -86,7 +89,11 @@ public class Player : MonoBehaviour
     public float Intelligence = 1f;
 	public float Wisdom = 1f;
     public float Charisma = 1f;
-    /*public PlayerStats playerStats;
+
+	public TextMeshProUGUI MeleeDamageText;
+	public TextMeshProUGUI RangedDamageText;
+	public TextMeshProUGUI EnemiesKilledText;
+	/*public PlayerStats playerStats;
 
 
 	public float Strength = playerStats.Strength;
@@ -97,8 +104,8 @@ public class Player : MonoBehaviour
 	public float Charisma = playerStats.Charisma;
 */
 
-    //[Header("Toggles")]
-    public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
+	//[Header("Toggles")]
+	public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
 
 	
 	//Attacking:
@@ -137,6 +144,7 @@ public class Player : MonoBehaviour
     }
     void Start()
 	{
+		
 
 		activeQuestIDs.Clear();
 		completedQuestIDs.Clear();
@@ -163,6 +171,21 @@ public class Player : MonoBehaviour
 
 	void Update()
 	{
+		if(MeleeDamageText != null)
+		{
+			MeleeDamageText.text = "Melee Damage: " + attackDamage;
+		}
+		
+		if(RangedDamageText != null)
+		{
+			RangedDamageText.text = "Ranged Damage: " + attackRangedDamage;
+		}
+	  
+		if(EnemiesKilledText != null) 
+		{
+			EnemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
+		}
+
 		weaponAudio.clip = currentWeaponAudio;
 
 		currentScene = SceneManager.GetActiveScene().name;
@@ -171,6 +194,10 @@ public class Player : MonoBehaviour
 		currentMaxHP = maxHP + equipmentHealthBonus;
 
 		equipmentBuff();
+
+		Debug.Log("equipmentMeleeDamageBonus: " + equipmentMeleeDamageBonus + " |  equipmentRangedDamageBonus: " + equipmentRangedDamageBonus);
+
+		Debug.Log("damage: " + attackDamage + " | Ranged damage: " + attackRangedDamage);
 
 		disablePlayerLight = GameObject.Find("DisablePlayerLight");
 
@@ -186,10 +213,7 @@ public class Player : MonoBehaviour
 		uiManager.maxHealth = currentMaxHP;
 		uiManager.healthAmount = currentHP;
 
-		if (currentHP > currentMaxHP)
-		{
-			currentHP = currentMaxHP;
-		}
+		
 
 		GameObject weaponObject = transform.Find("Equipped Weapon").gameObject;
 
@@ -345,9 +369,12 @@ public class Player : MonoBehaviour
 	//Use Consumable Item Check
 	void Consume()
 	{
+		checkHP();
 		equipped_item = inventoryManager.GetSelectedItem(true);
 		giveHealth(equipped_item.HPBonus);
 		Debug.Log("This item was consumed giving: " + equipped_item.HPBonus);
+		checkHP();
+
 	}
 
 	//Attack Math (Currently only Melee Swing)
@@ -403,6 +430,8 @@ public class Player : MonoBehaviour
 
 	public void takeDamage(float amount)
 	{
+		checkHP();
+
 		if (isInvincible)
 			return;
 
@@ -418,6 +447,7 @@ public class Player : MonoBehaviour
 			Debug.Log("DEAD!");
 		}
 
+		checkHP();
 		/*if(amount > 0)
 		{
 			//uiManager.refreshHealthUI();
@@ -464,6 +494,16 @@ public class Player : MonoBehaviour
 		equipmentMeleeDamageBonus = tempMeleeDamageBonus;
 		equipmentRangedDamageBonus = tempRangedDamageBonus;
 
+	}
+
+	public void checkHP()
+	{
+		if (currentHP > currentMaxHP)
+		{
+			Debug.Log("# CURRENT HP SET");
+			currentMaxHP = maxHP + equipmentHealthBonus;
+			currentHP = currentMaxHP;
+		}
 	}
 
 }

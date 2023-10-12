@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
   m_Name: Moon Crest
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 6457b2a5f5b5a6942824e43130477ab9, type: 3}
+  image: {fileID: 21300000, guid: e2ee1920f669d0640853951d9ec81f8f, type: 3}
   itemType: 1
   actionType: 0
   itemName: Moon Crest

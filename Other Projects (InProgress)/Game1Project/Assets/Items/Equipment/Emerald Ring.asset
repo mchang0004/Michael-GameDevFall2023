@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 0
   itemName: Emerald Ring
   itemInfo: Uncommon Accessory
-  itemStat: +5 Ranged Damage
+  itemStat: +2 Ranged Damage
   itemGold: 
   mainAudio: {fileID: 0}
   stackable: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
   isEquipped: 0
   healthBonus: 0
   meleeDamageBonus: 0
-  rangedDamageBonus: 5
+  rangedDamageBonus: 2
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

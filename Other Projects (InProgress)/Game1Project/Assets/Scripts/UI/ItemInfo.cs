@@ -31,12 +31,12 @@ public class ItemInfo : MonoBehaviour
 				itemStatText.text = currentItem.HPBonus.ToString() + " Health";
 			} else if (currentItem.GetItemType() == ItemType.Armor)
 			{
-				
-				itemStatText.text = currentItem.armorBonus.ToString() + " Armor";
+				//change itemStat to armorBonus later
+				itemStatText.text = currentItem.itemStat.ToString() + " ";
 			} else
 			{
 				
-				itemStatText.text = currentItem.itemStat.ToString() + " ?";
+				itemStatText.text = currentItem.itemStat.ToString() + " ";
 			}
 
 		}

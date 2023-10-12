@@ -200,6 +200,7 @@ public class EnemyController : MonoBehaviour
 
 		}
 
+		player.enemiesKilled++;
 		player.KilledEnemyIDs.Add(EnemyID);
 
 

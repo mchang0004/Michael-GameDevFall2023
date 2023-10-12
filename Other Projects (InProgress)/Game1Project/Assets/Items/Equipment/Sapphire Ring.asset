@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 0
   itemName: Sapphire Ring
   itemInfo: Rare Accessory
-  itemStat: +5 All Damage | +5 HP
+  itemStat: +2 All Damage | +5 HP
   itemGold: 
   mainAudio: {fileID: 0}
   stackable: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 5
-  meleeDamageBonus: 5
-  rangedDamageBonus: 5
+  meleeDamageBonus: 2
+  rangedDamageBonus: 2
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

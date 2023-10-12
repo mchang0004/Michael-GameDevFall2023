@@ -17,7 +17,7 @@ MonoBehaviour:
   actionType: 0
   itemName: Ancient Iron Helmet
   itemInfo: Uncommon Helmet
-  itemStat: +5 Melee Damage
+  itemStat: +2 Melee Damage
   itemGold: 
   mainAudio: {fileID: 0}
   stackable: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0
-  meleeDamageBonus: 5
+  meleeDamageBonus: 2
   rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 0

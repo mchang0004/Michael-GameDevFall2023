@@ -1140,7 +1140,7 @@ PrefabInstance:
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
       value: 
@@ -1331,7 +1331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 18
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -1466,7 +1466,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3560901944725056552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Size.x
-      value: 0.55
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Name
@@ -1772,7 +1772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -2436,12 +2436,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
       value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 65
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -2760,7 +2764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -2773,11 +2777,11 @@ PrefabInstance:
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
       value: 
@@ -3676,6 +3680,10 @@ PrefabInstance:
     - target: {fileID: 3560901945625659552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
@@ -4634,7 +4642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: speed
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
@@ -9115,7 +9123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -9266,7 +9274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 25
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -10745,7 +10753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3560901944725056552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Size.x
-      value: 0.55
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Name
@@ -10754,6 +10762,10 @@ PrefabInstance:
     - target: {fileID: 3560901945625659552, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
@@ -11148,7 +11160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -11161,7 +11173,7 @@ PrefabInstance:
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
@@ -13092,7 +13104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackSpeed
@@ -14245,7 +14257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -39943,7 +39955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -41052,6 +41064,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
       value: 42
       objectReference: {fileID: 0}
@@ -41270,7 +41286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -41564,7 +41580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -41572,18 +41588,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.size
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 832c8843034d28f4897ca73e5309aaa6, type: 2}
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: itemDrops.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: itemDrops.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 7724813368230840597, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
@@ -41935,7 +41959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackSpeed
@@ -98404,7 +98428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 28
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -98820,7 +98844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -99315,7 +99339,7 @@ PrefabInstance:
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
       value: 
@@ -100476,12 +100500,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
       value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -100489,7 +100517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
@@ -100501,6 +100529,10 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: itemDrops.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659566, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
@@ -100779,7 +100811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -101345,6 +101377,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
       value: 41
       objectReference: {fileID: 0}
@@ -101513,7 +101549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -102991,12 +103027,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: EnemyID
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 555
+      value: 155
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -103496,7 +103536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -103945,7 +103985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -104222,28 +104262,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.size
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+    - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
+      propertyPath: itemDrops.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
     - target: {fileID: 7724813368230840597, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -106086,7 +106130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 35
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage
@@ -106094,20 +106138,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 832c8843034d28f4897ca73e5309aaa6, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: itemDrops.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+      objectReference: {fileID: 11400000, guid: 73ccf465857421e4ab5a7e059ab3acfb, type: 2}
     - target: {fileID: 7724813368230840597, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -106568,7 +106612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3560901945625659564, guid: 4a9ad4a632a0ce8459f009c31163b205, type: 3}
       propertyPath: attackDamage

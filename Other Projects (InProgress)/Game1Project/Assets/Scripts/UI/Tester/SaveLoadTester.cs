@@ -78,6 +78,7 @@ public class SaveLoadTester : MonoBehaviour
 
 			SceneManager.LoadScene(player.currentScene);
 
+			player.enemiesKilled = data.enemiesKilled;
 
 
 			//need to add a way to respawn enemies that weren't killed yet in previous saves

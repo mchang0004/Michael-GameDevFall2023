@@ -235,6 +235,8 @@ public class InventoryManager : MonoBehaviour
 	//check whether or not the slot is default or equipment slot.
 	public bool AddItem(Item itemToAdd)
 	{
+		inventoryMenu.SetActive(true);
+
 		if (globalAllowCollection)
 		{
 			for (int i = 0; i < inventorySlots.Length; i++)
@@ -248,6 +250,9 @@ public class InventoryManager : MonoBehaviour
 				{
 					itemInSlot.count++;
 					itemInSlot.RefreshCount();
+
+					if(!inventoryShown) inventoryMenu.SetActive(false);
+
 					return true;
 				}
 				else
@@ -265,11 +270,14 @@ public class InventoryManager : MonoBehaviour
 				if (itemInSlot == null)
 				{
 					SpawnNewItem(itemToAdd, slot, 1);
+
+					if (!inventoryShown) inventoryMenu.SetActive(false); 
 					return true;
 				}
 			}
 		}
-		
+
+		if (!inventoryShown) inventoryMenu.SetActive(false);
 
 		return false;
 	}
