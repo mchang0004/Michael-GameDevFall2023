@@ -175,8 +175,10 @@ public class GameManager : MonoBehaviour
 		saveLoadTester.SavePlayer();
 		saveLoadTester.LoadPlayer();
 
-	
-
+		/*DialogueTrigger questTrigger;
+		questTrigger = FindAnyObjectByType<DialogueTrigger>();
+		questTrigger.inRange = false;
+*/
 
 
 	}
@@ -184,15 +186,9 @@ public class GameManager : MonoBehaviour
 
 	public void LoadSave()
 	{
-		player.SetActive(true);
-		inventoryManager.SetActive(true);
-		dialogueManager.SetActive(true);
-		UICanvas.SetActive(true);
-		swingItem.enabled = true;
-
-		SceneManager.LoadScene("Area 3");
-
-		saveLoadTester.LoadPlayer();
+		
+		startGame();
+		StartCoroutine(waitToLoadGameSave());
 		//saveLoadTester.SavePlayer();
 	}
 
@@ -200,8 +196,17 @@ public class GameManager : MonoBehaviour
 	{
 		player.SetActive(false);
 		inventoryManager.SetActive(false);
-		dialogueManager.SetActive(false);
-		UICanvas.SetActive(false);
+			dialogueManager.SetActive(false);
+			UICanvas.SetActive(false);
 		swingItem.enabled = false;
 	}
+
+	private IEnumerator waitToLoadGameSave()
+	{
+		yield return new WaitForSeconds(0.01f);
+		saveLoadTester.LoadPlayer();
+
+
+	}
+
 }

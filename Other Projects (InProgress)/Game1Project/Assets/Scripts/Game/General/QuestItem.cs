@@ -8,6 +8,8 @@ public class QuestItem : ScriptableObject
 	public bool collected;
 	public bool submitted;
 
+	public int questItemID;
+
 	public Sprite questItemImage;
 	public string questItemName;
 

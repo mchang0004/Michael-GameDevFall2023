@@ -13272,6 +13272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de9c543e51bc0e409ef5de19cfa0fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllQuests:
+  - {fileID: 11400000, guid: 94b1722ebf3840542bafb22cd67ef09d, type: 2}
+  - {fileID: 11400000, guid: 84114b9baf432a946a69869b235df7c7, type: 2}
+  AllQuestItems:
+  - {fileID: 11400000, guid: 14bd5a34306153d449bfd11d22f47bce, type: 2}
+  - {fileID: 11400000, guid: 1ded3b80efe1adb4faab0c590f477c89, type: 2}
   activeQuests: []
   completedQuests: []
   questItemInventory: []

@@ -16,4 +16,8 @@ MonoBehaviour:
   questText: This is a Test! Just to see if everything works!
   questItems:
   - {fileID: 11400000, guid: 1ded3b80efe1adb4faab0c590f477c89, type: 2}
+  turnInDialogue: {fileID: 0}
+  allQuestItemsObtained: 0
   questComplete: 0
+  questID: 2
+  questManager: {fileID: 0}

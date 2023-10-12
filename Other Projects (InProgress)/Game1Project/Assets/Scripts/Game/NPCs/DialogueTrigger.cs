@@ -13,67 +13,95 @@ public class DialogueTrigger : MonoBehaviour
 	public DialogueManager dialogueManager;
 	public QuestManager questManager;
 
-
-	private bool triggered;
+	private bool inRange = false;
+	
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		inRange = false;
 		//dialogueManager.inDialogue = false;
 		dialogueManager = GameObject.FindAnyObjectByType<DialogueManager>();
 		questManager = GameObject.FindAnyObjectByType<QuestManager>();
+		Debug.Log("# Submitted Quest with All items");
 
-		
+		dialogueQuest.allQuestItemsObtained = false;
 
-		triggered = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (questManager.activeQuests.Contains(dialogueQuest) || questManager.completedQuests.Contains(dialogueQuest))
-		{
-
-			if (checkQuestItems())
-			{
-				dialogueManager.startDialogue(completedDialogue);
-				//markQuestComplete();
-				disableDialogue();
-
-			}
-			else
-			{
-				startingDialogue = dialogueManager.nothingText;
-
-			}
-
-		}
-		else
-		{
-
-			if (!triggered && startingDialogue != null && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
-			{
-
-				dialogueManager.startDialogue(startingDialogue);
-
-	
-
-			}
-		}
-
-		
 
 
 
 	}
 
-    public bool checkQuestItems()
+	void Update()
+	{
+		if (inRange)
+		{
+			Debug.Log("IN Range");
+		} else
+		{
+			Debug.Log("Out of range");
+		}
+	}
+	
+
+
+
+	private void OnTriggerEnter2D(Collider2D other) 
+	{
+		if (other.CompareTag("Player"))
+		{
+			Debug.Log("@ Enter");
+			if (questManager.activeQuests.Contains(dialogueQuest) || questManager.completedQuests.Contains(dialogueQuest))
+			{
+				if (checkQuestItems())
+				{
+					Debug.Log("@@ Submmited!");
+					dialogueQuest.Complete();
+				}
+
+				if (dialogueQuest.questComplete && !questManager.completedQuests.Contains(dialogueQuest))
+				{
+					dialogueManager.startDialogue(completedDialogue);
+
+					//markQuestComplete();
+
+				}
+				else
+				{
+					startingDialogue = dialogueManager.nothingText;
+
+				}
+
+			}
+			else
+			{
+
+				if (startingDialogue != null && dialogueManager != null && other.gameObject.layer == LayerMask.NameToLayer("Player"))
+				{
+
+					dialogueManager.startDialogue(startingDialogue);
+
+
+
+				}
+			}
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.CompareTag("Player"))
+		{
+			inRange = false;
+			Debug.Log("@ Exit");
+		}
+	}
+
+	public bool checkQuestItems()
     {
-		//triggered = true;
 
 		if (dialogueQuest != null && dialogueQuest.allQuestItemsObtained)
 		{
-			Debug.Log("# Submitted Quest with All items");
-			dialogueQuest.Complete();
 			return true;
 		}
 
@@ -81,10 +109,7 @@ public class DialogueTrigger : MonoBehaviour
 	}
 
 	
-	public void disableDialogue()
-	{
-		triggered = true;
-	}
+	
 	
 
 }

@@ -43,7 +43,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 		image.sprite = newItem.image;
         slot = this.GetComponentInParent<InventorySlot>();
 
-        Debug.Log(" Initialized Item Count:" + count);
+        //Debug.Log(" Initialized Item Count:" + count);
 		RefreshCount();
 		//Debug.Log(item);
 

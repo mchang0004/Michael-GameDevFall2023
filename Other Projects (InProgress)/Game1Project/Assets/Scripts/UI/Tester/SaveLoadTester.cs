@@ -11,7 +11,7 @@ public class SaveLoadTester : MonoBehaviour
 
 	[SerializeField]
 	private ItemDatabase itemDatabase;
-
+		
 
 	void Awake()
 	{
@@ -93,7 +93,7 @@ public class SaveLoadTester : MonoBehaviour
 					{
 						
 						player.inventoryManager.SpawnNewItem(item, inventoryManager.inventorySlots[itemData.slotIndex], itemData.count);
-						Debug.Log("Count " + inventoryManager.inventorySlots[itemData.slotIndex].GetComponentInChildren<InventoryItem>().count);
+						//Debug.Log("Count " + inventoryManager.inventorySlots[itemData.slotIndex].GetComponentInChildren<InventoryItem>().count);
 						
 					}
 				}
@@ -112,6 +112,24 @@ public class SaveLoadTester : MonoBehaviour
 
 		inventoryManager.hideInventory();
 
+		//quests:
+		player.questManager.activeQuests.Clear();
+		player.questManager.completedQuests.Clear();
+
+		player.questManager.questItemInventory.Clear();
+
+
+		player.questManager.ResetAllQuests();
+
+		player.activeQuestIDs = data.activeQuestIDs;
+		player.completedQuestIDs = data.completedQuestIDs;
+		player.obtainedQuestItemIDs = data.obtainedQuestItemIDs;
+		player.submittedQuestItemIDs = data.obtainedQuestItemIDs;
+
+
+		player.questManager.addAllQuestsAndQuestItems();
+
+		player.questManager.UpdateQuestUI();	
 
 
 

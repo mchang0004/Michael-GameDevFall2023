@@ -66,6 +66,10 @@ public class Player : MonoBehaviour
 	public Item arrowItem;
 
 	public List<int> KilledEnemyIDs;
+	public List<int> activeQuestIDs;
+	public List<int> completedQuestIDs;
+	public List<int> obtainedQuestItemIDs;
+	public List<int> submittedQuestItemIDs; 
 
 
 	//equipment:
@@ -133,6 +137,10 @@ public class Player : MonoBehaviour
     }
     void Start()
 	{
+
+		activeQuestIDs.Clear();
+		completedQuestIDs.Clear();
+
 		currentMaxHP = maxHP + equipmentHealthBonus;
 		uiManager.maxHealth = currentMaxHP;
 		uiManager.healthAmount = currentHP;
@@ -159,7 +167,7 @@ public class Player : MonoBehaviour
 
 		currentScene = SceneManager.GetActiveScene().name;
 
-		Debug.Log("HP # " + currentMaxHP);
+		//Debug.Log("HP # " + currentMaxHP);
 		currentMaxHP = maxHP + equipmentHealthBonus;
 
 		equipmentBuff();

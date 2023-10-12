@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collected: 0
   submitted: 0
+  questItemID: 1
   questItemImage: {fileID: 21300000, guid: cab40aa98346da54e87dd054fe621fdc, type: 3}
   questItemName: Dungeon Star

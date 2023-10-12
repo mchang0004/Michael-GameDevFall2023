@@ -19,4 +19,5 @@ MonoBehaviour:
   turnInDialogue: {fileID: 11400000, guid: 41da55e937d548f4da683585f59846e1, type: 2}
   allQuestItemsObtained: 0
   questComplete: 0
+  questID: 1
   questManager: {fileID: 0}

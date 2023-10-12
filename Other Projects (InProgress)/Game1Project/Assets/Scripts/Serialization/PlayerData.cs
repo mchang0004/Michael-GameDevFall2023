@@ -23,6 +23,11 @@ public class PlayerData
     public float[] position;
 	public List<InventoryItemData> inventoryData;
 	public List<int> killedEnemies;
+	public List<int> activeQuestIDs;
+	public List<int> completedQuestIDs;
+	public List<int> obtainedQuestItemIDs;
+	public List<int> submittedQuestItemIDs;
+
 	public string currentScene;
 
 
@@ -43,6 +48,11 @@ public class PlayerData
         position[2] = player.transform.position.z;
 
 		killedEnemies = player.KilledEnemyIDs;
+
+		activeQuestIDs = player.activeQuestIDs;
+		completedQuestIDs = player.completedQuestIDs;
+		obtainedQuestItemIDs = player.obtainedQuestItemIDs;
+		submittedQuestItemIDs = player.submittedQuestItemIDs;
 
 		currentScene = player.currentScene;
 

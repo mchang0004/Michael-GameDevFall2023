@@ -15,7 +15,10 @@ public class Quest : ScriptableObject
 	public bool allQuestItemsObtained;
 	public bool questComplete;
 
+	public int questID;
+
 	public QuestManager questManager;
+
 
 
 	//True if item is for this quest
@@ -26,20 +29,26 @@ public class Quest : ScriptableObject
 
 	public void updateQuestStatus()
 	{
-		questManager = FindAnyObjectByType<QuestManager>();
-
-		bool itemCollected = true; //if the player doesn't have one of the quest items then it sets it to false.
-		foreach (QuestItem item in questItems)
+		if(!questComplete)
 		{
-			if (!questManager.questItemInventory.Contains(item))
+			questManager = FindAnyObjectByType<QuestManager>();
+
+			allQuestItemsObtained = false;
+
+			bool itemCollected = true; //if the player doesn't have one of the quest items then it sets it to false.
+			foreach (QuestItem item in questItems)
 			{
-				itemCollected = false;
-				break;
+				if (!questManager.questItemInventory.Contains(item))
+				{
+					itemCollected = false;
+					break;
+				}
+
 			}
 
+			allQuestItemsObtained = itemCollected;
 		}
-
-		allQuestItemsObtained = itemCollected;
+		
 
 	}
 
