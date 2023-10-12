@@ -1751,7 +1751,7 @@ PrefabInstance:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: a551a0721c73ddb4ab36976695e5cb33, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot
@@ -3445,12 +3445,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: 36fc12e1685c87d418b30edd41b47d08, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
@@ -5198,12 +5198,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: 9f1c8a696be3a724d860ac4d8fb94526, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
@@ -5570,7 +5570,7 @@ PrefabInstance:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: a551a0721c73ddb4ab36976695e5cb33, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (1)
@@ -7638,12 +7638,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: d4fffa7e894599842b18445d81383138, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)
@@ -8094,15 +8094,10 @@ MonoBehaviour:
   saveLoadTester: {fileID: 0}
   startingItems:
   - {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
-  - {fileID: 11400000, guid: 9047d2256dcb2ab47996f751b38f853a, type: 2}
-  - {fileID: 11400000, guid: 9047d2256dcb2ab47996f751b38f853a, type: 2}
-  - {fileID: 11400000, guid: ad0b56f046be52e49b67084836d9534c, type: 2}
-  - {fileID: 11400000, guid: f2b0e04284ec0da4893bc3bee4b9130d, type: 2}
-  - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
-  - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
-  - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
-  - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
-  - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
+  - {fileID: 11400000, guid: 84bf263b2b2044f4da6b7bec856a1fe1, type: 2}
+  - {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+  - {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
+  - {fileID: 11400000, guid: 2a104971cc2f57a48b82fe0b99b0eff8, type: 2}
 --- !u!4 &972595707
 Transform:
   m_ObjectHideFlags: 0
@@ -8238,7 +8233,7 @@ PrefabInstance:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: a551a0721c73ddb4ab36976695e5cb33, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (3)
@@ -10836,12 +10831,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: 5162e27166a0e84418967b52ecd9799d, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot
@@ -11369,7 +11364,7 @@ PrefabInstance:
     - target: {fileID: 3244906007003578370, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 66790f19b73f11440bf2088d25a99b5e, type: 3}
+      objectReference: {fileID: 21300000, guid: a551a0721c73ddb4ab36976695e5cb33, type: 3}
     - target: {fileID: 4070886818142876910, guid: b6f73e4d98a48544c821ab8918273ac8, type: 3}
       propertyPath: m_Name
       value: InventorySlot (2)

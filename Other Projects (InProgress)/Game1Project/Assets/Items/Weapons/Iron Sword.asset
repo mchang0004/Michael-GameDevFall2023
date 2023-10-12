@@ -15,10 +15,10 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: aa57f2ac1fa9e1249a4c9b36cab2f856, type: 3}
   itemType: 7
   actionType: 0
-  itemName: Iron Sword  (Tester)
-  itemInfo: Weapon
-  itemStat: 
-  itemGold: 3
+  itemName: Iron Sword
+  itemInfo: Common Sword
+  itemStat: 3 Damage
+  itemGold: 5
   mainAudio: {fileID: 8300000, guid: 251e52fb726489c4d815689d2a9c3459, type: 3}
   stackable: 0
   <MaxStackSize>k__BackingField: 1
@@ -33,10 +33,11 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0
-  damageBonus: 0
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
   equipmentSlot: 0
-  attackDamage: 2
+  attackDamage: 3
   attackSpeed: 2.5
-  attackRange: 0.4
-  attackPointOffset: 0.45
+  attackRange: 0.45
+  attackPointOffset: 0.5
   allowRepeatSwing: 1

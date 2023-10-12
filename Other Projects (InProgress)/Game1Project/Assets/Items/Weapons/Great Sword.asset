@@ -16,9 +16,9 @@ MonoBehaviour:
   itemType: 7
   actionType: 0
   itemName: Iron Greatsword
-  itemInfo: Weapon
-  itemStat: Slow to swing, but does lots of Damage
-  itemGold: 3
+  itemInfo: Uncommon Sword
+  itemStat: 5 Damage
+  itemGold: 25
   mainAudio: {fileID: 8300000, guid: 251e52fb726489c4d815689d2a9c3459, type: 3}
   stackable: 0
   <MaxStackSize>k__BackingField: 1
@@ -33,7 +33,8 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0
-  damageBonus: 0
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 5
   attackSpeed: 2.2

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
   m_Name: Iron Chestplate
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: a84ce07ecd912d94096a00a0169e765a, type: 3}
+  image: {fileID: 21300000, guid: d034e1f668d4e344c91bf631e9258e44, type: 3}
   itemType: 0
   actionType: 0
-  itemName: 
-  itemInfo: 
-  itemStat: 
+  itemName: Iron Chestplate
+  itemInfo: Common Armor
+  itemStat: +15 HP
   itemGold: 
-  stackable: 1
+  mainAudio: {fileID: 0}
+  stackable: 0
   <MaxStackSize>k__BackingField: 1
   isBroken: 0
   itemCurrentHP: 0
@@ -31,8 +32,9 @@ MonoBehaviour:
   HPBonus: 0
   armorBonus: 0
   isEquipped: 0
-  healthBonus: 0
-  damageBonus: 0
+  healthBonus: 15
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

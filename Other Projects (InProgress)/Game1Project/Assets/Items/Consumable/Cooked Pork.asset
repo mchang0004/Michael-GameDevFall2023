@@ -17,22 +17,24 @@ MonoBehaviour:
   actionType: 0
   itemName: Cooked Pork
   itemInfo: 
-  itemStat: 
+  itemStat: +3 HP
   itemGold: 1
+  mainAudio: {fileID: 0}
   stackable: 1
   <MaxStackSize>k__BackingField: 10
-  isBroken: 1
+  isBroken: 0
   itemCurrentHP: 0
   itemMaxHP: 0
   isCollectable: 1
   basePrice: 1
   baseSellPrice: 0
   marketQuantity: 0
-  HPBonus: 1
+  HPBonus: 3
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0
-  damageBonus: 0
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 0
   attackSpeed: 0

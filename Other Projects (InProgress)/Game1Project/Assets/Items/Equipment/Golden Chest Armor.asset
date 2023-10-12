@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
+  m_Name: Golden Chest Armor
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: a77076633d12fe74bbc7a87d0aebefa7, type: 3}
+  itemType: 0
+  actionType: 0
+  itemName: Golden Chest Armor
+  itemInfo: Rare Armor
+  itemStat: +30 HP | +5 Melee Damage
+  itemGold: 
+  mainAudio: {fileID: 0}
+  stackable: 0
+  <MaxStackSize>k__BackingField: 1
+  isBroken: 0
+  itemCurrentHP: 0
+  itemMaxHP: 0
+  isCollectable: 1
+  basePrice: 1
+  baseSellPrice: 0
+  marketQuantity: 0
+  HPBonus: 0
+  armorBonus: 0
+  isEquipped: 0
+  healthBonus: 30
+  meleeDamageBonus: 5
+  rangedDamageBonus: 0
+  equipmentSlot: 0
+  attackDamage: 0
+  attackSpeed: 0
+  attackRange: 0
+  attackPointOffset: 0
+  allowRepeatSwing: 0

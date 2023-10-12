@@ -16,9 +16,9 @@ MonoBehaviour:
   itemType: 7
   actionType: 0
   itemName: Simple Sword
-  itemInfo: Weapon
-  itemStat: 
-  itemGold: 
+  itemInfo: Common Sword
+  itemStat: 1 Damage
+  itemGold: 1
   mainAudio: {fileID: 8300000, guid: 251e52fb726489c4d815689d2a9c3459, type: 3}
   stackable: 0
   <MaxStackSize>k__BackingField: 1
@@ -33,7 +33,8 @@ MonoBehaviour:
   armorBonus: 0
   isEquipped: 0
   healthBonus: 0
-  damageBonus: 0
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
   equipmentSlot: 0
   attackDamage: 1
   attackSpeed: 2.5

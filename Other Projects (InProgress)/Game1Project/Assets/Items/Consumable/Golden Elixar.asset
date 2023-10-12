@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28385c1a2791ed46bbd088d1838d4ac, type: 3}
+  m_Name: Golden Elixar
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 9f77104dc786ec74b90e0760e651ea98, type: 3}
+  itemType: 3
+  actionType: 0
+  itemName: Golden Elixar
+  itemInfo: Rare Potion
+  itemStat: +25 HP
+  itemGold: 
+  mainAudio: {fileID: 0}
+  stackable: 1
+  <MaxStackSize>k__BackingField: 10
+  isBroken: 0
+  itemCurrentHP: 0
+  itemMaxHP: 0
+  isCollectable: 1
+  basePrice: 1
+  baseSellPrice: 0
+  marketQuantity: 0
+  HPBonus: 25
+  armorBonus: 0
+  isEquipped: 0
+  healthBonus: 0
+  meleeDamageBonus: 0
+  rangedDamageBonus: 0
+  equipmentSlot: 0
+  attackDamage: 0
+  attackSpeed: 0
+  attackRange: 0
+  attackPointOffset: 0
+  allowRepeatSwing: 0
