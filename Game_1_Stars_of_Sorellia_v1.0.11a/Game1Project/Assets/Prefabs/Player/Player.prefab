@@ -599,21 +599,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 100
   maxHP: 100
+  currentMaxHP: 0
+  invincibilityDuration: 0.25
+  Strength: 1
+  Dexterity: 1
+  Constitution: 1
+  Intelligence: 1
+  Wisdom: 1
+  Charisma: 1
   level: 0
   gold: 0
-  currentMaxHP: 0
+  playerMovement: {fileID: 7960984697927364944}
+  playerLight: {fileID: 0}
+  disablePlayerLight: {fileID: 0}
+  KilledEnemyIDs: 
+  activeQuestIDs: 
+  completedQuestIDs: 
+  obtainedQuestItemIDs: 
+  submittedQuestItemIDs: 
+  playerRB: {fileID: 7960984697927364950}
+  dropPoint: {fileID: 1691877970409373315}
+  playerCollider: {fileID: 7960984697927364951}
   uiManager: {fileID: 0}
-  invincibilityDuration: 0.25
-  swingItem: {fileID: 1572187788}
-  allowRepeatSwing: 0
-  equipped_item: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
-  equippedItemObject: {fileID: 1572187785}
   inventoryManager: {fileID: 0}
   gameManager: {fileID: 0}
   questManager: {fileID: 0}
-  playerMovement: {fileID: 7960984697927364944}
-  attack: {fileID: -5174839665303231394, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
+  swingItem: {fileID: 1572187788}
+  allowRepeatSwing: 0
   rangedAttackTarget: {fileID: 0}
+  equipped_item: {fileID: 11400000, guid: 5904edfd1b3240a4e8928c25db89db22, type: 2}
+  equippedItemObject: {fileID: 1572187785}
+  attack: {fileID: -5174839665303231394, guid: 73dd0f26c833ef24e920014454cc1d4d, type: 3}
+  arrow: {fileID: 4501205970775413310, guid: ddbaf3f025fa8194d8e441e36df3fe2e, type: 3}
+  arrowItem: {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
+  enemiesKilled: 0
+  canAttack: 1
+  attackPoint: {fileID: 1088466920}
+  baseAttackDamage: 0
+  baseAttackPointOffset: 0
+  baseAttackRange: 0
+  baseAttackSpeed: 3
+  nextAttackTime: 0
+  knockbackForce: 10
+  attackDamage: 0
+  attackRangedDamage: 0
+  attackPointOffset: 0.3
+  attackRange: 0.5
+  attackSpeed: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
   weaponAudio: {fileID: 2972501447491366413}
   damageAudio: {fileID: 537055266}
   inventoryAudio: {fileID: 537055265}
@@ -622,34 +657,9 @@ MonoBehaviour:
   damageSound: {fileID: 8300000, guid: c7a112770e8694d48800a3d0a7b31cab, type: 3}
   inventorySound: {fileID: 8300000, guid: 269240e7f71bbb04a873f22af870ce77, type: 3}
   questSound: {fileID: 8300000, guid: 28ed1c0cd8a4edc4bad58f009e6504db, type: 3}
-  arrow: {fileID: 4501205970775413310, guid: ddbaf3f025fa8194d8e441e36df3fe2e, type: 3}
-  playerLight: {fileID: 0}
-  disablePlayerLight: {fileID: 0}
-  arrowItem: {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
-  KilledEnemyIDs: 
-  Strength: 1
-  Dexterity: 1
-  Constitution: 1
-  Intelligence: 1
-  Wisdom: 1
-  Charisma: 1
-  canAttack: 1
-  attackPoint: {fileID: 1088466920}
-  dropPoint: {fileID: 1691877970409373315}
-  baseAttackDamage: 1
-  baseAttackPointOffset: 0
-  baseAttackRange: 0
-  baseAttackSpeed: 3
-  nextAttackTime: 0
-  knockbackForce: 10
-  attackDamage: 0
-  attackPointOffset: 0.3
-  attackRange: 0.5
-  attackSpeed: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  playerCollider: {fileID: 7960984697927364951}
+  MeleeDamageText: {fileID: 0}
+  RangedDamageText: {fileID: 0}
+  EnemiesKilledText: {fileID: 0}
   currentScene: 
 --- !u!82 &2972501447491366413
 AudioSource:

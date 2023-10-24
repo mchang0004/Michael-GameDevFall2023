@@ -15,7 +15,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c47f1e88cee08584ca7eeb1d77171aa7, type: 3}
   itemType: 7
   actionType: 0
-  itemName: Glave  (Tester)
+  itemName: Glave
   itemInfo: Rare Spear
   itemStat: 5 Damage
   itemGold: 150

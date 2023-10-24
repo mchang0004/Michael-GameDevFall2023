@@ -15,19 +15,19 @@ public class ChangeScene : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("Trigger");
+
+		//Debug.Log("Trigger");
 
 		if (other.CompareTag("Player"))
+		{
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
 
 		SceneManager.LoadScene(sceneName);
-
-
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
 			
 		player.transform.position = spawnPosition;
 
-		
-		
+		}
+
 
 	}
 }

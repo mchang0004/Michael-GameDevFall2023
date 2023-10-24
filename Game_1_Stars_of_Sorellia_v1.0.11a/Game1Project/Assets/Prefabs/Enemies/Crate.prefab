@@ -238,6 +238,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
   - {fileID: 11400000, guid: e3a366bfcb2f70341a73090fad9959dd, type: 2}
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
+  killCountVal: 0
   speed: 0
   distanceToStop: 0
   baseAggroRange: 5

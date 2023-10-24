@@ -15,84 +15,108 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-	[Header("HP & Stats")]
+	[Header("HP & Defense")]
 	public float currentHP = 100f;
 	public float maxHP = 100f;
-	public int level;
-	public int gold;
-
-
 	public float currentMaxHP;
-
-	public UIManager uiManager;
-
-	public float invincibilityDuration = 1f;
+	public float invincibilityDuration = 0.75f;
 	private bool isInvincible;
 
-	public SwingItem swingItem;
+	[Header("Player Stats")]
 
-	[HideInInspector]
-	public bool allowRepeatSwing; //controlled by the weapon
+	public float Strength = 0f;
+	public float Dexterity = 0f;
+	public float Constitution = 0f;
+	public float Intelligence = 0f;
+	public float Wisdom = 0f;
+	public float Charisma = 0f;
 
-
-	public Item equipped_item; //pass item that is selected to use image and get stats
-	public GameObject equippedItemObject;
-
-	public InventoryManager inventoryManager;
-
-	public GameManager gameManager;
-
-	public QuestManager questManager;
-
+	[Header("General")]
+	public int level;
+	public int gold;
 	public PlayerMovement playerMovement; //PlayerMovement Script for Direction
 
-	public InputActionReference attack;
-
-	public EnemyController rangedAttackTarget; //ranged attack target for arrow
-
-	public AudioSource weaponAudio;
-	public AudioSource damageAudio;
-	public AudioSource inventoryAudio;
-	public AudioSource questAudio;
-
-
-	public AudioClip currentWeaponAudio;
-	public AudioClip damageSound;
-	public AudioClip inventorySound;
-	public AudioClip questSound;
-
-	public GameObject arrow;    //arrow game object
 	public GameObject playerLight;
 	public GameObject disablePlayerLight;
-	public Item arrowItem;
-
-	public int enemiesKilled;
 
 	public List<int> KilledEnemyIDs;
 	public List<int> activeQuestIDs;
 	public List<int> completedQuestIDs;
 	public List<int> obtainedQuestItemIDs;
-	public List<int> submittedQuestItemIDs; 
+	public List<int> submittedQuestItemIDs;
+
+	public Rigidbody2D playerRB;
+
+	public Vector2 playerDirection { get; private set; } = Vector2.right;
+
+	[SerializeField] public Transform dropPoint;
+
+	public CapsuleCollider2D playerCollider;
+
+	[Header("Managers")]
+	public UIManager uiManager;
+	public InventoryManager inventoryManager;
+	public GameManager gameManager;
+
+	public QuestManager questManager;
+	public SwingItem swingItem;
+
+	[Header("Combat")]
+	[HideInInspector]
+	public bool allowRepeatSwing; //controlled by the weapon
+	public EnemyController rangedAttackTarget; //ranged attack target for arrow
+	public Item equipped_item; //pass item that is selected to use image and get stats
+	public GameObject equippedItemObject;
+	public InputActionReference attack;
+	public GameObject arrow;    //arrow game object
+	public Item arrowItem;
+	public int enemiesKilled;
+
+	public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
+
+	public Transform attackPoint;
 
 
-	//equipment:
+	public float baseAttackDamage = 0f;
+	public float baseAttackPointOffset = 0.0f;
+	public float baseAttackRange = 0.0f;
+	public float baseAttackSpeed = 3f;      //Base Attack Speed should be the slowest attack possible
+	public float nextAttackTime;
+
+	public float knockbackForce = 10f;
+	[HideInInspector]
+	public float attackDamage, attackRangedDamage, attackPointOffset, attackRange, attackSpeed;
+
+
+	public LayerMask enemyLayers;
+	[Header("Equipment")]
 	private float equipmentHealthBonus;
 	private float equipmentMeleeDamageBonus;
 	private float equipmentRangedDamageBonus;
 
 
-	[Header("Player Stats")]
 
-	public float Strength = 1f;
-    public float Dexterity = 1f;
-    public float Constitution = 1f;
-    public float Intelligence = 1f;
-	public float Wisdom = 1f;
-    public float Charisma = 1f;
+	[Header("Audio")]
+	public AudioSource weaponAudio;
+	public AudioSource damageAudio;
+	public AudioSource inventoryAudio;
+	public AudioSource questAudio;
+	public AudioClip currentWeaponAudio;
+	public AudioClip damageSound;
+	public AudioClip inventorySound;
+	public AudioClip questSound;
+
+
+	[Header("UI")]
+
 
 	public TextMeshProUGUI MeleeDamageText;
 	public TextMeshProUGUI RangedDamageText;
 	public TextMeshProUGUI EnemiesKilledText;
+
+	[Header("Scene")]
+	public string currentScene;
+
 	/*public PlayerStats playerStats;
 
 
@@ -105,40 +129,24 @@ public class Player : MonoBehaviour
 */
 
 	//[Header("Toggles")]
-	public bool canAttack = false; //should be accessed in SwingItem.cs for the animation
 
-	
+
 	//Attacking:
 
 
 	//Melee Weapon Swing
-	public Vector2 playerDirection { get; private set; } = Vector2.right;
 
-	[Header("Attacking")]
 
-	public Transform attackPoint;
-	[SerializeField] public Transform dropPoint;
+
 
 	//Swing Melee Combat 
-	public float baseAttackDamage = 1f;
-	public float baseAttackPointOffset = 0.0f;
-	public float baseAttackRange = 0.0f;
-	public float baseAttackSpeed = 3f;      //Base Attack Speed should be the slowest attack possible
-	public float nextAttackTime;
-
-	public float knockbackForce = 10f;
-
-	[HideInInspector]
-	public float attackDamage, attackRangedDamage, attackPointOffset, attackRange, attackSpeed;
 
 
-	public LayerMask enemyLayers;
-	public CapsuleCollider2D playerCollider;
+
 
 	//scene management:
-	public string currentScene;
 
-    private void Awake()
+	private void Awake()
     {
         DontDestroyOnLoad(this);
     }
@@ -195,9 +203,9 @@ public class Player : MonoBehaviour
 
 		equipmentBuff();
 
-		Debug.Log("equipmentMeleeDamageBonus: " + equipmentMeleeDamageBonus + " |  equipmentRangedDamageBonus: " + equipmentRangedDamageBonus);
+		//Debug.Log("equipmentMeleeDamageBonus: " + equipmentMeleeDamageBonus + " |  equipmentRangedDamageBonus: " + equipmentRangedDamageBonus);
 
-		Debug.Log("damage: " + attackDamage + " | Ranged damage: " + attackRangedDamage);
+		//Debug.Log("damage: " + attackDamage + " | Ranged damage: " + attackRangedDamage);
 
 		disablePlayerLight = GameObject.Find("DisablePlayerLight");
 
@@ -232,8 +240,26 @@ public class Player : MonoBehaviour
 
 			attackRange = equipped_item.attackRange + baseAttackRange;
 			attackPointOffset = equipped_item.attackPointOffset + baseAttackPointOffset;
-			attackDamage = equipped_item.attackDamage + baseAttackDamage + equipmentMeleeDamageBonus;
-			attackRangedDamage = equipped_item.attackDamage + baseAttackDamage + equipmentRangedDamageBonus;
+
+			if (equipped_item.GetItemType() == ItemType.Weapon)
+			{
+				attackDamage = equipped_item.attackDamage + baseAttackDamage + equipmentMeleeDamageBonus;
+
+			}
+			else
+			{
+				attackDamage = baseAttackDamage + equipmentRangedDamageBonus;
+			}
+			
+			if(equipped_item.GetItemType() == ItemType.Ranged_Weapon)
+			{
+				attackRangedDamage = equipped_item.attackDamage + baseAttackDamage + equipmentRangedDamageBonus;
+
+			} else
+			{
+				attackRangedDamage = baseAttackDamage + equipmentRangedDamageBonus;
+			}
+
 			allowRepeatSwing = equipped_item.allowRepeatSwing;
 
 

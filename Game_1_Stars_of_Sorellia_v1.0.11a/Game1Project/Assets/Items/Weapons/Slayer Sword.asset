@@ -36,8 +36,8 @@ MonoBehaviour:
   meleeDamageBonus: 0
   rangedDamageBonus: 0
   equipmentSlot: 0
-  attackDamage: 18
-  attackSpeed: 1.3
+  attackDamage: 15
+  attackSpeed: 1.2
   attackRange: 0.75
   attackPointOffset: 0.7
   allowRepeatSwing: 0

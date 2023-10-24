@@ -13,6 +13,8 @@ public class Loot : MonoBehaviour
 	public Item item;
 	public bool isCollectable;
 
+	public Player player;
+
 	public InventoryManager inventoryManager;
 
 	private bool isBeingCollected = false;
@@ -30,7 +32,10 @@ public class Loot : MonoBehaviour
 	{
 		if (isBeingCollected)
 			return;
-
+		if(player == null)
+		{
+			player = GameObject.FindAnyObjectByType<Player>();
+		}
 
 		checkIfFull();
 
@@ -76,6 +81,7 @@ public class Loot : MonoBehaviour
 
 	private IEnumerator MoveAndCollect(Transform target)
 	{
+		
 		Destroy(colliderLoot);
 
 		while (transform.position != target.position)
@@ -97,6 +103,8 @@ public class Loot : MonoBehaviour
 		{
 			isCollectable = false;
 		}
+		
+		
 	}
 
 	public void MoveAndDrop(Vector3 targetPosition)
@@ -111,6 +119,8 @@ public class Loot : MonoBehaviour
 
 	private IEnumerator MoveToDropPoint(Vector3 targetPosition)
 	{
+			
+
 		Vector3 initialPosition = inventoryManager.player.transform.position;
 
 		Collider2D collisionCheck = Physics2D.OverlapPoint(targetPosition);

@@ -11,14 +11,19 @@ public class CameraFollow2D : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-    }
+		//target = GameObject.Find("Player").transform;
+
+		DontDestroyOnLoad(this);
+
+	}
     private void FixedUpdate()
     {
-        Vector3 targetPosition = target.position + offset;
+        if (target != null) { 
+            Vector3 targetPosition = target.position + offset;
 
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
-    }
+            transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+		}
+	}
 
 
 }

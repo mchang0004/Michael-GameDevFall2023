@@ -13682,6 +13682,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8466429031344023302, guid: 43795c4a266fa5640938eb4f29f672de, type: 3}
+      propertyPath: killCountVal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466429031344023302, guid: 43795c4a266fa5640938eb4f29f672de, type: 3}
       propertyPath: itemDrops.Array.size
       value: 2
       objectReference: {fileID: 0}

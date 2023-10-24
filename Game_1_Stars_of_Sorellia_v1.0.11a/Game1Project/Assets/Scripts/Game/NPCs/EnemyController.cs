@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
 	[Header("Drops")]
 	public Item[] itemDrops;
 	public GameObject lootPrefab;
+	public int killCountVal = 1;
 
 	[Header("Movement Stats")]
 	public float speed = 2f;
@@ -90,6 +91,7 @@ public class EnemyController : MonoBehaviour
 		FollowPlayer();
 		moveAttackArea();
 		Vector2 movement = rb.velocity; 
+
 		if(animator != null) {
 		
 			animator.SetFloat("Horizontal", movement.x);
@@ -109,16 +111,11 @@ public class EnemyController : MonoBehaviour
         }
 	
 
-		if(canAttack && enemyCenter != null) //need to add a check to see if player is in radius before attacking 
+		if(canAttack && enemyCenter != null && Time.time >= nextAttackTime) //need to add a check to see if player is in radius before attacking 
 		{
 			//later add a check to see what weapon is equipped
-			if (Time.time >= nextAttackTime)
-			{
-				Attack();
-				//Debug.Log("AttackTime Test");
-				nextAttackTime = Time.time + attackSpeed;
-				
-			}
+			Attack();
+			nextAttackTime = Time.time + attackSpeed;
 
 		}
 		
@@ -200,7 +197,7 @@ public class EnemyController : MonoBehaviour
 
 		}
 
-		player.enemiesKilled++;
+		player.enemiesKilled += killCountVal;
 		player.KilledEnemyIDs.Add(EnemyID);
 
 
@@ -272,7 +269,7 @@ public class EnemyController : MonoBehaviour
 		{
 			if (checkAttackRange())
 			{
-				Debug.Log("Enemy Attacked!");
+				Debug.Log("Enemy Attacked!" + this);
 				player.takeDamage(attackDamage);
 			}
 		} else //if attack is ranged (make sure to modify the attackArea box collider to be longer)

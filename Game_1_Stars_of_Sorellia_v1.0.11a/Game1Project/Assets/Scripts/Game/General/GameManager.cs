@@ -12,17 +12,23 @@ public class GameManager : MonoBehaviour
 
 	//private static GameManager instance;
 	public List<GameObject> Enemies = new List<GameObject>();
-	
-	
 
+	public GameObject gameMenu;
+
+	public Vector3 spawnLocation;
+
+	private bool objectsActive = false;
 
 	public GameObject player;
+	public GameObject playerCamera;
     public GameObject inventoryManager;
     public GameObject dialogueManager;
 	public GameObject questManager;
     public GameObject UICanvas;
     public SwingItem swingItem;
 	public InventoryManager inventoryManagerScript;
+
+	public MainMenuManager mainMenu;
 
 	public SaveLoadTester saveLoadTester;
 
@@ -52,13 +58,15 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Game Manger is Awake");
 
         player = GameObject.Find("Player");
+		playerCamera = GameObject.Find("Player Camera");
 		inventoryManager = GameObject.Find("InventoryManager");
 		dialogueManager = GameObject.Find("DialogueManager");
 		questManager = GameObject.Find("QuestManager");
 		UICanvas = GameObject.Find("UI Canvas");
         swingItem = FindAnyObjectByType<SwingItem>();
-		inventoryManagerScript = FindAnyObjectByType<InventoryManager>();
+		mainMenu = FindAnyObjectByType<MainMenuManager>();
 
+		inventoryManagerScript = FindAnyObjectByType<InventoryManager>();
 		saveLoadTester = FindAnyObjectByType<SaveLoadTester>();
 
 
@@ -70,6 +78,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		player.SetActive(false);
+		playerCamera.SetActive(false);
 		inventoryManager.SetActive(false);
 		dialogueManager.SetActive(false);
 		UICanvas.SetActive(false);
@@ -80,6 +89,17 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
+		if(SceneManager.GetActiveScene().name == "Main Menu")
+		{
+			mainMenu.mainMenuObject.SetActive(true);
+
+		} else
+		{
+			mainMenu.mainMenuObject.SetActive(false);
+
+		}
+
+
 		/*if (Input.GetKeyDown("space"))
 		{
 			Debug.Log("New Scene?");
@@ -114,10 +134,15 @@ public class GameManager : MonoBehaviour
 
 
 		player.SetActive(true);
+
+		player.transform.position = spawnLocation;
+
+		playerCamera.SetActive(true);
 		inventoryManager.SetActive(true);
 		dialogueManager.SetActive(true);
 		UICanvas.SetActive(true);
 		swingItem.enabled = true;
+
 		SceneManager.LoadScene("Area 1");
 	}
 
@@ -195,8 +220,9 @@ public class GameManager : MonoBehaviour
 	public void disableGameElements()
 	{
 		player.SetActive(false);
+		playerCamera.SetActive(false);
 		inventoryManager.SetActive(false);
-			dialogueManager.SetActive(false);
+		dialogueManager.SetActive(false);
 			UICanvas.SetActive(false);
 		swingItem.enabled = false;
 	}
