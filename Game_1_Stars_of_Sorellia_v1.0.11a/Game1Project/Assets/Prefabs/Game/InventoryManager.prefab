@@ -95,16 +95,20 @@ MonoBehaviour:
   - {fileID: 0}
   inventoryItemPrefab: {fileID: 5685313103981766583, guid: e23046e5598b88e48a298c0392cc7fcb, type: 3}
   globalAllowCollection: 1
+  inventorySaved: []
   swingItem: {fileID: 0}
   inventoryEnabled: 1
   inventoryShown: 0
+  allowDropping: 1
+  currentlyHoveredItem: {fileID: 0}
+  currentlyHoveredSlot: {fileID: 0}
   inventoryMenu: {fileID: 0}
   inventoryBar: {fileID: 0}
   lootPrefab: {fileID: 55028969004442762, guid: 6a746e3b7667d7a41a933b0c6fabfc9a, type: 3}
   itemInfoPanel: {fileID: 0}
   itemInfoRect: {fileID: 0}
   currentInfo: {fileID: 0}
-  defaultItem: {fileID: 11400000, guid: f2b0e04284ec0da4893bc3bee4b9130d, type: 2}
+  equippedItems: []
   player: {fileID: 0}
   gameManager: {fileID: 0}
   dialogueManager: {fileID: 0}
