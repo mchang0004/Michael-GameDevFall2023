@@ -5,14 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-	public float aggroRange = 7f;
-	public float deaggroRange = 10f;
+	public float aggroRange = 20f;
+	public float deaggroRange = 25f;
 	public float attackRange = 4f;
 	public float moveSpeed = 3f;
 	public Animator animator;
 	public Transform player;
+	public Transform playerTrack;
 
 	private NavMeshAgent navMeshAgent;
+	public Rigidbody enemyRigidbody;
+
 	private Rigidbody playerRigidbody;
 	private bool enableDamage = false;
 	private PlayerController playerController;
@@ -26,87 +29,152 @@ public class EnemyController : MonoBehaviour
 	private bool isAttacking = false;
 	private bool isIdle = true;
 
+	private float lostSightTimer = 0f;
+	private float delayBeforeIdle = 5f;
+
+	
+	float distanceToPlayer; 
+
 	private float timer = 0f;
 	private float messageInterval = 0.1f;
 
 	void Start()
 	{
+
 		if (animator == null || player == null)
-		{
+		{	
 			Debug.LogError("Animator and Player references are not set!");
 			enabled = false;
 		}
-
+		enemyRigidbody = GetComponent<Rigidbody>();
+		playerTrack = GameObject.Find("PlayerTrack").GetComponent<Transform>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 		playerRigidbody = player.GetComponent<Rigidbody>();
+
+		distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+
 	}
 
 	void Update()
 	{
-		float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+		distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-		if (isAttacking)
+		//DrawRaycastToPlayer();
+
+		EnemyPathing();
+
+	
+	}
+
+
+
+	bool DrawRaycastToPlayer()
+	{
+		Vector3 direction = playerTrack.position - transform.position;
+		Ray ray = new Ray(transform.position, direction);
+		LayerMask obstructionLayer = LayerMask.GetMask("Walls");
+
+		RaycastHit hit;
+		bool canSeePlayer = true; 
+
+		if (Physics.Raycast(ray, out hit, direction.magnitude, obstructionLayer))
 		{
-			Vector3 direction = (player.position - transform.position).normalized;
-			transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+			canSeePlayer = false;
 		}
 
-		if (!isAttacking && distanceToPlayer <= attackRange)
+		if (canSeePlayer)
 		{
-			isAttacking = true;
-			isWalking = false;
-			isIdle = false;
-
-			animator.SetTrigger("IsAttacking");
-			navMeshAgent.isStopped = true;
+			return true;
+			Debug.Log("Enemy can see the player");
 		}
-		else if (isAttacking && distanceToPlayer > attackRange)
+		else
 		{
-			isAttacking = false;
-			isWalking = true;
-			isIdle = false;
-
-			navMeshAgent.isStopped = false;
-		}
-		else if (isWalking && distanceToPlayer > deaggroRange)
-		{
-			isWalking = false;
-			isIdle = true;
-			navMeshAgent.isStopped = true;
-		}
-		else if (isIdle && distanceToPlayer <= aggroRange)
-		{
-			isWalking = true;
-			isIdle = false;
-
-			animator.SetTrigger("IsWalking");
-			navMeshAgent.isStopped = false;
+			return false;
+			Debug.Log("Enemy cannot see the player");
 		}
 
-		if (isWalking)
+	}
+
+
+
+	public enum EnemyState
+	{
+		Idle,
+		Walking,
+		Attacking
+	}
+
+	private EnemyState state = EnemyState.Idle;
+
+	void EnemyPathing()
+	{
+		bool canSeePlayer = DrawRaycastToPlayer();
+
+		if (canSeePlayer)
 		{
-			navMeshAgent.SetDestination(player.position);
+			float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+			if (distanceToPlayer > attackRange)
+			{
+				state = EnemyState.Walking;
+				navMeshAgent.SetDestination(player.position);
+				navMeshAgent.isStopped = false;
+			}
+			else
+			{
+				state = EnemyState.Attacking;
+				navMeshAgent.isStopped = true;
+			}
+
+			LookAtPlayer();
+
+			lostSightTimer = 0f;
+
 		}
+		else
+		{
+			//state = EnemyState.Idle;
+			//navMeshAgent.isStopped = true;
+
+			lostSightTimer += Time.deltaTime;
+			Debug.Log("lostSightTimer " + lostSightTimer);
+			if (lostSightTimer >= delayBeforeIdle || !navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+			{
+				state = EnemyState.Idle;
+				navMeshAgent.isStopped = true;
+			}
+
+		}
+
+		UpdateAnimatorAndCombat();
+
+	}
+
+
+
+	void UpdateAnimatorAndCombat()
+	{
+		isAttacking = state == EnemyState.Attacking;
+		isWalking = state == EnemyState.Walking;
+		isIdle = state == EnemyState.Idle;
 
 		animator.SetBool("IsWalking", isWalking);
 		animator.SetBool("IsAttacking", isAttacking);
 		animator.SetBool("IsIdle", isIdle);
 
-		if (swordCollider != null && swordCollider.isTrigger && isAttacking)
+		if (isAttacking && swordCollider != null && swordCollider.isTrigger)
 		{
-			if (timer >= messageInterval)
+			if (timer >= messageInterval && swordCollider.bounds.Intersects(player.GetComponent<Collider>().bounds) && enableDamage)
 			{
-				if (swordCollider.bounds.Intersects(player.GetComponent<Collider>().bounds) && enableDamage)
+				if (playerController != null)
 				{
-					if (playerController != null)
-					{
-						playerController.TakeDamage(7);
-					}
-
-					Debug.Log("Sword hit the player!");
-					timer = 0f;
+					playerController.TakeDamage(7);
 				}
+
+				Debug.Log("Sword hit the player!");
+				timer = 0f;
 			}
 			else
 			{
@@ -114,6 +182,21 @@ public class EnemyController : MonoBehaviour
 			}
 		}
 	}
+
+	void LookAtPlayer()
+	{
+		if (player != null)
+		{
+			Vector3 directionToPlayer = player.position - transform.position;
+			directionToPlayer.y = 0; 
+			Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 25);
+		}
+	}		
+
+
+
+
 
 	IEnumerator ApplyKnockback(Vector3 knockbackDirection)
 	{

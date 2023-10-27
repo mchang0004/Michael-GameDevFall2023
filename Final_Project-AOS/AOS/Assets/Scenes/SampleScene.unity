@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 290191975}
   - component: {fileID: 290191974}
   - component: {fileID: 290191973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +0 Jump Sprint (1)
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -709,8 +709,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850190357393, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850831721272, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850888339818, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -722,9 +747,28 @@ PrefabInstance:
       propertyPath: near clip plane
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864851397454630, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851508666809, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851551516604, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 811005904}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -879,7 +923,7 @@ GameObject:
   - component: {fileID: 410087041}
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1118,7 @@ GameObject:
   - component: {fileID: 442768757}
   - component: {fileID: 442768756}
   - component: {fileID: 442768755}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +0 Jump
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1179,7 +1223,7 @@ GameObject:
   - component: {fileID: 461488476}
   - component: {fileID: 461488475}
   - component: {fileID: 461488474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1289,7 +1333,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1581,7 +1625,7 @@ GameObject:
   - component: {fileID: 608477674}
   - component: {fileID: 608477673}
   - component: {fileID: 608477672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +0 Jump (No Sprint) MAX! (2)
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -1755,7 +1799,7 @@ GameObject:
   - component: {fileID: 650138703}
   - component: {fileID: 650138702}
   - component: {fileID: 650138706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,6 +1891,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1695981634}
   - {fileID: 832575519}
   - {fileID: 410087041}
   - {fileID: 1070042202}
@@ -1898,7 +1943,7 @@ GameObject:
   - component: {fileID: 715390517}
   - component: {fileID: 715390516}
   - component: {fileID: 715390515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jump Height
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -2097,7 +2142,7 @@ GameObject:
   - component: {fileID: 737347598}
   - component: {fileID: 737347597}
   - component: {fileID: 737347596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -2458,6 +2503,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802556282}
   m_CullTransparentMesh: 1
+--- !u!1 &811005903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811005904}
+  - component: {fileID: 811005905}
+  m_Layer: 6
+  m_Name: PlayerTrack
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811005904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811005903}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1739869138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &811005905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811005903}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &816867883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,7 +2700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2751,7 @@ GameObject:
   - component: {fileID: 891477879}
   - component: {fileID: 891477878}
   - component: {fileID: 891477877}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: No Jump
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -2987,7 +3085,7 @@ GameObject:
   - component: {fileID: 1070042205}
   - component: {fileID: 1070042204}
   - component: {fileID: 1070042203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -3093,7 +3191,7 @@ GameObject:
   - component: {fileID: 1127616221}
   - component: {fileID: 1127616220}
   - component: {fileID: 1127616219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -3834,7 +3932,7 @@ GameObject:
   - component: {fileID: 1561624423}
   - component: {fileID: 1561624422}
   - component: {fileID: 1561624421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 5 Pillar
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -3921,8 +4019,8 @@ Transform:
   m_GameObject: {fileID: 1561624420}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.936349, y: -5.072517, z: 5.606391}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: 12.32, y: -5.4, z: -3.57}
+  m_LocalScale: {x: 20.09, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1695981634}
@@ -4179,6 +4277,31 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1739869138}
+    - target: {fileID: 4486605597450211608, guid: eb08cb5fd6ef32c41807aa39ad98f164,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486605597450211608, guid: eb08cb5fd6ef32c41807aa39ad98f164,
+        type: 3}
+      propertyPath: aggroRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486605597450211608, guid: eb08cb5fd6ef32c41807aa39ad98f164,
+        type: 3}
+      propertyPath: deaggroRange
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486605597450211608, guid: eb08cb5fd6ef32c41807aa39ad98f164,
+        type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860146629092091417, guid: eb08cb5fd6ef32c41807aa39ad98f164,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4188,6 +4311,111 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 529209225}
   m_SourcePrefab: {fileID: 100100000, guid: eb08cb5fd6ef32c41807aa39ad98f164, type: 3}
+--- !u!1 &1671073972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671073973}
+  - component: {fileID: 1671073976}
+  - component: {fileID: 1671073975}
+  - component: {fileID: 1671073974}
+  m_Layer: 7
+  m_Name: 5 Pillar (1)
+  m_TagString: Walls
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1671073973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671073972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 12.47, y: -5.4, z: -3.03}
+  m_LocalScale: {x: 20.09, y: 5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1695981634}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1671073974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671073972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1671073975
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671073972}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e62c1542da7797f408180f3421af78fa, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1671073976
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671073972}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1675373223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,7 +4428,7 @@ GameObject:
   - component: {fileID: 1675373227}
   - component: {fileID: 1675373226}
   - component: {fileID: 1675373225}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +0 Jump Sprint
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -4302,7 +4530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695981634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jump Tester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4317,12 +4545,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695981633}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.846349, y: 7.512517, z: -2.966391}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0000064057804, y: 0.0009873376, z: 0.0021047632, w: 0.9999973}
+  m_LocalPosition: {x: -1.7183083, y: 7.483678, z: -0.7381953}
+  m_LocalScale: {x: 0.2500033, y: 0.9999469, z: 0.25000003}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1561624424}
+  - {fileID: 1671073973}
   - {fileID: 1675373224}
   - {fileID: 290191972}
   - {fileID: 608477671}
@@ -4332,7 +4561,7 @@ Transform:
   - {fileID: 891477876}
   - {fileID: 1742554392}
   - {fileID: 1759870205}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 650138705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739869132 stripped
 GameObject:
@@ -4374,7 +4603,7 @@ GameObject:
   - component: {fileID: 1742554391}
   - component: {fileID: 1742554390}
   - component: {fileID: 1742554389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +1 Jump (Sprint Max)
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -4479,7 +4708,7 @@ GameObject:
   - component: {fileID: 1759870204}
   - component: {fileID: 1759870203}
   - component: {fileID: 1759870202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: +1 Jump (Max)
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -5103,7 +5332,7 @@ GameObject:
   - component: {fileID: 1971702536}
   - component: {fileID: 1971702535}
   - component: {fileID: 1971702534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crouch Jump Height
   m_TagString: Walls
   m_Icon: {fileID: 0}
@@ -5520,7 +5749,6 @@ SceneRoots:
   - {fileID: 1165104204}
   - {fileID: 650138705}
   - {fileID: 395524036}
-  - {fileID: 1695981634}
   - {fileID: 173053814}
   - {fileID: 1328012165}
   - {fileID: 623207066}
