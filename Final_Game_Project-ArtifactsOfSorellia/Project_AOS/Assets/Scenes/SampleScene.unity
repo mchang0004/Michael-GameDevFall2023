@@ -347,18 +347,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736c1d03eb4ae914cae635d87b8da2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugComments: 1
   gameManager: {fileID: 0}
+  effectManager: {fileID: 0}
   maxDeckSize: 40
   playerDeck:
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
-  - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
-  - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
+  - {fileID: 11400000, guid: 196f7b867768456418feb7bb79b9e677, type: 2}
+  - {fileID: 11400000, guid: 8c883f98d02d9014f8daf5f0f4d03b24, type: 2}
+  - {fileID: 11400000, guid: 409ba09007539fd4a8d4b2e31bd74341, type: 2}
+  - {fileID: 11400000, guid: e67ed246c7722bb45aca8633a1720a8f, type: 2}
+  - {fileID: 11400000, guid: 1c31197a96a4fa04898a4253fd4b549f, type: 2}
+  - {fileID: 11400000, guid: a402525a23d21874f902a2fb20bd8286, type: 2}
   loadedDeck: []
   cardInventory: []
   timeSinceLastDraw: 0
-  timeBetweenDraws: 30
+  timeBetweenDraws: 10
   tremorCard: {fileID: 11400000, guid: a37d9525d37f0c24fb845f2f4d8d4dc5, type: 2}
 --- !u!1 &330585543
 GameObject:
@@ -2031,6 +2037,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1165104204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &736423515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736423516}
+  - component: {fileID: 736423517}
+  m_Layer: 0
+  m_Name: Effect Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736423516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736423515}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -508.28204, y: -111.99777, z: -16.712627}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1165104204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736423517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736423515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95c2db5c8b27af4abe4c5580e079874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  currentEffects: []
+  effectDatabase:
+  - {fileID: 11400000, guid: a12859375cdaa6f4c83db1536c175007, type: 2}
 --- !u!1 &737347594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3352,7 @@ Transform:
   m_Children:
   - {fileID: 2093367941}
   - {fileID: 727530852}
+  - {fileID: 736423516}
   - {fileID: 323040164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

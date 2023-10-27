@@ -5,9 +5,11 @@ using UnityEngine;
 public class CardManager : MonoBehaviour
 {
 
+	public bool DebugComments = false;
+
 	#region References
 	public GameManager gameManager;
-
+	public EffectManager effectManager;
 
 	#endregion
 
@@ -30,15 +32,20 @@ public class CardManager : MonoBehaviour
     {
 
 		gameManager = GameManager.Instance;
-		loadedDeck = new List<Card>();
-		LoadDeck();
-		StartCoroutine(PlayCardWithDelay());
+        effectManager = GameObject.Find("Effect Manager").GetComponent<EffectManager>();
 
-	}
+        loadedDeck = new List<Card>();
+
+        LoadDeck();
+
+
+        StartCoroutine(PlayCardWithDelay());
+		
+
+    }
 
 	void Update()
     {
-
 
 		nextCardTimer();
 	}
@@ -55,7 +62,19 @@ public class CardManager : MonoBehaviour
 			gameManager.increaseStat("l", card.lootBonus);
 		}
 
-	}
+		if (card.singleUse)
+		{
+			playerDeck.Remove(findCardByID(card.cardID, "playerDeck"));
+			if(DebugComments) Debug.Log("Single Use Card was removed");
+            if(DebugComments) Debug.Log(playerDeck);
+        }
+
+
+		//play effect
+		effectManager.applyEffectsFromCard(card);
+
+
+    }
 
 	//sets the player's saved deck as the currently loaded deck for the game.
 	void LoadDeck()
@@ -65,7 +84,9 @@ public class CardManager : MonoBehaviour
 
 			loadedDeck.Clear();
 			loadedDeck.AddRange(playerDeck);
-			ShuffleDeck(loadedDeck);
+            findAndPlayInstants();
+
+            ShuffleDeck(loadedDeck);
 		}
 	}
 
@@ -94,7 +115,7 @@ public class CardManager : MonoBehaviour
 	public void AddCard(List<Card> deck, Card card)
 	{
 		deck.Add(card);
-		Debug.Log("Added Card " + card.name + " to " + deck);
+        if (DebugComments) Debug.Log("Added Card " + card.name + " to " + deck);
 	}
 
 	#endregion
@@ -117,7 +138,7 @@ public class CardManager : MonoBehaviour
 			Card nextCard = loadedDeck[0];
 			if (nextCard != null)
 			{
-				Debug.Log("Played " + nextCard.name + " and removed from Loaded Deck");
+                if (DebugComments) Debug.Log("Played " + nextCard.name + " and removed from Loaded Deck");
 				PlayCard(nextCard);
 			}
 			
@@ -125,6 +146,36 @@ public class CardManager : MonoBehaviour
 		}
 
 
+	}
+
+	private Card findCardByID(int id, string Deck)
+	{
+		if(Deck == "playerDeck")
+		{
+            foreach (Card card in playerDeck)
+            {
+                if (card.cardID == id)
+                {
+
+                    return card;
+                }
+            }
+        }
+
+		if(Deck == "loadedDeck")
+		{
+            foreach (Card card in loadedDeck)
+            {
+                if (card.cardID == id)
+                {
+
+                    return card;
+                }
+            }
+        }
+
+        if (DebugComments) Debug.Log("Card Not Found In Player Deck");
+		return null;
 	}
 
 
@@ -155,7 +206,7 @@ public class CardManager : MonoBehaviour
 	{
 		foreach (Card card in cardList)
 		{
-			Debug.Log("Card Name: " + card.name);
+            if (DebugComments) Debug.Log("Card Name: " + card.name);
 		}
 	}
 
@@ -166,4 +217,28 @@ public class CardManager : MonoBehaviour
 
 	#endregion
 
+
+	void findAndPlayInstants()
+	{
+		List<Card> instants = new List<Card>();
+		foreach(Card card in loadedDeck){
+			if (card.instant)
+			{
+                instants.Add(card);
+
+            }
+        }
+
+		foreach(Card card in instants)
+		{
+            loadedDeck.Remove(findCardByID(card.cardID, "loadedDeck"));
+            if (DebugComments) Debug.Log("Played Instant Card: " + card);
+
+
+			PlayCard(card);
+        }
+
+
+
+    }
 }

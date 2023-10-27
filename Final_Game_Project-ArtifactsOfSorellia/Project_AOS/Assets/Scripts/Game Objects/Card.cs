@@ -13,12 +13,14 @@ public class Card : ScriptableObject
 	public string cardCost;
 	public int cardID;
 	public string Rarity;
+	public int maxCount;
+
 	[TextArea(4, 5)]
 	public string description;
 	public Sprite cardImage;
 
 	public bool instant;
-	public bool reusable = true;
+	public bool singleUse = false;
 
 	[Header("Bonuses")]
 	public int wardingBonus;
@@ -26,8 +28,10 @@ public class Card : ScriptableObject
 	public int ashesBonus;
 	public int lootBonus;
 
-	//give effect for duration
-	public float effectDuration;
+    [Header("Effect")]
+    //give effect for duration
+    public float effectDuration;
+	public List<Effect> effects;
 
 	
 

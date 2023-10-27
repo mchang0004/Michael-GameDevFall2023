@@ -135,6 +135,12 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+
+    #region References
+
+
+
+    #endregion
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

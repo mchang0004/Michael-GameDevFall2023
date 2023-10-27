@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 	private int anger;
 	#endregion
 
+
+
 	public static GameManager Instance
     { 
         get 

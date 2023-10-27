@@ -133,13 +133,17 @@ public class UIManager : MonoBehaviour
 		float timeRemaining = Mathf.Max(0f, cardManager.timeBetweenDraws - cardManager.GetTimeSinceLastDraw());
 		timeRemaining -= Time.deltaTime;
 
-		if (timerText != null)
+		if (timerText != null && cardManager.loadedDeck.Count > 0)
 		{
 			timerText.text = $"Next Draw in: {timeRemaining:F1} seconds";
-		}
+		} else
+		{
+            timerText.text = $"Next Draw in: No Cards to Draw";
+
+        }
 
 
-		int cardsRemaining = cardManager.loadedDeck.Count;
+        int cardsRemaining = cardManager.loadedDeck.Count;
 
 		if (cardsRemainingText != null)
 		{
