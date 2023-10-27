@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-	public float aggroRange = 10f;
+	public float aggroRange = 7f;
+	public float deaggroRange = 10f;
 	public float attackRange = 4f;
 	public float moveSpeed = 3f;
 	public Animator animator;
@@ -68,7 +69,7 @@ public class EnemyController : MonoBehaviour
 
 			navMeshAgent.isStopped = false;
 		}
-		else if (isWalking && distanceToPlayer > aggroRange)
+		else if (isWalking && distanceToPlayer > deaggroRange)
 		{
 			isWalking = false;
 			isIdle = true;
