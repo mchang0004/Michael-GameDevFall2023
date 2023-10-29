@@ -16,7 +16,7 @@ MonoBehaviour:
   cardCost: 23
   cardID: 106
   Rarity: Common
-  maxCount: 6
+  maxCount: 4
   description: 
   cardImage: {fileID: 0}
   instant: 0

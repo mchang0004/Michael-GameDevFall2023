@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 	public static int defaultMaxAshes = 10;
 	public static int defaultMaxLoot = 10;
 
+	public float timeBetweenCrumble = 30f;
+
 	private static int startingAnger = 10;
 	private int anger;
 	#endregion
@@ -45,12 +47,17 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 		anger = startingAnger;	
+		StartCoroutine(crumbleTimed());
 
 	}
 
 
-    public bool HasArtifact { get; set; }
+	public bool HasArtifact { get; set; }
 
+	void Update()
+	{
+
+	}
 
 	public void increaseStat(string stat, int amount)
 	{
@@ -79,7 +86,7 @@ public class GameManager : MonoBehaviour
 
 	public void generateNoise(int amount)
 	{
-		
+		Debug.Log("## Generated Noise");
 		if (currentWarding >= amount)
 		{
 			currentWarding -= amount;
@@ -97,7 +104,8 @@ public class GameManager : MonoBehaviour
 			}
 			else if (anger == 0)
 			{
-				Debug.Log("Spirits are Angry!");
+				spawnSpirits();
+				
 				
 			}
 			else if (anger < 0)
@@ -111,15 +119,11 @@ public class GameManager : MonoBehaviour
 
 	}
 
-
-	public bool spiritAngered()
+	public void spawnSpirits()
 	{
-		if (anger == 1)
-		{
-			return true;
-		}
-		return false;
+		Debug.Log("Spirits are Angry!");
 	}
+
 
 
 	#endregion
@@ -127,6 +131,16 @@ public class GameManager : MonoBehaviour
 
 
 	#region Stability/Crumble/Temple Damage
+	IEnumerator crumbleTimed()
+	{
+		while (true)
+		{
+			generateCrumble(1);
+			Debug.Log("Crumble Was Generated");
+			yield return new WaitForSeconds(timeBetweenCrumble);
+		}
+	}
+
 	public void generateCrumble(int amount)
 	{
 		if (currentStability >= amount)
@@ -138,7 +152,6 @@ public class GameManager : MonoBehaviour
 			int damageToTemple = amount - currentStability;
 			currentStability = 0;
 
-			// Call a function to handle the damage multiple times
 			for (int i = 0; i < damageToTemple; i++)
 			{
 				damageTemple();
@@ -148,10 +161,15 @@ public class GameManager : MonoBehaviour
 
 	private void damageTemple()
 	{
-		
+		//  1/18th chance for each hazard door/passage/trap
+		//  list of list of each hazard trap (probably make a scriptable object for a few possible hazard locations to randomly close)
 		Debug.Log("Temple took damage.");
 		
 	}
+
+
+
+
 
 	#endregion
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   cardCost: 13
   cardID: 106
   Rarity: Common
-  maxCount: 6
+  maxCount: 1
   description: 
   cardImage: {fileID: 0}
   instant: 1
@@ -25,5 +25,5 @@ MonoBehaviour:
   stabilityBonus: 0
   ashesBonus: 0
   lootBonus: 0
-  effectDuration: 0
+  effectDuration: 30
   effects: []

@@ -57,7 +57,7 @@ public class FirstPersonController : MonoBehaviour
 
     public bool playerCanMove = true;
     public float original_walkSpeed;
-	public float walkSpeed = 5f;
+	public float walkSpeed = 4f;
     public float maxVelocityChange = 10f;
 
     // Internal Variables
@@ -117,7 +117,8 @@ public class FirstPersonController : MonoBehaviour
 
     // Internal Variables
     private bool isCrouched = false;
-    private Vector3 originalScale;
+
+	private Vector3 originalScale;
 
     #endregion
     #endregion
@@ -378,6 +379,17 @@ public class FirstPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if(isCrouched)
+        {
+            isCrouched = true;
+
+		} else
+        {
+			isCrouched = false;
+
+		}
+
         #region Movement
 
         if (playerCanMove)
@@ -465,6 +477,17 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+    }
+
+    public bool getIsCrouched()
+    {
+        if (isCrouched)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 
     // Sets isGrounded based on a raycast sent straigth down from the player object

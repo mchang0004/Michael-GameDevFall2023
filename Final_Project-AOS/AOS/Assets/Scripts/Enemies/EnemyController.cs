@@ -9,9 +9,11 @@ public class EnemyController : MonoBehaviour
 	public float deaggroRange = 25f;
 	public float attackRange = 4f;
 	public float moveSpeed = 3f;
+
 	public Animator animator;
 	public Transform player;
 	public Transform playerTrack;
+	public Transform enemyHead;
 
 	private NavMeshAgent navMeshAgent;
 	public Rigidbody enemyRigidbody;
@@ -32,25 +34,23 @@ public class EnemyController : MonoBehaviour
 	private float lostSightTimer = 0f;
 	private float delayBeforeIdle = 5f;
 
-	
 	float distanceToPlayer; 
 
 	private float timer = 0f;
 	private float messageInterval = 0.1f;
 
+	public LayerMask playerLayer;
+
 	void Start()
 	{
 
-		if (animator == null || player == null)
-		{	
-			Debug.LogError("Animator and Player references are not set!");
-			enabled = false;
-		}
+	
 		enemyRigidbody = GetComponent<Rigidbody>();
 		playerTrack = GameObject.Find("PlayerTrack").GetComponent<Transform>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 		playerRigidbody = player.GetComponent<Rigidbody>();
+		enemyHead = GameObject.Find("EnemyHead").GetComponent<Transform>();
 
 		distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -72,9 +72,17 @@ public class EnemyController : MonoBehaviour
 
 	bool DrawRaycastToPlayer()
 	{
-		Vector3 direction = playerTrack.position - transform.position;
-		Ray ray = new Ray(transform.position, direction);
+	
+		
+		Vector3 enemyHeadPos = enemyHead.position;
+	
+
+		Vector3 direction = playerTrack.position - enemyHeadPos;
+
+		Ray ray = new Ray(enemyHeadPos, direction);
 		LayerMask obstructionLayer = LayerMask.GetMask("Walls");
+
+		Debug.DrawRay(enemyHeadPos, direction, Color.red);
 
 		RaycastHit hit;
 		bool canSeePlayer = true; 
@@ -139,7 +147,6 @@ public class EnemyController : MonoBehaviour
 			//navMeshAgent.isStopped = true;
 
 			lostSightTimer += Time.deltaTime;
-			Debug.Log("lostSightTimer " + lostSightTimer);
 			if (lostSightTimer >= delayBeforeIdle || !navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 			{
 				state = EnemyState.Idle;
