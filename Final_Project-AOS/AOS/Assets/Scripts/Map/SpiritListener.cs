@@ -24,15 +24,23 @@ public class SpiritsListener : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		playerIsCrouched = playerController.getIsCrouched();
 
-	
-		
+
+
 	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.color = new Color(1, 0, 0, 0.5f);
+		Gizmos.DrawCube(transform.position, new Vector3(3, 1, 3));
+	}
+
 
 	void OnTriggerExit(Collider other)
 	{
 		
-		if (other.gameObject.tag == "Player" && !isZoneOnCooldown && !playerController.getIsCrouched())
+		if (other.gameObject.tag == "Player" && !isZoneOnCooldown && !playerIsCrouched)
 		{
 			isZoneOnCooldown = true;
 

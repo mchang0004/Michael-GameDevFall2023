@@ -20,9 +20,12 @@ public class EnemyController : MonoBehaviour
 
 	private Rigidbody playerRigidbody;
 	private bool enableDamage = false;
+	private bool swordIsSolid = false;
+
 	private PlayerController playerController;
 
 	public Collider swordCollider;
+	public Collider swordCoreCollider;
 
 	public float knockbackDuration = 0.5f;
 	public float knockbackForce = 10f;
@@ -170,6 +173,18 @@ public class EnemyController : MonoBehaviour
 		animator.SetBool("IsWalking", isWalking);
 		animator.SetBool("IsAttacking", isAttacking);
 		animator.SetBool("IsIdle", isIdle);
+		if(swordCoreCollider != null)
+		{
+			if (swordIsSolid)
+			{
+				swordCoreCollider.isTrigger = false;
+			}
+			else
+			{
+				swordCoreCollider.isTrigger = true;
+			}
+		}
+		
 
 		if (isAttacking && swordCollider != null && swordCollider.isTrigger)
 		{
@@ -229,5 +244,15 @@ public class EnemyController : MonoBehaviour
 	public void DisableDamageEvent()
 	{
 		enableDamage = false;
+	}
+
+	public void EnableSolidSword()
+	{
+		swordIsSolid = true;
+	}
+
+	public void DisableSolidSword()
+	{
+		swordIsSolid = false;
 	}
 }
