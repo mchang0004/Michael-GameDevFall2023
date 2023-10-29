@@ -28,7 +28,9 @@ public class Compass : MonoBehaviour
 	void Update()
 	{
 		Vector3 cameraForward = playerCamera.transform.forward;
+		
 		Vector3 direction = artifactLocation.transform.position - player.transform.position;
+		
 
 		cameraForward.y = 0f;
 		direction.y = 0f; 
