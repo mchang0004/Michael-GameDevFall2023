@@ -27,8 +27,6 @@ public class EnemyController : MonoBehaviour
 	public Collider swordCollider;
 	public Collider swordCoreCollider;
 
-	public float knockbackDuration = 0.5f;
-	public float knockbackForce = 10f;
 
 	private bool isWalking = false;
 	private bool isAttacking = false;
@@ -121,12 +119,11 @@ public class EnemyController : MonoBehaviour
 
 	void EnemyPathing()
 	{
+		float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 		bool canSeePlayer = DrawRaycastToPlayer();
 
-		if (canSeePlayer)
+		if (distanceToPlayer <= aggroRange && canSeePlayer)
 		{
-			float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
 			if (distanceToPlayer > attackRange)
 			{
 				state = EnemyState.Walking;
@@ -142,26 +139,30 @@ public class EnemyController : MonoBehaviour
 			LookAtPlayer();
 
 			lostSightTimer = 0f;
-
 		}
+		else if (distanceToPlayer > deaggroRange)
+		{
+			state = EnemyState.Idle;
+			navMeshAgent.isStopped = true;
+		} 
 		else
 		{
 			//state = EnemyState.Idle;
 			//navMeshAgent.isStopped = true;
 
 			lostSightTimer += Time.deltaTime;
+			navMeshAgent.SetDestination(player.position);
+
 			if (lostSightTimer >= delayBeforeIdle || !navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 			{
 				state = EnemyState.Idle;
 				navMeshAgent.isStopped = true;
 			}
-
 		}
+		
 
 		UpdateAnimatorAndCombat();
-
 	}
-
 
 
 	void UpdateAnimatorAndCombat()
@@ -220,21 +221,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-	IEnumerator ApplyKnockback(Vector3 knockbackDirection)
-	{
-		float elapsedTime = 0;
 
-		while (elapsedTime < knockbackDuration)
-		{
-			float force = Mathf.Lerp(0, knockbackForce, elapsedTime / knockbackDuration);
-
-			playerRigidbody.AddForce(knockbackDirection * force);
-
-			elapsedTime += Time.deltaTime;
-
-			yield return null;
-		}
-	}
 
 	public void EnableDamageEvent()
 	{
