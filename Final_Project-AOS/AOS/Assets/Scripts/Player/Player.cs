@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
 	private float currentStamina;
 	private bool isRegeneratingHealth = false;
 
-	private void Start()
+	public List<Item> lootInventory = new List<Item>();
+
+    private void Start()
 	{
 		currentHealth = maxHealth;
 		currentStamina = maxStamina;
@@ -79,5 +81,9 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public void addItem(Item item)
+	{
+		lootInventory.Add(item);
+	}
 
 }

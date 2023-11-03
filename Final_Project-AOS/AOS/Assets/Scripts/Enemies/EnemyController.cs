@@ -33,10 +33,10 @@ public class EnemyController : MonoBehaviour
 	private bool isIdle = true;
 
 	private float lostSightTimer = 0f;
-	private float delayBeforeIdle = 5f;
+	public float delayBeforeIdle = 5f;
 
 	float distanceToPlayer; 
-
+		
 	private float timer = 0f;
 	private float messageInterval = 0.1f;
 

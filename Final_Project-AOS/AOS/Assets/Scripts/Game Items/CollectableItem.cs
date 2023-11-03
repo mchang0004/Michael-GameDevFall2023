@@ -5,9 +5,19 @@ using UnityEngine;
 public class CollectableItem : MonoBehaviour
 {
 
-	public virtual void Collect()
+	public PlayerController player;
+	public Item item;
+
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+    public virtual void Collect()
 	{
 		Debug.Log("Collected");
+		player.addItem(item);
+        Destroy(gameObject);
 	}
 
 	private void OnTriggerEnter(Collider other)

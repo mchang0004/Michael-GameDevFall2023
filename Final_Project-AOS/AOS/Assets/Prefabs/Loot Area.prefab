@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7890787702229444812}
   - component: {fileID: 2970917767287370042}
+  - component: {fileID: 6638563305606066105}
   m_Layer: 0
   m_Name: Loot Area
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.44, y: 0.35, z: 7.03}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalScale: {x: 3, y: 0.25, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,3 +54,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6638563305606066105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712321867741026652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc07021109ac9904e8b6b1880fccd677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  gameManager: {fileID: 0}
+  coin: {fileID: 5227995096048024907, guid: 99f36b4b6df6ae84681e4ee75496b042, type: 3}
+  shell: {fileID: 2323368162188951523, guid: d32e13a3efebeab48909d0e392386952, type: 3}
+  key: {fileID: 7718918401939939450, guid: 1b11688f5a2ae39468f252c413c056b0, type: 3}
+  ash: {fileID: 1211585436761618278, guid: b67456beea7a3f84c9fb8e6eae0e4f8f, type: 3}
+  area: {fileID: 2970917767287370042}
