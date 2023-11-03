@@ -14,7 +14,10 @@ public class LootArea : MonoBehaviour
 	public GameObject ash;
 
 	public Collider area;
+    public int floor;
 
+
+    public bool DebugBool = false;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -23,10 +26,11 @@ public class LootArea : MonoBehaviour
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
 
-        dropLoot();
+
+
     }
 
-	void OnDrawGizmos()
+    void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(1, 1, 0, 0.5f);
 		Gizmos.DrawCube(transform.position, new Vector3(3, .25f, 3));
@@ -41,13 +45,40 @@ public class LootArea : MonoBehaviour
     }
 
 
-    public void dropLoot()
+    public void dropLoot(string type)
 	{
 		//Debug.Log(RandomPointInBounds(area.bounds));
-        spawnLootItem("coin");
-        spawnLootItem("shell");
-        spawnLootItem("ash");
-        spawnLootItem("key");
+       
+        if(type == "loot")
+        {
+            float randomNum = Random.Range(0f, 1f);
+            if (randomNum <= 0.5f)
+            {
+                if(DebugBool) Debug.Log("Coin " + randomNum);
+                spawnLootItem("coin");
+            }
+
+            if (randomNum > 0.5f && randomNum <= 0.75f)
+            {
+                if (DebugBool) Debug.Log("Shell" + randomNum);
+                spawnLootItem("shell");
+            }
+
+            if (randomNum > 0.75f)
+            {
+                if (DebugBool) Debug.Log("Key" + randomNum);
+                spawnLootItem("key");
+            }
+        }
+        
+        if(type == "ash")
+        {
+            spawnLootItem("ash");
+        }
+       
+
+
+        
     }
 
 	public void spawnLootItem(string item)

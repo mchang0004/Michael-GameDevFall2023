@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 	
 	private static GameManager instance;
-
+	public MapManager mapManager;
 
 	#region Stat Values
 
@@ -16,14 +16,18 @@ public class GameManager : MonoBehaviour
 	public int currentAshes;
 	public int currentLoot;
 
+	public int currentFloor;
+
 	public static int defaultMaxWarding = 10;
 	public static int defaultMaxStability = 10;
 	public static int defaultMaxAshes = 10;
 	public static int defaultMaxLoot = 10;
 
 	public float timeBetweenCrumble = 30f;
+	public float timeBetweenLootDeque = 1f;
+    public float timeBetweenAshesDeque = 1f;
 
-	private static int startingAnger = 10;
+    private static int startingAnger = 10;
 	private int anger;
 	#endregion
 
@@ -45,11 +49,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+		mapManager = GameObject.Find("Map Manager").GetComponent<MapManager>();
         instance = this;
 		anger = startingAnger;	
 		StartCoroutine(crumbleTimed());
+		StartCoroutine(lootDequedTimed());
+        StartCoroutine(ashDequedTimed());
 
-	}
+
+    }
 
 
 	public bool HasArtifact { get; set; }
@@ -159,7 +167,8 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void damageTemple()
+    
+    private void damageTemple()
 	{
 		//  1/18th chance for each hazard door/passage/trap
 		//  list of list of each hazard trap (probably make a scriptable object for a few possible hazard locations to randomly close)
@@ -171,12 +180,60 @@ public class GameManager : MonoBehaviour
 
 
 
-	#endregion
-
-	
+    #endregion
 
 
-	public void clampStats()
+    #region loot/ashes
+
+	public void dequeLoot()
+	{
+		
+		currentLoot--;
+		mapManager.spawnLootByFloor(currentFloor);
+
+
+    }
+
+    public void dequeAshes()
+    {
+
+        currentAshes--;
+        mapManager.spawnAshByFloor(currentFloor);
+
+
+    }
+
+    IEnumerator lootDequedTimed()
+    {
+        while (true)
+        {
+			Debug.Log("Tried to Drop Loot, Current Loot: " + currentLoot);
+			if(currentLoot > 0)
+			{
+                dequeLoot();
+                Debug.Log("Loot Was Dropped");
+            }
+            yield return new WaitForSeconds(timeBetweenLootDeque);
+        }
+    }
+    IEnumerator ashDequedTimed()
+    {
+        while (true)
+        {
+            Debug.Log("Tried to Drop Ashes, Current Ashes: " + currentAshes);
+            if (currentAshes > 0)
+            {
+                dequeAshes();
+                Debug.Log("Ashes Were Dropped");
+            }
+            yield return new WaitForSeconds(timeBetweenAshesDeque);
+        }
+    }
+
+
+    #endregion
+
+    public void clampStats()
     {
 
 		//clamp to max
