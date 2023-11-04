@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Floor
   - Walls
+  - Deck
+  - CardInventory
   layers:
   - Default
   - TransparentFX
