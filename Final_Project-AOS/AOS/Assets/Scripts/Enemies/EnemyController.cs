@@ -63,8 +63,10 @@ public class EnemyController : MonoBehaviour
 		distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
 		//DrawRaycastToPlayer();
-
+		
 		EnemyPathing();
+		
+		
 
 	
 	}
