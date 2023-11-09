@@ -23,6 +23,11 @@ public class CI_Artifact : CollectableItem
 
 	public override void Collect()
 	{
+		if (gameManager != null)
+		{
+			gameManager.HasArtifact = true;
+		}
+
 		//base.Collect(); 
 		Debug.Log("Artifact collected: " + artifact.itemName);
 		//must separate because im bad at coding lmao

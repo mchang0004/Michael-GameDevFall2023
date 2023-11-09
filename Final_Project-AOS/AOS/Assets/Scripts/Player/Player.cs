@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,12 +14,19 @@ public class PlayerController : MonoBehaviour
 	private float currentStamina;
 	private bool isRegeneratingHealth = false;
 
+	public FirstPersonController fpController;
+
+	bool isDead = false;
+
 	public List<Item> lootInventory = new List<Item>();
 
     private void Start()
 	{
+		fpController.lockCursor = true;
 		currentHealth = maxHealth;
 		currentStamina = maxStamina;
+
+
 	}
 
 	private void Update()
@@ -26,6 +34,14 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			RegenerateHealth(healthRegenerationRate);
+		}
+
+		checkHP();
+
+		if(isDead)
+		{
+			Cursor.lockState = CursorLockMode.Confined;
+			SceneManager.LoadScene("DeadScreen");
 		}
 	}
 
@@ -85,5 +101,22 @@ public class PlayerController : MonoBehaviour
 	{
 		lootInventory.Add(item);
 	}
+
+
+	private void checkHP()
+	{
+		if(currentHealth <= 0)
+		
+			isDead = true;
+		
+	}
+
+	public void Win()
+	{
+
+		Cursor.lockState = CursorLockMode.Confined;
+		SceneManager.LoadScene("CardShop");
+	}
+
 
 }

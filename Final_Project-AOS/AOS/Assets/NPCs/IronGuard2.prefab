@@ -314,7 +314,8 @@ Transform:
   m_LocalPosition: {x: 1.7011, y: 2.3224878, z: 0.039833177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1173452194051689519}
   m_Father: {fileID: 1056010119204629574}
   m_LocalEulerAnglesHint: {x: 0.89193827, y: -89.2095, z: 101.11795}
 --- !u!65 &2063185015713471028
@@ -687,6 +688,37 @@ Transform:
   - {fileID: 5722862659343723211}
   m_Father: {fileID: 6777520766548326889}
   m_LocalEulerAnglesHint: {x: -15.721679, y: 2.355496, z: -15.138728}
+--- !u!1 &1637090029907268025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3156277513163967281}
+  m_Layer: 0
+  m_Name: EnemyHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3156277513163967281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637090029907268025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.011, y: 2.344, z: 0.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4117753243842118486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796072206727348032
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +987,7 @@ GameObject:
   - component: {fileID: 4486605597450211608}
   - component: {fileID: 6860146629092091417}
   - component: {fileID: 1567370665465736353}
+  - component: {fileID: 3067259902601363316}
   m_Layer: 0
   m_Name: IronGuard2
   m_TagString: Enemy
@@ -977,6 +1010,7 @@ Transform:
   m_Children:
   - {fileID: 5014168369520694216}
   - {fileID: 6639028498244269921}
+  - {fileID: 3156277513163967281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4516982604222465758
@@ -1012,15 +1046,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7e5c351aea3a542918d550dba83e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 15
+  aggroRange: 20
+  deaggroRange: 25
   attackRange: 4
-  moveSpeed: 2.5
+  moveSpeed: 2.3
   animator: {fileID: 4516982604222465758}
   player: {fileID: 0}
-  enableDamage: 0
+  playerTrack: {fileID: 0}
+  enemyHead: {fileID: 0}
+  enemyRigidbody: {fileID: 0}
   swordCollider: {fileID: 2063185015713471028}
-  knockbackDuration: 0.5
-  knockbackForce: 25
+  swordCoreCollider: {fileID: 453059660013060228}
+  delayBeforeIdle: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!54 &6860146629092091417
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1045,7 +1085,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!65 &1567370665465736353
@@ -1069,6 +1109,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.51, z: 0.52}
   m_Center: {x: 0, y: 1.35, z: 0}
+--- !u!195 &3067259902601363316
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634090914384468460}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3740056724148806904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1963,59 @@ Transform:
   - {fileID: 657818356414313967}
   m_Father: {fileID: 3834245962295337180}
   m_LocalEulerAnglesHint: {x: 5.49914, y: 9.070658, z: -7.1429486}
+--- !u!1 &6683114390687756923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173452194051689519}
+  - component: {fileID: 453059660013060228}
+  m_Layer: 0
+  m_Name: Sword Core
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173452194051689519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683114390687756923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.446, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7405094033496489073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &453059660013060228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6683114390687756923}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.16, y: 1.94, z: 0.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6728437063609225709
 GameObject:
   m_ObjectHideFlags: 0

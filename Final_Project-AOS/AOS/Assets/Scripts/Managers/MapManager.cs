@@ -14,11 +14,13 @@ public class MapManager : MonoBehaviour
 	public int currentFloor = 1;
 
 
+
 	void Awake()
 	{
 		selectArtifactLocation();
 	}
 
+   
 	public void spawnLootByFloor(int floor)
 	{
 		if(floor == 1)
