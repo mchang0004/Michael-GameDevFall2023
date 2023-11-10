@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
 	public int healthRegenerationRate = 1;
 	public int maxStamina = 100;
 
+	public int currentShells;
+	public int currentCoins;
+	public int currentAshes;
+	public int currentKeys;
+
 	private int currentHealth;
 	private float currentStamina;
 	private bool isRegeneratingHealth = false;
@@ -22,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
 	{
+
+		currentShells = currentCoins = currentAshes = currentKeys = 0;
+
 		fpController.lockCursor = true;
 		currentHealth = maxHealth;
 		currentStamina = maxStamina;
@@ -100,8 +108,22 @@ public class PlayerController : MonoBehaviour
 	public void addItem(Item item)
 	{
 		lootInventory.Add(item);
-	}
+		
 
+    }
+
+	public void calculateInventory()
+	{
+		foreach(Item item in lootInventory)
+		{
+			if(item.type == itemType.coin)
+			{
+				Debug.Log("Coin Picked Up And Current Coins added +1");
+				currentCoins++;
+
+            }
+		}
+	}
 
 	private void checkHP()
 	{
@@ -115,8 +137,10 @@ public class PlayerController : MonoBehaviour
 	{
 
 		Cursor.lockState = CursorLockMode.Confined;
-		SceneManager.LoadScene("CardShop");
-	}
+        calculateInventory();
+        SceneManager.LoadScene("CardShop");
+        
+    }
 
 
 }

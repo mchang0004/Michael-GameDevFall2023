@@ -9,7 +9,7 @@ public class Ash : Item
 {
 	public int ashValue;
 
-	public Ash()
+    public Ash()
 	{
 
 	}

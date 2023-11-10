@@ -10,7 +10,8 @@ public class Card : ScriptableObject
 
 	[Header("Card Info")]
 	public string cardName;
-	public string cardCost;
+	public int cardCost;
+	public int cardCostInGold;
 	public int cardID;
 	public string Rarity;
 	public int maxCount;

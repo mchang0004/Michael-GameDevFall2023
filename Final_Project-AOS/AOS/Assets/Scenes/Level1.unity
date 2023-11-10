@@ -4914,7 +4914,7 @@ MonoBehaviour:
   - {fileID: 1085793455}
   - {fileID: 40125661}
   lootAreasFloor2: []
-  artifactLocationColor: {r: 1, g: 1, b: 0, a: 0.5}
+  artifactLocationColor: {r: 1, g: 0.5978851, b: 0, a: 0.5}
   currentFloor: 1
 --- !u!4 &1775279418
 Transform:

@@ -9,7 +9,7 @@ public class Key : Item
 {
 	public int keyIndex;
 
-	public Key()
+    public Key()
 	{
 
 	}

@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Shell
   itemID: 11
   icon: {fileID: 0}
+  type: 3
   description: 
   coinValue: 5
-  coinType: 

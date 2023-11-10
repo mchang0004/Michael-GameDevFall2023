@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Coin
   itemID: 10
   icon: {fileID: 0}
+  type: 2
   description: 
   coinValue: 1
-  coinType: 
