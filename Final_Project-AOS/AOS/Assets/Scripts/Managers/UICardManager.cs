@@ -32,20 +32,30 @@ public class UICardManager : MonoBehaviour
     {
        
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            deckTransform = GameObject.Find("Player Deck Area").transform;
-            inventoryTransform = GameObject.Find("Inventory Cards Area").transform;
-            LoadCards();
-            //loadDecks();
-        }
 
-    
+
+           
+
+
+
     }
 
     public void LoadCards()
     {
-        foreach(Card card in UIplayerDeck)
+        deckTransform = GameObject.Find("Player Deck Area").transform;
+        inventoryTransform = GameObject.Find("Inventory Cards Area").transform;
+
+        foreach (Transform card in deckTransform)
+        {
+            Destroy(card.gameObject);
+        }
+
+        foreach (Transform card in inventoryTransform)
+        {
+            Destroy(card.gameObject);
+        }
+
+        foreach (Card card in UIplayerDeck)
         {
             GameObject UICard = Instantiate(uiCardPrefab);
             UICard.transform.SetParent(deckTransform);
@@ -60,23 +70,24 @@ public class UICardManager : MonoBehaviour
             DragCard draggableCard = UICard.GetComponent<DragCard>();
             draggableCard.card = card;
         }
+
     }
-    public void loadDecks()
+    public void saveDecks()
     {
         UIplayerDeck.Clear();
         UIcardInventory.Clear();
 
         if (deckTransform != null)
         {
-            LoadCurrentDeck();
+            saveCurrentDeck();
         }
 
         if (inventoryTransform != null)
         {
-            LoadCurrentInventory();
+            saveCurrentInventory();
         }
     }
-    public void LoadCurrentDeck()
+    public void saveCurrentDeck()
     {
         //will need to later pass this to player save data
         foreach (Transform uiCard in deckTransform)
@@ -88,7 +99,7 @@ public class UICardManager : MonoBehaviour
         }
         Debug.Log("Deck: " + UIplayerDeck);
     }
-    public void LoadCurrentInventory()
+    public void saveCurrentInventory()
     {
         foreach (Transform uiCard in inventoryTransform)
         {

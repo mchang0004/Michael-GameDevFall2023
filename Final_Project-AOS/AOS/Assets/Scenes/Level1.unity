@@ -338,7 +338,7 @@ MonoBehaviour:
   loadedDeck: []
   cardInventory: []
   timeSinceLastDraw: 0
-  timeBetweenDraws: 30
+  timeBetweenDraws: 10
   tremorCard: {fileID: 11400000, guid: a37d9525d37f0c24fb845f2f4d8d4dc5, type: 2}
 --- !u!1 &330585543
 GameObject:

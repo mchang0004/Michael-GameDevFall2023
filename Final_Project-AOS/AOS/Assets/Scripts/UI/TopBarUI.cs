@@ -10,13 +10,17 @@ public class TopBarUI : MonoBehaviour
 	public GameObject shopPanel;
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
+    private UICardManager UIcardManager;
 
-	void Start()
+
+    void Start()
 	{
 		ShowPanel("home");
-	}
+        UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
 
-	void ShowPanel(string panelName)
+    }
+
+    void ShowPanel(string panelName)
 	{
 		homePanel.SetActive(panelName == "home");
 		cardsPanel.SetActive(panelName == "cards");
@@ -29,4 +33,10 @@ public class TopBarUI : MonoBehaviour
 	{
 		ShowPanel(button);
 	}
+
+    public void loadCards()
+    {
+        UIcardManager.LoadCards();
+    }
+
 }

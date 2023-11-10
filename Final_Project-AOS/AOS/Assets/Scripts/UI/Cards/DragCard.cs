@@ -13,6 +13,8 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	private Transform playerDeckArea;
 	private Transform playerInventoryArea;
 	private Canvas canvas;
+	private UICardManager UIcardManager;
+
 
 	public Card card;
 
@@ -25,6 +27,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		playerInventoryArea = GameObject.Find("Inventory Cards Area").transform;
 		canvasGroup = GetComponent<CanvasGroup>();
 		canvas = GameObject.Find("MenuUI").GetComponent<Canvas>();
+		UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
 
         cardNameText.text = card.name;
 
@@ -58,5 +61,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		{
 			transform.SetParent(lastDraggedArea);
 		}
-	}
+
+		UIcardManager.saveDecks();
+    }
 }

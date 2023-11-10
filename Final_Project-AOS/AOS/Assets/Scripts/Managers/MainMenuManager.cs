@@ -7,10 +7,8 @@ public class MainMenuManager : MonoBehaviour
 {
 
     public string scene1;
-
     void Start()
     {
-        
     }
 
     void Update()
@@ -23,4 +21,6 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(scene);
 
     }
+
+    
 }
