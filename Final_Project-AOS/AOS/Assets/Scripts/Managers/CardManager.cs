@@ -10,7 +10,7 @@ public class CardManager : MonoBehaviour
 	#region References
 	public GameManager gameManager;
 	public EffectManager effectManager;
-
+	public UICardManager UIcardManager;
 	#endregion
 
 	#region Card Lists
@@ -33,6 +33,12 @@ public class CardManager : MonoBehaviour
 
 		gameManager = GameManager.Instance;
         effectManager = GameObject.Find("Effect Manager").GetComponent<EffectManager>();
+        UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
+
+		playerDeck = UIcardManager.getCurrentDeck();
+
+		
+
 
         loadedDeck = new List<Card>();
 
@@ -67,6 +73,7 @@ public class CardManager : MonoBehaviour
 			playerDeck.Remove(findCardByID(card.cardID, "playerDeck"));
 			if(DebugComments) Debug.Log("Single Use Card was removed");
             if(DebugComments) Debug.Log(playerDeck);
+
         }
 
 

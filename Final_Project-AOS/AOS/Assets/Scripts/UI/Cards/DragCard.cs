@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 //https://www.youtube.com/watch?v=zMKUfI8VE2I 
@@ -13,16 +14,23 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	private Transform playerInventoryArea;
 	private Canvas canvas;
 
+	public Card card;
+
+	public TextMeshProUGUI cardNameText;
+
 	private void Start()
 	{
 		cardTransform = GetComponent<RectTransform>();
 		playerDeckArea = GameObject.Find("Player Deck Area").transform;
 		playerInventoryArea = GameObject.Find("Inventory Cards Area").transform;
 		canvasGroup = GetComponent<CanvasGroup>();
-		canvas = GameObject.Find("MenuUI").GetComponent<Canvas>(); 
-	}
+		canvas = GameObject.Find("MenuUI").GetComponent<Canvas>();
 
-	public void OnBeginDrag(PointerEventData eventData)
+        cardNameText.text = card.name;
+
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
 	{
 		canvasGroup.blocksRaycasts = false;
 		lastDraggedArea = transform.parent;

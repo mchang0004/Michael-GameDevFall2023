@@ -100,7 +100,7 @@ public class FirstPersonController : MonoBehaviour
     public float jumpPower = 5f;
 
 	private bool jumpCooldown = false;
-	public float jumpCooldownDuration = 5.0f;
+	public float jumpCooldownDuration = 0.1f;
 
 	// Internal Variables
 	private bool isGrounded = false;
@@ -340,9 +340,13 @@ public class FirstPersonController : MonoBehaviour
         #region Jump
 
         // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded && !jumpCooldown)
         {
             Jump();
+            Debug.Log("Jumped");
+            StartCoroutine(StartJumpCooldown(jumpCooldownDuration));
+
+
         }
 
         #endregion
@@ -377,6 +381,8 @@ public class FirstPersonController : MonoBehaviour
             HeadBob();
         }
     }
+
+
 
     void FixedUpdate()
     {
@@ -586,7 +592,9 @@ public class FirstPersonController : MonoBehaviour
 		jumpCooldown = true;
 		yield return new WaitForSeconds(cooldownTime);
 		jumpCooldown = false;
-	}
+        Debug.Log("Ended Cooldown for Jumped");
+
+    }
 
 
 }
@@ -750,6 +758,8 @@ public class FirstPersonController : MonoBehaviour
         fpc.jumpKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Jump Key", "Determines what key is used to jump."), fpc.jumpKey);
         fpc.jumpPower = EditorGUILayout.Slider(new GUIContent("Jump Power", "Determines how high the player will jump."), fpc.jumpPower, .1f, 20f);
         GUI.enabled = true;
+
+        fpc.jumpCooldownDuration = EditorGUILayout.Slider(new GUIContent("Jump Cooldown."), fpc.jumpCooldownDuration, .01f, 2f);
 
         EditorGUILayout.Space();
 
