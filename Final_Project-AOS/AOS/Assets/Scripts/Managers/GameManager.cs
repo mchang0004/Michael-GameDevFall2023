@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 	private static GameManager instance;
 	public MapManager mapManager;
 
+
+
 	#region Stat Values
 
 	//[HideInInspector]

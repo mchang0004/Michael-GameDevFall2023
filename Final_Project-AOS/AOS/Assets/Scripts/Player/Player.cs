@@ -17,9 +17,14 @@ public class PlayerController : MonoBehaviour
 
 	private int currentHealth;
 	private float currentStamina;
-	private bool isRegeneratingHealth = false;
+	//private bool isRegeneratingHealth = false;
 
+	#region references
 	public FirstPersonController fpController;
+	public PlayerStats playerStats;
+	public SaveLoad saveLoad;
+	#endregion
+
 
 	bool isDead = false;
 
@@ -27,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
 	{
+		playerStats = FindAnyObjectByType<PlayerStats>();
+		saveLoad = FindAnyObjectByType<SaveLoad>();
 
 		currentShells = currentCoins = currentAshes = currentKeys = 0;
 
@@ -118,11 +125,20 @@ public class PlayerController : MonoBehaviour
 		{
 			if(item.type == itemType.coin)
 			{
-				Debug.Log("Coin Picked Up And Current Coins added +1");
+				Debug.Log("Current Coins added +1");
 				currentCoins++;
 
             }
+
+			if (item.type == itemType.shell)
+			{
+				Debug.Log("Current Shell added +1");
+				currentShells++;
+
+			}
 		}
+
+		currentShells += (currentCoins / 4);
 	}
 
 	private void checkHP()
@@ -135,11 +151,15 @@ public class PlayerController : MonoBehaviour
 
 	public void Win()
 	{
-
+		
 		Cursor.lockState = CursorLockMode.Confined;
         calculateInventory();
-        SceneManager.LoadScene("CardShop");
-        
+//		Debug.Log("## Win Detected | Shells: " + currentShells + " + " + playerStats.total_shells);
+		playerStats.addShells(currentShells);
+		saveLoad.SavePlayer();
+
+		SceneManager.LoadScene("CardShop");
+         
     }
 
 

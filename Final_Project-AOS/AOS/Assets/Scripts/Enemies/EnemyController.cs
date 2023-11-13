@@ -98,12 +98,12 @@ public class EnemyController : MonoBehaviour
 		if (canSeePlayer)
 		{
 			return true;
-			Debug.Log("Enemy can see the player");
+			//Debug.Log("Enemy can see the player");
 		}
 		else
 		{
 			return false;
-			Debug.Log("Enemy cannot see the player");
+			//Debug.Log("Enemy cannot see the player");
 		}
 
 	}

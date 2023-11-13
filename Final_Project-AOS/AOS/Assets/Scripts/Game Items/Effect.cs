@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect", menuName = "Effect")]
 public class Effect : ScriptableObject
 {
-    public string name;
+    public string EffectName;
     public int effectID;
 
     [TextArea(4, 5)]

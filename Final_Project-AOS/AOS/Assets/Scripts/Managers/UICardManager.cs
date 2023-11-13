@@ -13,16 +13,24 @@ public class UICardManager : MonoBehaviour
     public Transform inventoryTransform;
 
     public GameObject uiCardPrefab;
+    public SaveLoad saveLoad;
+
+
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        saveLoad = FindAnyObjectByType<SaveLoad>();
+
     }
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.LoadScene("MainMenu");
+        saveLoad.LoadPlayer();
 
-        
+
+
 
 
     }
@@ -30,11 +38,11 @@ public class UICardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
 
 
-           
+
+
 
 
 
@@ -59,6 +67,7 @@ public class UICardManager : MonoBehaviour
         {
             GameObject UICard = Instantiate(uiCardPrefab);
             UICard.transform.SetParent(deckTransform);
+            UICard.transform.localScale = new Vector3(1, 1, 1);
             DragCard draggableCard = UICard.GetComponent<DragCard>();
             draggableCard.card = card;
         }
@@ -67,6 +76,7 @@ public class UICardManager : MonoBehaviour
         {
             GameObject UICard = Instantiate(uiCardPrefab);
             UICard.transform.SetParent(inventoryTransform);
+            UICard.transform.localScale = new Vector3(1, 1, 1);
             DragCard draggableCard = UICard.GetComponent<DragCard>();
             draggableCard.card = card;
         }
@@ -93,7 +103,7 @@ public class UICardManager : MonoBehaviour
         foreach (Transform uiCard in deckTransform)
         {
             Card card = uiCard.GetComponent<DragCard>().card;
-            
+
             UIplayerDeck.Add(card);
 
         }
@@ -119,18 +129,25 @@ public class UICardManager : MonoBehaviour
 
     public void removeCardFromUI(Card card)
     {
-        foreach(Transform uiCard in deckTransform)
+        foreach (Transform uiCard in deckTransform)
         {
-            if(card.name == uiCard.GetComponent<DragCard>().card.name)
+            if (card.name == uiCard.GetComponent<DragCard>().card.name)
             {
                 Destroy(uiCard);
                 break;
-            } else
+            }
+            else
             {
                 Debug.LogError("Card to be removed wasn't found");
             }
         }
 
+
+    }
+
+    public void addCardToInventory(Card card)
+    {
+        UIcardInventory.Add(card);
 
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TopBarUI : MonoBehaviour
 {
@@ -11,16 +12,37 @@ public class TopBarUI : MonoBehaviour
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
     private UICardManager UIcardManager;
+	public TextMeshProUGUI shellCountUI;
+	public PlayerStats playerStats;
 
 
-    void Start()
+
+	void Start()
 	{
 		ShowPanel("home");
-        UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
+		playerStats = FindAnyObjectByType<PlayerStats>();
 
-    }
+		UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
+		shellCountUI = GameObject.Find("ShellUI").GetComponent<TextMeshProUGUI>();
 
-    void ShowPanel(string panelName)
+	}
+
+	void Update()
+	{
+
+		if (shellCountUI != null)
+		{
+			setShellUIText(playerStats.totalShells);
+		}
+
+	}
+
+	void setShellUIText(int amount)
+	{
+		shellCountUI.text = amount.ToString();
+	}
+
+	void ShowPanel(string panelName)
 	{
 		homePanel.SetActive(panelName == "home");
 		cardsPanel.SetActive(panelName == "cards");

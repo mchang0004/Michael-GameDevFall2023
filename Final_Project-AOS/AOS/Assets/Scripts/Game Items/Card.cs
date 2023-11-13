@@ -34,8 +34,21 @@ public class Card : ScriptableObject
     public float effectDuration;
 	public List<Effect> effects;
 
-	
 
-	
+
+	public string GetName()
+	{
+		return cardName;
+	}
+
+	public int GetGoldCost()
+	{
+		return cardCostInGold;
+	}
+
+	public int GetAshCost()
+	{
+		return cardCost;
+	}
 
 }
