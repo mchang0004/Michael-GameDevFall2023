@@ -8,11 +8,19 @@ public class PlayerData
 {
 
 	public int totalShells;
-	// Start is called before the first frame update
+
+	public List<int> IDPlayerDeck;
+
+	public List<int> IDCardInventory;
+
+
 
 
 	public PlayerData(PlayerStats player)
 	{
 		totalShells = player.totalShells;
+		IDCardInventory = player.uiCardManager.getCardInventoryByID();
+		IDPlayerDeck = player.uiCardManager.getDeckByID();
 	}
 }
+

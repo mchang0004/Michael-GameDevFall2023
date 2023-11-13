@@ -9,6 +9,7 @@ TagManager:
   - Walls
   - Deck
   - CardInventory
+  - EnemyInstantKill
   layers:
   - Default
   - TransparentFX

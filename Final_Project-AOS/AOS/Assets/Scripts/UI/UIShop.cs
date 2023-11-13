@@ -7,22 +7,50 @@ public class UIShop : MonoBehaviour
 	public List<Card> shopCardList;
 	public PlayerStats playerStats;
 	public UICardManager cardManager;
+	public bool randomizeSet = false;
 
-	void Start()
+	public List<Card> possibleCards;
+
+	public SaveLoad saveLoad;
+
+
+	void Awake()
 	{
 		playerStats = FindAnyObjectByType<PlayerStats>();
 		cardManager = FindAnyObjectByType<UICardManager>();
+		saveLoad = FindAnyObjectByType<SaveLoad>();
+
+		if (randomizeSet)
+		{
+			randomizeCards();
+		}
 
 	}
 
 
+	void randomizeCards()
+	{
+		List<int> usedIndexes = new List<int>();
+		System.Random random = new System.Random();
 
-	
+		for (int i = 5; i < 9; i++)
+		{
+			int randomIndex = random.Next(0, possibleCards.Count);
 
+			while (usedIndexes.Contains(randomIndex))
+			{
+				randomIndex = random.Next(0, possibleCards.Count);
+			}
 
+			shopCardList.Insert(i, possibleCards[randomIndex]);
+			usedIndexes.Add(randomIndex);
+		}
+
+	}
 
 	public void buyCard(int cardIndex)
 	{
+		saveLoad.SavePlayer();
 
 		Card selectedCard = shopCardList[cardIndex];
 		int cardCost = selectedCard.GetGoldCost();
@@ -47,8 +75,33 @@ public class UIShop : MonoBehaviour
 
 	}
 
-	
+	public void buyCardWithAshes(int cardIndex)
+	{
+		saveLoad.SavePlayer();
+
+		Card selectedCard = shopCardList[cardIndex];
+		int cardCost = selectedCard.GetAshCost();
+		Debug.Log("Button Pressed");
+		if (playerStats != null)
+		{
+			if (playerStats.totalAshes >= cardCost)
+			{
+				playerStats.removeAshes(cardCost);
+				cardManager.addCardToInventory(selectedCard);
+
+				Debug.Log("You bought " + selectedCard.GetName());
+			}
+			else
+			{
+				Debug.Log("Not enough ashes to buy " + selectedCard.GetName());
+			}
+		}
 
 
-	
+
+
+	}
+
+
+
 }

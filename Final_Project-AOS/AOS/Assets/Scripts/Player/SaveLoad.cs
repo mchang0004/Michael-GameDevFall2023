@@ -19,11 +19,16 @@ public class SaveLoad : MonoBehaviour
 
 	public void LoadPlayer()
 	{
+		 
 		PlayerData data = SaveManager.LoadPlayerData(player);
 
 		if (data != null)
 		{
 			player.totalShells = data.totalShells;
+			player.uiCardManager.IDCardInventory = data.IDCardInventory;
+			player.uiCardManager.IDPlayerDeck = data.IDPlayerDeck;
+
+		
 		}
 	}
 

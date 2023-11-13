@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class UICardManager : MonoBehaviour
 {
-    public List<Card> UIplayerDeck;
-    public List<Card> UIcardInventory;
+	public List<Card> allCards;
 
-    public Transform deckTransform;
+	public List<Card> UI_playerDeck;
+    public List<Card> UI_cardInventory;
+    public List<int> IDPlayerDeck;
+	public List<int> IDCardInventory;
+
+	public Transform deckTransform;
     public Transform inventoryTransform;
 
     public GameObject uiCardPrefab;
@@ -17,28 +21,31 @@ public class UICardManager : MonoBehaviour
 
 
 
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         saveLoad = FindAnyObjectByType<SaveLoad>();
+        
 
-    }
+	}
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.LoadScene("MainMenu");
         saveLoad.LoadPlayer();
+		loadInventoryAndDeckFromIDs();
 
 
 
 
-
-    }
+	}
 
     // Update is called once per frame
     void Update()
     {
 
+        setCardInventoryAndDeckListbyID();
 
 
 
@@ -46,7 +53,7 @@ public class UICardManager : MonoBehaviour
 
 
 
-    }
+	}
 
     public void LoadCards()
     {
@@ -63,7 +70,7 @@ public class UICardManager : MonoBehaviour
             Destroy(card.gameObject);
         }
 
-        foreach (Card card in UIplayerDeck)
+        foreach (Card card in UI_playerDeck)
         {
             GameObject UICard = Instantiate(uiCardPrefab);
             UICard.transform.SetParent(deckTransform);
@@ -72,7 +79,7 @@ public class UICardManager : MonoBehaviour
             draggableCard.card = card;
         }
 
-        foreach (Card card in UIcardInventory)
+        foreach (Card card in UI_cardInventory)
         {
             GameObject UICard = Instantiate(uiCardPrefab);
             UICard.transform.SetParent(inventoryTransform);
@@ -84,8 +91,8 @@ public class UICardManager : MonoBehaviour
     }
     public void saveDecks()
     {
-        UIplayerDeck.Clear();
-        UIcardInventory.Clear();
+        UI_playerDeck.Clear();
+        UI_cardInventory.Clear();
 
         if (deckTransform != null)
         {
@@ -96,18 +103,20 @@ public class UICardManager : MonoBehaviour
         {
             saveCurrentInventory();
         }
-    }
-    public void saveCurrentDeck()
+
+		
+
+	}
+	public void saveCurrentDeck()
     {
         //will need to later pass this to player save data
         foreach (Transform uiCard in deckTransform)
         {
             Card card = uiCard.GetComponent<DragCard>().card;
 
-            UIplayerDeck.Add(card);
+            UI_playerDeck.Add(card);
 
         }
-        Debug.Log("Deck: " + UIplayerDeck);
     }
     public void saveCurrentInventory()
     {
@@ -115,16 +124,15 @@ public class UICardManager : MonoBehaviour
         {
             Card card = uiCard.GetComponent<DragCard>().card;
 
-            UIcardInventory.Add(card);
+            UI_cardInventory.Add(card);
         }
 
-        Debug.Log("Inventory: " + UIcardInventory);
 
     }
 
     public List<Card> getCurrentDeck()
     {
-        return UIplayerDeck;
+        return UI_playerDeck;
     }
 
     public void removeCardFromUI(Card card)
@@ -147,7 +155,70 @@ public class UICardManager : MonoBehaviour
 
     public void addCardToInventory(Card card)
     {
-        UIcardInventory.Add(card);
+        UI_cardInventory.Add(card);
 
+    }
+
+    public void setCardInventoryAndDeckListbyID()
+    {
+        IDCardInventory.Clear();
+		IDPlayerDeck.Clear();   
+
+		foreach (Card card in UI_cardInventory)
+        {
+            int id = card.cardID;
+			IDCardInventory.Add(id);
+
+		}
+
+		foreach (Card card in UI_playerDeck)
+		{
+			int id = card.cardID;
+			IDPlayerDeck.Add(id);
+
+		}
+	}
+
+    public List<int> getCardInventoryByID()
+    {
+        return IDCardInventory;
+    }
+
+	public List<int> getDeckByID()
+	{
+        return IDPlayerDeck;
+	}
+
+    public void loadInventoryAndDeckFromIDs()
+    {
+        UI_cardInventory.Clear();
+		UI_playerDeck.Clear();
+
+
+
+		foreach (int id in IDCardInventory)
+        {
+
+			foreach (Card card in allCards)
+            {
+				if (id == card.cardID)
+                {
+                    UI_cardInventory.Add(card);
+                }
+			}
+
+		}
+
+        foreach(int id in IDPlayerDeck)
+        {
+			foreach (Card card in allCards)
+			{
+                if (id == card.cardID)
+                {
+                    UI_playerDeck.Add(card);
+				}
+			}
+			
+        }
     }
 }

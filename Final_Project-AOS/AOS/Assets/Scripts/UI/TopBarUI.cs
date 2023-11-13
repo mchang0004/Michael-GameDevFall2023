@@ -14,6 +14,7 @@ public class TopBarUI : MonoBehaviour
     private UICardManager UIcardManager;
 	public TextMeshProUGUI shellCountUI;
 	public PlayerStats playerStats;
+	public SaveLoad saveLoad;
 
 
 
@@ -21,6 +22,7 @@ public class TopBarUI : MonoBehaviour
 	{
 		ShowPanel("home");
 		playerStats = FindAnyObjectByType<PlayerStats>();
+		saveLoad = FindAnyObjectByType<SaveLoad>();
 
 		UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
 		shellCountUI = GameObject.Find("ShellUI").GetComponent<TextMeshProUGUI>();
@@ -60,5 +62,15 @@ public class TopBarUI : MonoBehaviour
     {
         UIcardManager.LoadCards();
     }
+
+	public void ExitTheGame()
+	{
+		saveLoad.SavePlayer();
+		#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false; 
+		#else
+			Application.Quit();
+		#endif
+	}
 
 }

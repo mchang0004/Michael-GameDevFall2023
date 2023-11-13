@@ -7,11 +7,15 @@ public class MainMenuManager : MonoBehaviour
 {
 
     public string scene1;
+    public PlayerStats playerStats;
     void Start()
     {
-    }
+		playerStats = FindAnyObjectByType<PlayerStats>();
 
-    void Update()
+
+	}
+
+	void Update()
     {
         
     }
@@ -22,5 +26,9 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    
+    public void clearAshes()
+    {
+        playerStats.clearAshes();
+
+	}
 }

@@ -228,12 +228,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26e9ada1683e554088fdaaa32a3748e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIplayerDeck:
+  allCards:
   - {fileID: 11400000, guid: 196f7b867768456418feb7bb79b9e677, type: 2}
   - {fileID: 11400000, guid: 8c883f98d02d9014f8daf5f0f4d03b24, type: 2}
   - {fileID: 11400000, guid: 409ba09007539fd4a8d4b2e31bd74341, type: 2}
   - {fileID: 11400000, guid: e67ed246c7722bb45aca8633a1720a8f, type: 2}
-  UIcardInventory: []
+  - {fileID: 11400000, guid: 073274d4fbee0504f87597de74c4bcd4, type: 2}
+  - {fileID: 11400000, guid: 1c31197a96a4fa04898a4253fd4b549f, type: 2}
+  - {fileID: 11400000, guid: a402525a23d21874f902a2fb20bd8286, type: 2}
+  - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
+  - {fileID: 11400000, guid: a37d9525d37f0c24fb845f2f4d8d4dc5, type: 2}
+  UI_playerDeck: []
+  UI_cardInventory: []
+  IDPlayerDeck: 
+  IDCardInventory: 
   deckTransform: {fileID: 0}
   inventoryTransform: {fileID: 0}
   uiCardPrefab: {fileID: 2444152734781567622, guid: e6268f64bc2f207468ef7b0d9cf0908e,
@@ -735,6 +743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalShells: 0
+  totalAshes: 0
+  uiCardManager: {fileID: 0}
 --- !u!1 &1988745637
 GameObject:
   m_ObjectHideFlags: 0

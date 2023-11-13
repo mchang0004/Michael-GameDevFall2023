@@ -13,20 +13,32 @@ public class BuyableCard : MonoBehaviour
 
 	public UIShop uiShop;
 
+	public bool useAshCost = true;
 	// Start is called before the first frame update
 	void Start()
     {
+
 		uiShop = FindAnyObjectByType<UIShop>();
 		card = uiShop.shopCardList[index];
-		setPriceGold();
-		setPriceAsh();
+		setPrice();
+
+
+
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+
+	void setPrice()
+	{
+		if (!useAshCost)
+		{
+			setPriceGold();
+		}
+		else if (useAshCost)
+		{
+			setPriceAsh();
+		}
+	}
 
 	void setPriceGold()
 	{

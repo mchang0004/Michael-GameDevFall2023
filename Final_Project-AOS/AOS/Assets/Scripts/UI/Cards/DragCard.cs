@@ -14,6 +14,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	private Transform playerInventoryArea;
 	private Canvas canvas;
 	private UICardManager UIcardManager;
+	private SaveLoad saveLoad;
 
 
 	public Card card;
@@ -28,12 +29,13 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		canvasGroup = GetComponent<CanvasGroup>();
 		canvas = GameObject.Find("MenuUI").GetComponent<Canvas>();
 		UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
+		saveLoad = FindAnyObjectByType<SaveLoad>();
 
-        cardNameText.text = card.name;
+		cardNameText.text = card.name;
 
-    }
+	}
 
-    public void OnBeginDrag(PointerEventData eventData)
+	public void OnBeginDrag(PointerEventData eventData)
 	{
 		canvasGroup.blocksRaycasts = false;
 		lastDraggedArea = transform.parent;
@@ -47,6 +49,8 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
+
+
 		canvasGroup.blocksRaycasts = true;
 
 		if (RectTransformUtility.RectangleContainsScreenPoint(playerDeckArea.GetComponent<RectTransform>(), eventData.position))
@@ -63,5 +67,13 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		}
 
 		UIcardManager.saveDecks();
-    }
+
+		StartCoroutine(SaveAfterDelay());
+	}
+
+	IEnumerator SaveAfterDelay()
+	{
+		yield return new WaitForSeconds(0.5f);
+		saveLoad.SavePlayer();
+	}
 }

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 	private float currentStamina;
 	//private bool isRegeneratingHealth = false;
 
+
+
 	#region references
 	public FirstPersonController fpController;
 	public PlayerStats playerStats;
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
 		if(isDead)
 		{
+		
 			Cursor.lockState = CursorLockMode.Confined;
 			SceneManager.LoadScene("DeadScreen");
 		}
@@ -62,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
+		saveLoad.SavePlayer();
 		if (currentHealth > 0)
 		{
 			currentHealth -= damage;
@@ -105,10 +109,10 @@ public class PlayerController : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 	
-		if (collision.gameObject.CompareTag("Enemy"))
+		if (collision.gameObject.CompareTag("EnemyInstantKill"))
 		{
 			Debug.Log("Instant Kill Collision");
-			TakeDamage(200);
+			TakeDamage(0);
 		}
 	}
 
@@ -136,9 +140,16 @@ public class PlayerController : MonoBehaviour
 				currentShells++;
 
 			}
+
+			if (item.type == itemType.ash)
+			{
+				currentAshes++;
+			}
 		}
 
 		currentShells += (currentCoins / 4);
+		
+
 	}
 
 	private void checkHP()
@@ -156,6 +167,8 @@ public class PlayerController : MonoBehaviour
         calculateInventory();
 //		Debug.Log("## Win Detected | Shells: " + currentShells + " + " + playerStats.total_shells);
 		playerStats.addShells(currentShells);
+		playerStats.addAshes(currentAshes);
+
 		saveLoad.SavePlayer();
 
 		SceneManager.LoadScene("CardShop");
