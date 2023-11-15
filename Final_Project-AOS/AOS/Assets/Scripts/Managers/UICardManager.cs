@@ -21,7 +21,6 @@ public class UICardManager : MonoBehaviour
 
 
 
-
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

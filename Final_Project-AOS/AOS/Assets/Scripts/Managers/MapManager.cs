@@ -11,6 +11,11 @@ public class MapManager : MonoBehaviour
 
     public Color artifactLocationColor = new Color(1, 1, 0, 0.5f);
 
+    public List<Artifact> currentPossibleArtifacts;
+
+    public List<Artifact> level1Artifacts;
+	public List<Artifact> level2Artifacts;
+
 	public int currentFloor = 1;
 
 
@@ -18,7 +23,19 @@ public class MapManager : MonoBehaviour
 	void Awake()
 	{
 		selectArtifactLocation();
-	}
+
+        if(currentFloor == 1)
+        {
+            currentPossibleArtifacts = level1Artifacts;
+		}
+        else if (currentFloor == 2)
+        {
+            currentPossibleArtifacts = level2Artifacts;
+        }
+        else 
+        { 
+            currentPossibleArtifacts = level1Artifacts;}
+	    }
 
    
 	public void spawnLootByFloor(int floor)
@@ -54,7 +71,7 @@ public class MapManager : MonoBehaviour
 
     void selectArtifactLocation()
     {
-
+        
 		if (possibleArtifactLocations.Count > 0)
 		{
 			int randomIndex = Random.Range(0, possibleArtifactLocations.Count);

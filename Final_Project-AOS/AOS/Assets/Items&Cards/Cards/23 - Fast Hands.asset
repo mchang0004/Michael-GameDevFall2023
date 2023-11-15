@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Fast Hands
   cardCost: 23
-  cardID: 106
-  Rarity: Common
-  maxCount: 4
-  description: 
+  cardCostInGold: 0
+  cardID: 113
+  Rarity: Uncommon
+  maxCount: 3
+  description: 'Single Use
+
+    +6 Loot
+
+    Speed Effect (Not Working)'
   cardImage: {fileID: 0}
   instant: 0
   singleUse: 0

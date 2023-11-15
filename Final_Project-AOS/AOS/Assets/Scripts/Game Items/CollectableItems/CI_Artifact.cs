@@ -8,6 +8,11 @@ public class CI_Artifact : CollectableItem
 	public Artifact artifact;
 
 	public GameManager gameManager;
+	public MapManager mapManager;
+
+	public List<Artifact> possibleArtifacts;
+
+	public PlayerStats playerStats;
 
 	public CI_Artifact()
 	{
@@ -17,6 +22,12 @@ public class CI_Artifact : CollectableItem
 	void Start()
 	{
 		gameManager = GameManager.Instance;
+		playerStats = FindAnyObjectByType<PlayerStats>();
+		mapManager = FindAnyObjectByType<MapManager>();
+		possibleArtifacts = mapManager.currentPossibleArtifacts;
+
+		artifact = selectRandomArtifact();
+
 
 	}
 
@@ -34,9 +45,19 @@ public class CI_Artifact : CollectableItem
 		gameManager.increaseStat("w", -1);
 		gameManager.increaseStat("w", -1);
 		gameManager.increaseStat("w", -1);
+
+
+		playerStats.totalAshes += artifact.value;
+
 		Destroy(gameObject);
 	}
 
+	public Artifact selectRandomArtifact()
+	{
+		int randomIndex = Random.Range(0, possibleArtifacts.Count);
+		Artifact randomArtifact = possibleArtifacts[randomIndex];
+		return randomArtifact;
+	}
 
 }
 

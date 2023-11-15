@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Perception
   cardCost: 10
+  cardCostInGold: 0
   cardID: 103
   Rarity: Common
   maxCount: 6
-  description: 
+  description: '
+
+    + 2 Loot
+
+'
   cardImage: {fileID: 0}
   instant: 0
   singleUse: 0
@@ -26,3 +31,4 @@ MonoBehaviour:
   ashesBonus: 0
   lootBonus: 2
   effectDuration: 0
+  effects: []

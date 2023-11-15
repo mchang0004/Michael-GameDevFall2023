@@ -18,7 +18,8 @@ MonoBehaviour:
   cardID: 100
   Rarity: Common (Tester)
   maxCount: 0
-  description: This card just tests different functionality
+  description: "This card just tests different functionality\nInstant \n+1 Warding\n+1
+    Stability\n+1 Ashes\n+1 Loot"
   cardImage: {fileID: 0}
   instant: 1
   singleUse: 0

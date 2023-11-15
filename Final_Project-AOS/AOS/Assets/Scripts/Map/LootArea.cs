@@ -33,7 +33,7 @@ public class LootArea : MonoBehaviour
     void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(1, 1, 0, 0.5f);
-		Gizmos.DrawCube(transform.position, new Vector3(3, .25f, 3));
+		Gizmos.DrawCube(transform.position, new Vector3(transform.localScale.x, .25f, transform.localScale.z));
 	}
     public static Vector3 RandomPointInBounds(Bounds bounds)
     {

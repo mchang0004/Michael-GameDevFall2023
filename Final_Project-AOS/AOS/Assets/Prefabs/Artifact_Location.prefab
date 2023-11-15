@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e140f7ca6cdf21e489598736158e008e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  item: {fileID: 0}
   artifact: {fileID: 11400000, guid: e6e9f794c7c31794782ca7968e976819, type: 2}
   gameManager: {fileID: 0}
 --- !u!1 &8450580960428389612
@@ -130,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7597777436446664472}
   - component: {fileID: 1951625059477893948}
+  - component: {fileID: 7388259410179763403}
   m_Layer: 0
   m_Name: Artifact_Location
   m_TagString: Untagged
@@ -195,3 +198,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7388259410179763403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450580960428389612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a632c65d2cd788458f67637f50671de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifact: {fileID: 0}
+  possibleArtifacts: []
+  mapManager: {fileID: 0}

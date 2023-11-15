@@ -14,6 +14,10 @@ public class BuyableCard : MonoBehaviour
 	public UIShop uiShop;
 
 	public bool useAshCost = true;
+
+	public TextMeshProUGUI cardNameText;
+	public TextMeshProUGUI Card_Description;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -23,7 +27,8 @@ public class BuyableCard : MonoBehaviour
 		setPrice();
 
 
-
+		cardNameText.text = card.name;
+		Card_Description.text = card.description;
 	}
 
    

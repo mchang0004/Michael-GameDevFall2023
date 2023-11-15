@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Field Architect
   cardCost: 11
+  cardCostInGold: 0
   cardID: 104
   Rarity: Common
   maxCount: 6
-  description: 
+  description: '
+
+    + 2 Stability
+
+'
   cardImage: {fileID: 0}
   instant: 0
   singleUse: 0
@@ -26,3 +31,4 @@ MonoBehaviour:
   ashesBonus: 0
   lootBonus: 0
   effectDuration: 0
+  effects: []

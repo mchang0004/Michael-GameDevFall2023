@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Minor Refreshment
   cardCost: 8
+  cardCostInGold: 0
   cardID: 101
   Rarity: Common
   maxCount: 0
-  description: 
+  description: "Single Use Card \n+1 Warding\n+2 Stability\n+1 Ashes\n+2 Loot"
   cardImage: {fileID: 0}
   instant: 0
   singleUse: 1
@@ -26,3 +27,4 @@ MonoBehaviour:
   ashesBonus: 1
   lootBonus: 2
   effectDuration: 0
+  effects: []

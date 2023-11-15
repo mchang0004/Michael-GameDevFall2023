@@ -10,25 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a99492c0d5ecc944ad59a2cf6fcf883, type: 3}
-  m_Name: 9 - Sprit Shield
+  m_Name: 24 - Chemical Cauterization
   m_EditorClassIdentifier: 
-  cardName: Spirit Shield
-  cardCost: 9
+  cardName: Chemical Cauterization
+  cardCost: 24
   cardCostInGold: 0
-  cardID: 102
-  Rarity: Common
-  maxCount: 6
+  cardID: 114
+  Rarity: Uncommon
+  maxCount: 4
   description: '
 
-    + 2 Warding
+    -2 Warding
 
-'
+    +6 Ashes
+
+    Regen Effect (Not Working)'
   cardImage: {fileID: 0}
   instant: 0
   singleUse: 0
-  wardingBonus: 2
+  wardingBonus: 0
   stabilityBonus: 0
   ashesBonus: 0
-  lootBonus: 0
-  effectDuration: 0
+  lootBonus: 3
+  effectDuration: 5
   effects: []

@@ -14,15 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Leftovers
   cardCost: 13
+  cardCostInGold: 0
   cardID: 106
   Rarity: Common
   maxCount: 1
-  description: 
+  description: 'Single Use & Instant
+
+    +1 Warding
+
+    +1 Stability
+
+    Effect
+    (Not Working)'
   cardImage: {fileID: 0}
   instant: 1
   singleUse: 1
-  wardingBonus: 0
-  stabilityBonus: 0
+  wardingBonus: 1
+  stabilityBonus: 1
   ashesBonus: 0
   lootBonus: 0
   effectDuration: 30

@@ -20,6 +20,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 	public Card card;
 
 	public TextMeshProUGUI cardNameText;
+	public TextMeshProUGUI Card_Description;
 
 	private void Start()
 	{
@@ -32,7 +33,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 		saveLoad = FindAnyObjectByType<SaveLoad>();
 
 		cardNameText.text = card.name;
-
+		Card_Description.text = card.description;
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)

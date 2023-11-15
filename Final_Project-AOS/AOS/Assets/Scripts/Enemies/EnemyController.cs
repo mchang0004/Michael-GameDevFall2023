@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
 		playerRigidbody = player.GetComponent<Rigidbody>();
-		enemyHead = GameObject.Find("EnemyHead").GetComponent<Transform>();
+		//enemyHead = GameObject.Find("EnemyHead").GetComponent<Transform>();
 
 		distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
