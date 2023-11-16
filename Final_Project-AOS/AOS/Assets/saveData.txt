@@ -1,1 +1,1 @@
-{"totalShells":0,"IDPlayerDeck":[102,103],"IDCardInventory":[]}
+{"totalShells":0,"IDPlayerDeck":[101,102,103],"IDCardInventory":[]}

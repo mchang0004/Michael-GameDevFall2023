@@ -8,6 +8,16 @@ public class PlayerStats : MonoBehaviour
 	public UICardManager uiCardManager;
 
 
+	public int totalRuns;
+	public int deaths;
+	public int successes;
+	public int artifactsCollected;
+	public int totalShellsCollected;
+	public int totalAshesCollected;
+	public int totalKeysCollected;
+	public int totalCoinsCollected;
+
+
 	void Awake()
 	{
 		DontDestroyOnLoad(this);
