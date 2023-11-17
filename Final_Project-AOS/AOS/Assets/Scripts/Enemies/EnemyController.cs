@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
@@ -42,11 +43,13 @@ public class EnemyController : MonoBehaviour
 
 	public LayerMask playerLayer;
 
+	public Vector3 position;
+
 	void Start()
 	{
 
-	
-		enemyRigidbody = GetComponent<Rigidbody>();
+		position = new Vector3(0f, 0f, 0f);
+        enemyRigidbody = GetComponent<Rigidbody>();
 		playerTrack = GameObject.Find("PlayerTrack").GetComponent<Transform>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -63,9 +66,8 @@ public class EnemyController : MonoBehaviour
 		distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
 		//DrawRaycastToPlayer();
-		
+
 		EnemyPathing();
-		
 		
 
 	
@@ -124,7 +126,7 @@ public class EnemyController : MonoBehaviour
 		float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 		bool canSeePlayer = DrawRaycastToPlayer();
 
-		if (distanceToPlayer <= aggroRange && canSeePlayer)
+		if ((distanceToPlayer <= aggroRange) && canSeePlayer)
 		{
 			if (distanceToPlayer > attackRange)
 			{
