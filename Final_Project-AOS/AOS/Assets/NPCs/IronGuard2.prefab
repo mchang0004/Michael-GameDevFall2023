@@ -1115,6 +1115,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  position: {x: 0, y: 0, z: 0}
 --- !u!54 &6860146629092091417
 Rigidbody:
   m_ObjectHideFlags: 0

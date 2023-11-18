@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
 
 
 	#region references
-	public FirstPersonController fpController;
-	public PlayerStats playerStats;
+	//public FirstPersonController fpController;
+	public PlayerSaveStats playerSaveStats;
 	public SaveLoad saveLoad;
 	#endregion
 
@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
 	{
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 		saveLoad = FindAnyObjectByType<SaveLoad>();
 
 		currentShells = currentCoins = currentAshes = currentKeys = 0;
 
-		fpController.lockCursor = true;
+		//fpController.lockCursor = true;
 		currentHealth = maxHealth;
 		currentStamina = maxStamina;
 
@@ -165,9 +165,9 @@ public class PlayerController : MonoBehaviour
 		
 		Cursor.lockState = CursorLockMode.Confined;
         calculateInventory();
-//		Debug.Log("## Win Detected | Shells: " + currentShells + " + " + playerStats.total_shells);
-		playerStats.addShells(currentShells);
-		playerStats.addAshes(currentAshes);
+		//		Debug.Log("## Win Detected | Shells: " + currentShells + " + " + playerSaveStats.total_shells);
+		playerSaveStats.addShells(currentShells);
+		playerSaveStats.addAshes(currentAshes);
 
 		saveLoad.SavePlayer();
 

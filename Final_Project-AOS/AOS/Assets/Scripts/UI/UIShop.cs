@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIShop : MonoBehaviour
 {
 	public List<Card> shopCardList;
-	public PlayerStats playerStats;
+	public PlayerSaveStats playerSaveStats;
 	public UICardManager cardManager;
 	public bool randomizeSet = false;
 
@@ -16,7 +16,7 @@ public class UIShop : MonoBehaviour
 
 	void Awake()
 	{
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 		cardManager = FindAnyObjectByType<UICardManager>();
 		saveLoad = FindAnyObjectByType<SaveLoad>();
 
@@ -55,11 +55,11 @@ public class UIShop : MonoBehaviour
 		Card selectedCard = shopCardList[cardIndex];
 		int cardCost = selectedCard.GetGoldCost();
 		Debug.Log("Button Pressed");
-		if (playerStats != null)
+		if (playerSaveStats != null)
 		{
-			if (playerStats.totalShells >= cardCost)
+			if (playerSaveStats.totalShells >= cardCost)
 			{
-				playerStats.removeShells(cardCost);
+				playerSaveStats.removeShells(cardCost);
 				cardManager.addCardToInventory(selectedCard);
 
 				Debug.Log("You bought " + selectedCard.GetName());
@@ -82,11 +82,11 @@ public class UIShop : MonoBehaviour
 		Card selectedCard = shopCardList[cardIndex];
 		int cardCost = selectedCard.GetAshCost();
 		Debug.Log("Button Pressed");
-		if (playerStats != null)
+		if (playerSaveStats != null)
 		{
-			if (playerStats.totalAshes >= cardCost)
+			if (playerSaveStats.totalAshes >= cardCost)
 			{
-				playerStats.removeAshes(cardCost);
+				playerSaveStats.removeAshes(cardCost);
 				cardManager.addCardToInventory(selectedCard);
 
 				Debug.Log("You bought " + selectedCard.GetName());

@@ -11,7 +11,7 @@ public class CollectableItem : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player = FindAnyObjectByType<PlayerController>();
     }
     public virtual void Collect()
 	{

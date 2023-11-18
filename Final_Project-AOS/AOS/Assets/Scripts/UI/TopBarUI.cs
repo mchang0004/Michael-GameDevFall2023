@@ -13,7 +13,7 @@ public class TopBarUI : MonoBehaviour
 	public GameObject exitPanel;
     private UICardManager UIcardManager;
 	public TextMeshProUGUI shellCountUI;
-	public PlayerStats playerStats;
+	public PlayerSaveStats playerSaveStats;
 	public SaveLoad saveLoad;
 
 
@@ -21,7 +21,7 @@ public class TopBarUI : MonoBehaviour
 	void Start()
 	{
 		ShowPanel("home");
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 		saveLoad = FindAnyObjectByType<SaveLoad>();
 
 		UIcardManager = GameObject.Find("UICardManager").GetComponent<UICardManager>();
@@ -34,7 +34,7 @@ public class TopBarUI : MonoBehaviour
 
 		if (shellCountUI != null)
 		{
-			setShellUIText(playerStats.totalShells);
+			setShellUIText(playerSaveStats.totalShells);
 		}
 
 	}

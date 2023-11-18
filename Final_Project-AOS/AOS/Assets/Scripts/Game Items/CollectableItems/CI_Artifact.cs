@@ -12,7 +12,7 @@ public class CI_Artifact : CollectableItem
 
 	public List<Artifact> possibleArtifacts;
 
-	public PlayerStats playerStats;
+	public PlayerSaveStats playerSaveStats;
 
 	public CI_Artifact()
 	{
@@ -22,7 +22,7 @@ public class CI_Artifact : CollectableItem
 	void Start()
 	{
 		gameManager = GameManager.Instance;
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 		mapManager = FindAnyObjectByType<MapManager>();
 		possibleArtifacts = mapManager.currentPossibleArtifacts;
 
@@ -47,7 +47,7 @@ public class CI_Artifact : CollectableItem
 		gameManager.increaseStat("w", -1);
 
 
-		playerStats.totalAshes += artifact.value;
+		playerSaveStats.totalAshes += artifact.value;
 
 		Destroy(gameObject);
 	}

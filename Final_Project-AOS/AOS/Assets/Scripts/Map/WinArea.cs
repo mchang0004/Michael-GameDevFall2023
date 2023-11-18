@@ -8,7 +8,7 @@ public class WinArea : MonoBehaviour
 	public GameManager gameManager;
 	void Start()
     {
-		player = GameObject.Find("Player").GetComponent<PlayerController>();
+		player = FindAnyObjectByType<PlayerController>();
 		gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
 

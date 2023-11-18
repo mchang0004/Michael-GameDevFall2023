@@ -10,26 +10,28 @@ TagManager:
   - Deck
   - CardInventory
   - EnemyInstantKill
+  - Critical
+  - Weapons
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Player
   - Walls
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Weapons
+  - Enemy
+  - Object
+  - Interactable
+  - Grass
+  - Metal
+  - Mud
+  - Wood
+  - UITop
+  - PostProcessing
+  - Effects
   - 
   - 
   - 

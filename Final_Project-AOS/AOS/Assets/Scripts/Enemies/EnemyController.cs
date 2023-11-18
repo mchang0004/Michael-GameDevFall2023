@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody>();
 		playerTrack = GameObject.Find("PlayerTrack").GetComponent<Transform>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
-		playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+		playerController = FindAnyObjectByType<PlayerController>();
 		playerRigidbody = player.GetComponent<Rigidbody>();
 		//enemyHead = GameObject.Find("EnemyHead").GetComponent<Transform>();
 
@@ -219,6 +219,7 @@ public class EnemyController : MonoBehaviour
 			Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
 			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 25);
 		}
+		
 	}		
 
 

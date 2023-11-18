@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene1: 
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
 --- !u!1 &281131296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 479298412}
   exitPanel: {fileID: 1605362059}
   shellCountUI: {fileID: 0}
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
   saveLoad: {fileID: 0}
 --- !u!114 &416402272
 MonoBehaviour:
@@ -1740,7 +1740,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
   - {fileID: 11400000, guid: 5e7d768eb8a0a4544adc42eaf6350e73, type: 2}
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
   cardManager: {fileID: 0}
   randomizeSet: 0
   possibleCards: []
@@ -4830,7 +4830,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 479298412}
   exitPanel: {fileID: 1605362059}
   shellCountUI: {fileID: 0}
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
   saveLoad: {fileID: 0}
 --- !u!1 &1524798393
 GameObject:

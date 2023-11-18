@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene1: 
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
 --- !u!114 &1074602986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 409ba09007539fd4a8d4b2e31bd74341, type: 2}
   - {fileID: 11400000, guid: e67ed246c7722bb45aca8633a1720a8f, type: 2}
   - {fileID: 11400000, guid: 073274d4fbee0504f87597de74c4bcd4, type: 2}
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
   cardManager: {fileID: 0}
   randomizeSet: 1
   possibleCards:
@@ -2303,7 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf27645b87c1e1448fd4b99f650ca10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
+  playerSaveStats: {fileID: 0}
   ashesCountUI: {fileID: 0}
 --- !u!1 &1108754347
 GameObject:

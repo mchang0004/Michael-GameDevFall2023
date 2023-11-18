@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public class SaveManager
 {
-	public static void SavePlayerData(PlayerStats player)
+	public static void SavePlayerData(PlayerSaveStats player)
 	{
 		PlayerData data = new PlayerData(player);
 
@@ -15,7 +15,7 @@ public class SaveManager
 		Debug.Log("##### SAVING " + json);
 	}
 
-	public static PlayerData LoadPlayerData(PlayerStats player)
+	public static PlayerData LoadPlayerData(PlayerSaveStats player)
 	{
 		if (File.Exists(Application.dataPath + "/saveData.txt"))
 		{

@@ -16,7 +16,7 @@ public class PlayerData
 
 
 
-	public PlayerData(PlayerStats player)
+	public PlayerData(PlayerSaveStats player)
 	{
 		totalShells = player.totalShells;
 		IDCardInventory = player.uiCardManager.getCardInventoryByID();

@@ -6,18 +6,18 @@ using TMPro;
 public class AshesCount : MonoBehaviour
 {
 
-	public PlayerStats playerStats;
+	public PlayerSaveStats playerSaveStats;
 	public TextMeshProUGUI ashesCountUI;
 
 	void Start()
     {
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 		ashesCountUI = GameObject.Find("Ash Count").GetComponent<TextMeshProUGUI>();
 
 	}
 
 	void Update()
     {
-        ashesCountUI.text = playerStats.totalAshes.ToString();
+        ashesCountUI.text = playerSaveStats.totalAshes.ToString();
     }
 }

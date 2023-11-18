@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-    public PlayerStats player;
+    public PlayerSaveStats player;
 	// Start is called before the first frame update
 	void Awake()
 	{
-		player = FindAnyObjectByType<PlayerStats>();
+		player = FindAnyObjectByType<PlayerSaveStats>();
 		DontDestroyOnLoad(this);
 	}
 

@@ -7,11 +7,13 @@ public class MainMenuManager : MonoBehaviour
 {
 
     public string scene1;
-    public PlayerStats playerStats;
+    public PlayerSaveStats playerSaveStats;
     void Start()
     {
-		playerStats = FindAnyObjectByType<PlayerStats>();
+		playerSaveStats = FindAnyObjectByType<PlayerSaveStats>();
 
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 
 	}
 
@@ -28,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void clearAshes()
     {
-        playerStats.clearAshes();
+		playerSaveStats.clearAshes();
 
 	}
 }
